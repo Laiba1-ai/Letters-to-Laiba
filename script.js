@@ -11,27 +11,45 @@ function checkPassword() {
 
     if (input === websitePassword) {
 
-        alert("Welcome to your little world 🌸💖");
+        const loading = document.getElementById("loading-screen");
+        const progress = document.querySelector(".progress");
 
-        // Next page (later)
-        // window.location.href = "home.html";
+        loading.style.display = "flex";
+
+        let width = 0;
+
+        const loader = setInterval(() => {
+
+            width += 2;
+            progress.style.width = width + "%";
+
+            if (width >= 100) {
+
+                clearInterval(loader);
+
+                loading.style.display = "none";
+
+                alert("Welcome to your little world 🌸💖");
+
+                // window.location.href = "home.html";
+
+            }
+
+        }, 50);
 
     } else {
 
         alert("Oops! Wrong Password 💔");
 
-        document.querySelector(".container").animate(
-            [
-                { transform: "translateX(-8px)" },
-                { transform: "translateX(8px)" },
-                { transform: "translateX(-8px)" },
-                { transform: "translateX(8px)" },
-                { transform: "translateX(0px)" }
-            ],
-            {
-                duration: 400
-            }
-        );
+        document.querySelector(".container").animate([
+            { transform: "translateX(-8px)" },
+            { transform: "translateX(8px)" },
+            { transform: "translateX(-8px)" },
+            { transform: "translateX(8px)" },
+            { transform: "translateX(0px)" }
+        ], {
+            duration: 400
+        });
 
     }
 

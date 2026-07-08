@@ -256,3 +256,50 @@ font-size:34px;
     }
 
 }
+/* ==========================
+   Loading Screen
+========================== */
+
+#loading-screen{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:linear-gradient(135deg,#ffd6e7,#fff5fa,#ffe8f1);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    z-index:99999;
+}
+
+#loading-screen h2{
+    color:#ff4081;
+    margin-bottom:20px;
+    font-family:'Dancing Script',cursive;
+    font-size:40px;
+}
+
+.loader{
+    width:320px;
+    max-width:85%;
+    height:14px;
+    background:white;
+    border-radius:50px;
+    overflow:hidden;
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+
+.progress{
+    width:0%;
+    height:100%;
+    background:linear-gradient(90deg,#ff6fa5,#ff2f73);
+    border-radius:50px;
+    transition:width .3s;
+}
+
+#loading-screen p{
+    margin-top:18px;
+    color:#666;
+}
