@@ -670,3 +670,42 @@ transform:scale(1.05);
     min-height:150px;
 
 }
+/* ==========================
+   Birthday Cake
+========================== */
+
+.cake-container{
+
+    text-align:center;
+
+    margin:40px 0;
+
+}
+
+#cake{
+
+    font-size:120px;
+
+    cursor:pointer;
+
+    transition:.4s;
+
+}
+
+#cake:hover{
+
+    transform:scale(1.1) rotate(-5deg);
+
+}
+
+#wishMessage{
+
+    margin-top:20px;
+
+    font-size:24px;
+
+    color:#ff4f8b;
+
+    font-weight:bold;
+
+}

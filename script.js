@@ -292,3 +292,23 @@ if (typingText) {
     typeLetter();
 
 }
+// ==========================
+// Birthday Cake
+// ==========================
+
+const cake = document.getElementById("cake");
+const wishMessage = document.getElementById("wishMessage");
+
+if (cake && wishMessage){
+
+    cake.onclick = function(){
+
+        cake.innerHTML = "🧁";
+
+        wishMessage.innerHTML = "🎉 Make a Wish! ✨";
+
+        cake.style.transform = "scale(1.2)";
+
+    };
+
+}
