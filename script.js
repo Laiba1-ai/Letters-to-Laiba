@@ -155,3 +155,36 @@ continueBtn.onclick = function(){
     // window.location.href="home.html";
 
 };
+// ==========================
+// Birthday Balloons
+// ==========================
+
+const balloons = document.getElementById("balloons");
+
+if (balloons) {
+
+    function createBalloon() {
+
+        const balloon = document.createElement("div");
+
+        balloon.className = "balloon";
+
+        const emojis = ["🎈","🎉","🎁","🎊"];
+
+        balloon.innerHTML = emojis[Math.floor(Math.random()*emojis.length)];
+
+        balloon.style.left = Math.random()*100 + "vw";
+
+        balloon.style.animationDuration = (6 + Math.random()*4) + "s";
+
+        balloons.appendChild(balloon);
+
+        setTimeout(()=>{
+            balloon.remove();
+        },10000);
+
+    }
+
+    setInterval(createBalloon,700);
+
+}
