@@ -1,36 +1,37 @@
 // ===============================
 // Letters to Laiba ❤️
-// Part 1 - Script
 // ===============================
 
-// Change this password anytime
 const websitePassword = "laiba123";
 
 // Password Check
 function checkPassword() {
 
-    const input = document.getElementById("password").value;
+    const input = document.getElementById("password").value.trim();
 
     if (input === websitePassword) {
 
         alert("Welcome to your little world 🌸💖");
 
-        // Home page (Coming in next part)
+        // Next page (later)
         // window.location.href = "home.html";
 
     } else {
 
         alert("Oops! Wrong Password 💔");
 
-        document.querySelector(".container").animate([
-            { transform: "translateX(-8px)" },
-            { transform: "translateX(8px)" },
-            { transform: "translateX(-8px)" },
-            { transform: "translateX(8px)" },
-            { transform: "translateX(0px)" }
-        ], {
-            duration: 400
-        });
+        document.querySelector(".container").animate(
+            [
+                { transform: "translateX(-8px)" },
+                { transform: "translateX(8px)" },
+                { transform: "translateX(-8px)" },
+                { transform: "translateX(8px)" },
+                { transform: "translateX(0px)" }
+            ],
+            {
+                duration: 400
+            }
+        );
 
     }
 
@@ -58,46 +59,46 @@ musicBtn.addEventListener("click", () => {
     }
 
 });
+
+// ===============================
 // Intro Screen
+// ===============================
 
 const intro = document.getElementById("intro");
 const startBtn = document.getElementById("startBtn");
 
-startBtn.addEventListener("click", () => {
+startBtn.onclick = function () {
 
-    intro.style.opacity = "0";
+    intro.style.display = "none";
 
-    setTimeout(() => {
-        intro.style.display = "none";
-    },600);
+};
 
-});
-// ==========================
+// ===============================
 // Floating Hearts
-// ==========================
+// ===============================
 
 const heartsContainer = document.getElementById("floating-hearts");
 
-function createHeart(){
+function createHeart() {
 
     const heart = document.createElement("div");
 
-    heart.classList.add("heart");
+    heart.className = "heart";
 
     heart.innerHTML = "❤";
 
-    heart.style.left = Math.random()*100 + "vw";
+    heart.style.left = Math.random() * 100 + "vw";
 
-    heart.style.animationDuration = (4 + Math.random()*4) + "s";
+    heart.style.fontSize = (15 + Math.random() * 20) + "px";
 
-    heart.style.fontSize = (15 + Math.random()*25) + "px";
+    heart.style.animationDuration = (4 + Math.random() * 3) + "s";
 
     heartsContainer.appendChild(heart);
 
-    setTimeout(()=>{
+    setTimeout(() => {
         heart.remove();
-    },8000);
+    }, 7000);
 
 }
 
-setInterval(createHeart,350);
+setInterval(createHeart, 350);
