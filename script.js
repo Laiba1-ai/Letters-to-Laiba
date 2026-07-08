@@ -72,3 +72,32 @@ startBtn.addEventListener("click", () => {
     },600);
 
 });
+// ==========================
+// Floating Hearts
+// ==========================
+
+const heartsContainer = document.getElementById("floating-hearts");
+
+function createHeart(){
+
+    const heart = document.createElement("div");
+
+    heart.classList.add("heart");
+
+    heart.innerHTML = "❤";
+
+    heart.style.left = Math.random()*100 + "vw";
+
+    heart.style.animationDuration = (4 + Math.random()*4) + "s";
+
+    heart.style.fontSize = (15 + Math.random()*25) + "px";
+
+    heartsContainer.appendChild(heart);
+
+    setTimeout(()=>{
+        heart.remove();
+    },8000);
+
+}
+
+setInterval(createHeart,350);
