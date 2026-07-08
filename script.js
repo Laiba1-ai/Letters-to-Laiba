@@ -58,3 +58,17 @@ musicBtn.addEventListener("click", () => {
     }
 
 });
+// Intro Screen
+
+const intro = document.getElementById("intro");
+const startBtn = document.getElementById("startBtn");
+
+startBtn.addEventListener("click", () => {
+
+    intro.style.opacity = "0";
+
+    setTimeout(() => {
+        intro.style.display = "none";
+    },600);
+
+});
