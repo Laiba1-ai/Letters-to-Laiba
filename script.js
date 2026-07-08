@@ -262,3 +262,33 @@ if (confetti) {
     setInterval(createConfetti, 250);
 
 }
+// ==========================
+// Birthday Typewriter Letter
+// ==========================
+
+const typingText = document.getElementById("typingText");
+
+if (typingText) {
+
+    const message =
+"Happy Birthday! 🎂 May your day be filled with happiness, laughter, beautiful memories, and endless blessings. May every dream you have come true, and may every new year bring more success, love, and peace into your life. 💖✨";
+
+    let i = 0;
+
+    function typeLetter() {
+
+        if (i < message.length) {
+
+            typingText.innerHTML += message.charAt(i);
+
+            i++;
+
+            setTimeout(typeLetter, 40);
+
+        }
+
+    }
+
+    typeLetter();
+
+}

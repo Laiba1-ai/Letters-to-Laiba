@@ -625,3 +625,48 @@ transform:scale(1.05);
     }
 
 }
+/* ==========================
+   Birthday Letter
+========================== */
+
+.birthday-letter{
+
+    max-width:700px;
+
+    margin:40px auto;
+
+    padding:25px;
+
+    background:rgba(255,255,255,.85);
+
+    border-radius:20px;
+
+    backdrop-filter:blur(10px);
+
+    box-shadow:0 10px 25px rgba(0,0,0,.1);
+
+}
+
+.birthday-letter h2{
+
+    color:#ff4f8b;
+
+    margin-bottom:15px;
+
+    font-family:'Dancing Script',cursive;
+
+    font-size:40px;
+
+}
+
+#typingText{
+
+    font-size:18px;
+
+    line-height:1.8;
+
+    color:#444;
+
+    min-height:150px;
+
+}
