@@ -31,7 +31,7 @@ function checkPassword() {
 
                 document.getElementById("welcome-popup").style.display = "flex";
 
-                // window.location.href = "home.html";
+                window.location.href = "home.html";
 
             }
 
