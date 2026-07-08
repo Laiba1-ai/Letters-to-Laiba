@@ -198,3 +198,35 @@ if (balloons) {
     setInterval(createBalloon,700);
 
 }
+// ==========================
+// Fireworks
+// ==========================
+
+const fireworks = document.getElementById("fireworks");
+
+if (fireworks) {
+
+    function createFirework() {
+
+        const fw = document.createElement("div");
+
+        fw.className = "firework";
+
+        const icons = ["✨","🎆","💖","⭐","🎇"];
+
+        fw.innerHTML = icons[Math.floor(Math.random() * icons.length)];
+
+        fw.style.left = Math.random() * 100 + "vw";
+        fw.style.top = Math.random() * 70 + "vh";
+
+        fireworks.appendChild(fw);
+
+        setTimeout(() => {
+            fw.remove();
+        }, 1200);
+
+    }
+
+    setInterval(createFirework, 600);
+
+}
