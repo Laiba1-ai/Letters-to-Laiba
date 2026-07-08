@@ -230,3 +230,35 @@ if (fireworks) {
     setInterval(createFirework, 600);
 
 }
+// ==========================
+// Confetti
+// ==========================
+
+const confetti = document.getElementById("confetti");
+
+if (confetti) {
+
+    function createConfetti() {
+
+        const piece = document.createElement("div");
+
+        piece.className = "confetti";
+
+        const items = ["🎊","✨","💖","🌸","⭐"];
+
+        piece.innerHTML = items[Math.floor(Math.random() * items.length)];
+
+        piece.style.left = Math.random() * 100 + "vw";
+        piece.style.animationDuration = (4 + Math.random() * 3) + "s";
+
+        confetti.appendChild(piece);
+
+        setTimeout(() => {
+            piece.remove();
+        }, 7000);
+
+    }
+
+    setInterval(createConfetti, 250);
+
+}

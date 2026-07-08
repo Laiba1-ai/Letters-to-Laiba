@@ -593,3 +593,35 @@ transform:scale(1.05);
     }
 
 }
+/* ==========================
+   Confetti
+========================== */
+
+#confetti{
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+    pointer-events:none;
+    z-index:-1;
+}
+
+.confetti{
+    position:absolute;
+    top:-30px;
+    font-size:18px;
+    animation:confettiFall linear forwards;
+}
+
+@keyframes confettiFall{
+
+    from{
+        transform:translateY(-30px) rotate(0deg);
+        opacity:1;
+    }
+
+    to{
+        transform:translateY(110vh) rotate(720deg);
+        opacity:0;
+    }
+
+}
