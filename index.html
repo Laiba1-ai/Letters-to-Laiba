@@ -1,1 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Letters to Laiba 💌</title>
 
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Floating Background -->
+    <div class="background"></div>
+
+    <!-- Hearts -->
+    <div class="hearts"></div>
+
+    <!-- Main Card -->
+    <div class="container">
+
+        <h1>💌 Letters to Laiba</h1>
+
+        <p class="subtitle">
+            Welcome to my little world 🌸
+        </p>
+
+        <div class="password-box">
+
+            <input
+                type="password"
+                id="password"
+                placeholder="Enter Password">
+
+            <button onclick="checkPassword()">
+                Unlock ❤️
+            </button>
+
+        </div>
+
+        <p class="quote">
+            "Some doors open only with the right key..."
+        </p>
+
+        <button id="musicBtn">
+            🎵 Play Music
+        </button>
+
+    </div>
+
+    <!-- Hidden Audio -->
+    <audio id="bgMusic" loop>
+        <source src="music/theme.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- JS -->
+    <script src="script.js"></script>
+
+</body>
+</html>
