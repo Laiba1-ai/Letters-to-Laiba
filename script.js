@@ -29,7 +29,7 @@ function checkPassword() {
 
                 loading.style.display = "none";
 
-                alert("Welcome to your little world 🌸💖");
+                document.getElementById("welcome-popup").style.display = "flex";
 
                 // window.location.href = "home.html";
 
@@ -141,3 +141,17 @@ function createHeart() {
 }
 
 setInterval(createHeart, 350);
+// ==========================
+// Welcome Popup
+// ==========================
+
+const continueBtn = document.getElementById("continueBtn");
+
+continueBtn.onclick = function(){
+
+    document.getElementById("welcome-popup").style.display = "none";
+
+    // Future:
+    // window.location.href="home.html";
+
+};
