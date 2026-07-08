@@ -94,7 +94,28 @@ startBtn.onclick = function () {
 // ===============================
 // Floating Hearts
 // ===============================
+// ==========================
+// Cursor Hearts
+// ==========================
 
+document.addEventListener("mousemove", function(e){
+
+    const heart = document.createElement("div");
+
+    heart.className = "cursor-heart";
+
+    heart.innerHTML = "💖";
+
+    heart.style.left = e.clientX + "px";
+    heart.style.top = e.clientY + "px";
+
+    document.body.appendChild(heart);
+
+    setTimeout(()=>{
+        heart.remove();
+    },800);
+
+});
 const heartsContainer = document.getElementById("floating-hearts");
 
 function createHeart() {

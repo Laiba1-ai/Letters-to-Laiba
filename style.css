@@ -303,3 +303,36 @@ font-size:34px;
     margin-top:18px;
     color:#666;
 }
+/* ==========================
+   Cursor Hearts
+========================== */
+
+.cursor-heart{
+
+    position:fixed;
+
+    pointer-events:none;
+
+    transform:translate(-50%,-50%);
+
+    animation:cursorHeart .8s linear forwards;
+
+    z-index:99999;
+
+    font-size:18px;
+
+}
+
+@keyframes cursorHeart{
+
+    0%{
+        opacity:1;
+        transform:translate(-50%,-50%) scale(.5);
+    }
+
+    100%{
+        opacity:0;
+        transform:translate(-50%,-100px) scale(1.4);
+    }
+
+}
