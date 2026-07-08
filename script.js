@@ -62,21 +62,25 @@ function checkPassword() {
 const musicBtn = document.getElementById("musicBtn");
 const bgMusic = document.getElementById("bgMusic");
 
-musicBtn.addEventListener("click", () => {
+if (musicBtn && bgMusic) {
 
-    if (bgMusic.paused) {
+    musicBtn.addEventListener("click", () => {
 
-        bgMusic.play();
-        musicBtn.innerHTML = "⏸ Pause Music";
+        if (bgMusic.paused) {
 
-    } else {
+            bgMusic.play();
+            musicBtn.innerHTML = "⏸ Pause Music";
 
-        bgMusic.pause();
-        musicBtn.innerHTML = "🎵 Play Music";
+        } else {
 
-    }
+            bgMusic.pause();
+            musicBtn.innerHTML = "🎵 Play Music";
 
-});
+        }
+
+    });
+
+}
 
 // ===============================
 // Intro Screen
@@ -85,11 +89,13 @@ musicBtn.addEventListener("click", () => {
 const intro = document.getElementById("intro");
 const startBtn = document.getElementById("startBtn");
 
-startBtn.onclick = function () {
+if (intro && startBtn) {
 
-    intro.style.display = "none";
+    startBtn.onclick = function () {
+        intro.style.display = "none";
+    };
 
-};
+}
 
 // ===============================
 // Floating Hearts
@@ -118,43 +124,47 @@ document.addEventListener("mousemove", function(e){
 });
 const heartsContainer = document.getElementById("floating-hearts");
 
-function createHeart() {
+if (heartsContainer) {
 
-    const heart = document.createElement("div");
+    function createHeart() {
 
-    heart.className = "heart";
+        const heart = document.createElement("div");
 
-    heart.innerHTML = "❤";
+        heart.className = "heart";
 
-    heart.style.left = Math.random() * 100 + "vw";
+        heart.innerHTML = "❤";
 
-    heart.style.fontSize = (15 + Math.random() * 20) + "px";
+        heart.style.left = Math.random() * 100 + "vw";
 
-    heart.style.animationDuration = (4 + Math.random() * 3) + "s";
+        heart.style.fontSize = (15 + Math.random() * 20) + "px";
 
-    heartsContainer.appendChild(heart);
+        heart.style.animationDuration = (4 + Math.random() * 3) + "s";
 
-    setTimeout(() => {
-        heart.remove();
-    }, 7000);
+        heartsContainer.appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 7000);
+
+    }
+
+    setInterval(createHeart, 350);
 
 }
-
-setInterval(createHeart, 350);
 // ==========================
 // Welcome Popup
 // ==========================
-
 const continueBtn = document.getElementById("continueBtn");
 
-continueBtn.onclick = function(){
+if (continueBtn) {
 
-    document.getElementById("welcome-popup").style.display = "none";
+    continueBtn.onclick = function () {
 
-    // Future:
-    // window.location.href="home.html";
+        document.getElementById("welcome-popup").style.display = "none";
 
-};
+    };
+
+}
 // ==========================
 // Birthday Balloons
 // ==========================
