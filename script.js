@@ -312,3 +312,21 @@ if (cake && wishMessage){
     };
 
 }
+// ==========================
+// Gift Box Surprise
+// ==========================
+
+const giftBox = document.getElementById("giftBox");
+const giftMessage = document.getElementById("giftMessage");
+
+if (giftBox && giftMessage){
+
+    giftBox.onclick = function(){
+
+        giftBox.innerHTML = "💝";
+
+        giftMessage.style.display = "block";
+
+    };
+
+}

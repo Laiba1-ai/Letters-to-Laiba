@@ -709,3 +709,68 @@ transform:scale(1.05);
     font-weight:bold;
 
 }
+/* ==========================
+   Gift Box
+========================== */
+
+.gift-container{
+
+    text-align:center;
+
+    margin:35px 0;
+
+}
+
+#giftBox{
+
+    font-size:90px;
+
+    cursor:pointer;
+
+    transition:.4s;
+
+}
+
+#giftBox:hover{
+
+    transform:scale(1.15) rotate(8deg);
+
+}
+
+#giftMessage{
+
+    margin-top:20px;
+
+    padding:15px;
+
+    background:rgba(255,255,255,.85);
+
+    border-radius:15px;
+
+    max-width:600px;
+
+    margin-left:auto;
+
+    margin-right:auto;
+
+    color:#ff4f8b;
+
+    font-size:20px;
+
+    animation:fadeIn .8s ease;
+
+}
+
+@keyframes fadeIn{
+
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
