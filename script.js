@@ -392,3 +392,28 @@ document.querySelectorAll("a").forEach(link => {
     });
 
 });
+// ==========================
+// Gallery Slider
+// ==========================
+
+const sliderImage = document.getElementById("sliderImage");
+
+if (sliderImage) {
+
+    const images = [
+        "images/pic1.jpg",
+        "images/pic2.jpg",
+        "images/pic3.jpg",
+        "images/pic4.jpg",
+        "images/pic5.jpg",
+        "images/pic6.jpg"
+    ];
+
+    let current = 0;
+
+    setInterval(() => {
+        current = (current + 1) % images.length;
+        sliderImage.src = images[current];
+    }, 2500);
+
+}
