@@ -882,3 +882,68 @@ body{
     transition:.5s;
 
 }
+/* ==========================
+   Navbar
+========================== */
+
+.navbar{
+
+    position:sticky;
+
+    top:0;
+
+    width:100%;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:15px 40px;
+
+    background:rgba(255,255,255,.35);
+
+    backdrop-filter:blur(15px);
+
+    z-index:999;
+
+}
+
+.logo{
+
+    font-size:28px;
+
+    font-family:'Dancing Script',cursive;
+
+    color:#ff4081;
+
+}
+
+.navbar ul{
+
+    display:flex;
+
+    list-style:none;
+
+    gap:20px;
+
+}
+
+.navbar a{
+
+    text-decoration:none;
+
+    color:#ff4081;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.navbar a:hover{
+
+    color:#ff2f73;
+
+}
