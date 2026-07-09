@@ -806,3 +806,40 @@ transform:scale(1.05);
     transform:scale(1.05);
 
 }
+/* ==========================
+   Birthday Layout
+========================== */
+
+.birthday-grid{
+
+    display:grid;
+
+    grid-template-columns:2fr 1fr;
+
+    gap:30px;
+
+    align-items:start;
+
+    margin-top:40px;
+
+}
+
+.right-side{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:25px;
+
+}
+
+@media(max-width:900px){
+
+.birthday-grid{
+
+grid-template-columns:1fr;
+
+}
+
+}
