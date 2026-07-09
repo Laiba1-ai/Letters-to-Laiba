@@ -330,3 +330,38 @@ if (giftBox && giftMessage){
     };
 
 }
+// ==========================
+// Birthday Photo Slider
+// ==========================
+
+const slider = document.getElementById("sliderImage");
+
+if (slider){
+
+    const photos = [
+
+        "images/pic1.jpg",
+        "images/pic2.jpg",
+        "images/pic3.jpg",
+        "images/pic4.jpg",
+        "images/pic5.jpg"
+
+    ];
+
+    let current = 0;
+
+    setInterval(()=>{
+
+        current++;
+
+        if(current >= photos.length){
+
+            current = 0;
+
+        }
+
+        slider.src = photos[current];
+
+    },3000);
+
+}

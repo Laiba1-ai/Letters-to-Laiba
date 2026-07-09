@@ -774,3 +774,35 @@ transform:scale(1.05);
     }
 
 }
+/* ==========================
+   Photo Gallery
+========================== */
+
+.gallery{
+
+    width:100%;
+    text-align:center;
+    margin:40px 0;
+
+}
+
+.gallery img{
+
+    width:320px;
+    height:420px;
+
+    object-fit:cover;
+
+    border-radius:20px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.25);
+
+    transition:.8s;
+
+}
+
+.gallery img:hover{
+
+    transform:scale(1.05);
+
+}
