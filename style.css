@@ -923,3 +923,6 @@ grid-template-columns:1fr;
     color:#ff2f73;
 
 }
+#sliderImage{
+    transition:opacity .6s ease;
+}

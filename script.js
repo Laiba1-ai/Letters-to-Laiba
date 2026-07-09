@@ -417,3 +417,21 @@ if (sliderImage) {
     }, 2500);
 
 }
+const images = [
+    "images/pic1.jpg",
+    "images/pic2.jpg",
+    "images/pic3.jpg",
+    "images/pic4.jpg",
+    "images/pic5.jpg"
+];
+
+let currentImage = 0;
+
+const slider = document.getElementById("sliderImage");
+
+if (slider) {
+    setInterval(() => {
+        currentImage = (currentImage + 1) % images.length;
+        slider.src = images[currentImage];
+    }, 3000);
+}
