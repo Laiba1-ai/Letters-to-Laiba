@@ -7,12 +7,17 @@
 }
 
 body{
-    height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    overflow:hidden;
+
+    margin:0;
+
+    min-height:100vh;
+
     background:linear-gradient(135deg,#ffd6e7,#ffeef6,#fff8fc);
+
+    overflow-x:hidden;
+
+    overflow-y:auto;
+
 }
 
 /* Animated Background */
@@ -629,21 +634,17 @@ transform:scale(1.05);
    Birthday Letter
 ========================== */
 
-.birthday-letter{
+..birthday-letter{
 
-    max-width:700px;
+    width:100%;
 
-    margin:40px auto;
+    margin:0;
 
     padding:25px;
 
-    background:rgba(255,255,255,.85);
+    background:white;
 
     border-radius:20px;
-
-    backdrop-filter:blur(10px);
-
-    box-shadow:0 10px 25px rgba(0,0,0,.1);
 
 }
 
@@ -786,18 +787,17 @@ transform:scale(1.05);
 
 }
 
-.gallery img{
+..gallery img{
 
-    width:320px;
+    width:100%;
+
+    max-width:900px;
+
     height:420px;
 
     object-fit:cover;
 
     border-radius:20px;
-
-    box-shadow:0 10px 30px rgba(0,0,0,.25);
-
-    transition:.8s;
 
 }
 
@@ -810,17 +810,17 @@ transform:scale(1.05);
    Birthday Layout
 ========================== */
 
-.birthday-grid{
+..birthday-grid{
 
     display:grid;
 
-    grid-template-columns:2fr 1fr;
+    grid-template-columns:65% 35%;
 
-    gap:30px;
+    gap:25px;
 
     align-items:start;
 
-    margin-top:40px;
+    margin:30px 0;
 
 }
 
