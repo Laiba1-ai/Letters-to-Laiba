@@ -843,3 +843,42 @@ grid-template-columns:1fr;
 }
 
 }
+/* ==========================
+   Page Transition
+========================== */
+
+body{
+
+    animation:pageFade .8s ease;
+
+}
+
+@keyframes pageFade{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(20px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+.fade-out{
+
+    opacity:0;
+
+    transform:translateY(-20px);
+
+    transition:.5s;
+
+}

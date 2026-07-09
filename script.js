@@ -365,3 +365,30 @@ if (slider){
     },3000);
 
 }
+// ==========================
+// Smooth Page Transition
+// ==========================
+
+document.querySelectorAll("a").forEach(link => {
+
+    link.addEventListener("click", function(e){
+
+        const href = this.getAttribute("href");
+
+        if(href){
+
+            e.preventDefault();
+
+            document.body.classList.add("fade-out");
+
+            setTimeout(()=>{
+
+                window.location.href = href;
+
+            },500);
+
+        }
+
+    });
+
+});
