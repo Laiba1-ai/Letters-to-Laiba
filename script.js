@@ -330,41 +330,7 @@ if (giftBox && giftMessage){
     };
 
 }
-// ==========================
-// Birthday Photo Slider
-// ==========================
 
-const slider = document.getElementById("sliderImage");
-
-if (slider){
-
-    const photos = [
-
-        "images/pic1.jpg",
-        "images/pic2.jpg",
-        "images/pic3.jpg",
-        "images/pic4.jpg",
-        "images/pic5.jpg"
-
-    ];
-
-    let current = 0;
-
-    setInterval(()=>{
-
-        current++;
-
-        if(current >= photos.length){
-
-            current = 0;
-
-        }
-
-        slider.src = photos[current];
-
-    },3000);
-
-}
 // ==========================
 // Smooth Page Transition
 // ==========================
@@ -396,60 +362,44 @@ document.querySelectorAll("a").forEach(link => {
 // Gallery Slider
 // ==========================
 
-const sliderImage = document.getElementById("sliderImage");
+const slider = document.getElementById("sliderImage");
 
-if (sliderImage) {
-
-    const images = [
-        "images/pic1.jpg",
-        "images/pic2.jpg",
-        "images/pic3.jpg",
-        "images/pic4.jpg",
-        "images/pic5.jpg",
-        "images/pic6.jpg"
-    ];
-
-    let current = 0;
-
-    setInterval(() => {
-        current = (current + 1) % images.length;
-        sliderImage.src = images[current];
-    }, 2500);
-
-}
 const images = [
     "images/pic1.jpg",
     "images/pic2.jpg",
     "images/pic3.jpg",
     "images/pic4.jpg",
-    "images/pic5.jpg"
+    "images/pic5.jpg",
+    "images/pic6.jpg"
 ];
 
-let currentImage = 0;
-
-const slider = document.getElementById("sliderImage");
+let current = 0;
 
 if (slider) {
+
     setInterval(() => {
-        currentImage = (currentImage + 1) % images.length;
-        slider.src = images[currentImage];
+        current = (current + 1) % images.length;
+        slider.src = images[current];
     }, 3000);
+
 }
+// ==========================
+// Previous / Next Buttons
+// ==========================
+
 const prevBtn = document.getElementById("prevBtn");
 const nextBtn = document.getElementById("nextBtn");
 
-if (slider) {
+if (slider && prevBtn && nextBtn) {
 
-    prevBtn?.addEventListener("click", () => {
-        currentImage =
-            (currentImage - 1 + images.length) % images.length;
-        slider.src = images[currentImage];
+    prevBtn.addEventListener("click", () => {
+        current = (current - 1 + images.length) % images.length;
+        slider.src = images[current];
     });
 
-    nextBtn?.addEventListener("click", () => {
-        currentImage =
-            (currentImage + 1) % images.length;
-        slider.src = images[currentImage];
+    nextBtn.addEventListener("click", () => {
+        current = (current + 1) % images.length;
+        slider.src = images[current];
     });
 
 }
@@ -457,7 +407,7 @@ const lightbox = document.getElementById("lightbox");
 const lightboxImg = document.getElementById("lightboxImg");
 const closeLightbox = document.getElementById("closeLightbox");
 
-if (slider) {
+if (slider && lightbox && lightboxImg) {
 
     slider.addEventListener("click", () => {
         lightbox.style.display = "flex";
