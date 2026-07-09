@@ -425,3 +425,88 @@ lightbox?.addEventListener("click", (e) => {
         lightbox.style.display = "none";
     }
 });
+// ======================================
+// LETTERS PAGE ANIMATION
+// ======================================
+
+const letterCards = document.querySelectorAll(".letter-card");
+
+if (letterCards.length > 0) {
+
+    const observer = new IntersectionObserver((entries) => {
+
+        entries.forEach(entry => {
+
+            if (entry.isIntersecting) {
+
+                entry.target.style.opacity = "1";
+                entry.target.style.transform = "translateY(0)";
+                observer.unobserve(entry.target);
+
+            }
+
+        });
+
+    }, {
+        threshold: 0.2
+    });
+
+    letterCards.forEach((card, index) => {
+
+        card.style.opacity = "0";
+        card.style.transform = "translateY(50px)";
+        card.style.transition = `all .7s ease ${index * 0.15}s`;
+
+        observer.observe(card);
+
+    });
+
+}
+
+// ======================================
+// FINAL LETTER GLOW
+// ======================================
+
+const finalLetter = document.querySelector(".final-letter");
+
+if (finalLetter) {
+
+    setInterval(() => {
+
+        finalLetter.animate([
+            {
+                boxShadow: "0 0 15px rgba(255,105,180,.25)"
+            },
+            {
+                boxShadow: "0 0 35px rgba(255,105,180,.45)"
+            },
+            {
+                boxShadow: "0 0 15px rgba(255,105,180,.25)"
+            }
+        ], {
+            duration: 2200
+        });
+
+    }, 2200);
+
+}
+
+// ======================================
+// LETTER CARD HOVER SOUND (OPTIONAL)
+// ======================================
+
+letterCards.forEach(card => {
+
+    card.addEventListener("mouseenter", () => {
+
+        card.style.transform = "translateY(-8px) scale(1.02)";
+
+    });
+
+    card.addEventListener("mouseleave", () => {
+
+        card.style.transform = "translateY(0) scale(1)";
+
+    });
+
+});

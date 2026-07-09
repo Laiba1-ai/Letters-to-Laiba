@@ -976,3 +976,206 @@ grid-template-columns:1fr;
     cursor:pointer;
     font-weight:bold;
 }
+/* ======================================
+   LETTERS PAGE
+====================================== */
+
+.letters-page{
+    width:95%;
+    max-width:1100px;
+    margin:40px auto;
+    text-align:center;
+}
+
+.letters-page h1{
+    font-family:'Dancing Script',cursive;
+    font-size:65px;
+    color:#ff4081;
+    margin-bottom:10px;
+}
+
+.letters-subtitle{
+    color:#666;
+    font-size:18px;
+    margin-bottom:40px;
+}
+
+.letter-card{
+
+    background:rgba(255,255,255,.45);
+
+    backdrop-filter:blur(15px);
+
+    border-radius:22px;
+
+    padding:30px;
+
+    margin-bottom:30px;
+
+    box-shadow:0 10px 30px rgba(255,105,180,.15);
+
+    transition:.35s ease;
+
+    text-align:left;
+
+}
+
+.letter-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 20px 40px rgba(255,105,180,.25);
+
+}
+
+.letter-card h2{
+
+    font-family:'Dancing Script',cursive;
+
+    color:#ff4081;
+
+    font-size:38px;
+
+    margin-bottom:15px;
+
+}
+
+.letter-card p{
+
+    color:#555;
+
+    font-size:18px;
+
+    line-height:1.9;
+
+}
+
+.final-letter{
+
+    margin-top:50px;
+
+    padding:35px;
+
+    background:linear-gradient(135deg,#ffb6d5,#ffe8f4);
+
+    border-radius:25px;
+
+    box-shadow:0 12px 30px rgba(255,105,180,.20);
+
+}
+
+.final-letter h2{
+
+    font-family:'Dancing Script',cursive;
+
+    color:#ff2f73;
+
+    font-size:45px;
+
+    margin-bottom:15px;
+
+}
+
+.final-letter p{
+
+    font-size:20px;
+
+    color:#444;
+
+    line-height:1.8;
+
+}
+
+.letters-page button{
+
+    margin-top:40px;
+
+    padding:14px 35px;
+
+    border:none;
+
+    border-radius:50px;
+
+    background:#ff4f8b;
+
+    color:#fff;
+
+    cursor:pointer;
+
+    font-size:17px;
+
+    transition:.3s;
+
+}
+
+.letters-page button:hover{
+
+    background:#ff2f73;
+
+    transform:scale(1.05);
+
+}
+
+/* Fade Animation */
+
+.letter-card{
+
+    animation:fadeLetter .8s ease;
+
+}
+
+@keyframes fadeLetter{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(40px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+    .letters-page h1{
+
+        font-size:48px;
+
+    }
+
+    .letter-card{
+
+        padding:22px;
+
+    }
+
+    .letter-card h2{
+
+        font-size:30px;
+
+    }
+
+    .letter-card p{
+
+        font-size:16px;
+
+    }
+
+    .final-letter h2{
+
+        font-size:36px;
+
+    }
+
+}
