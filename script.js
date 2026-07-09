@@ -453,3 +453,25 @@ if (slider) {
     });
 
 }
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightboxImg");
+const closeLightbox = document.getElementById("closeLightbox");
+
+if (slider) {
+
+    slider.addEventListener("click", () => {
+        lightbox.style.display = "flex";
+        lightboxImg.src = slider.src;
+    });
+
+}
+
+closeLightbox?.addEventListener("click", () => {
+    lightbox.style.display = "none";
+});
+
+lightbox?.addEventListener("click", (e) => {
+    if (e.target === lightbox) {
+        lightbox.style.display = "none";
+    }
+});
