@@ -926,3 +926,25 @@ grid-template-columns:1fr;
 #sliderImage{
     transition:opacity .6s ease;
 }
+.slider-controls{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    margin-top:20px;
+}
+
+.slider-controls button{
+    padding:12px 25px;
+    border:none;
+    border-radius:50px;
+    background:#ff4f8b;
+    color:#fff;
+    cursor:pointer;
+    font-size:16px;
+    transition:.3s;
+}
+
+.slider-controls button:hover{
+    background:#ff2f73;
+    transform:scale(1.05);
+}

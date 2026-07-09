@@ -435,3 +435,21 @@ if (slider) {
         slider.src = images[currentImage];
     }, 3000);
 }
+const prevBtn = document.getElementById("prevBtn");
+const nextBtn = document.getElementById("nextBtn");
+
+if (slider) {
+
+    prevBtn?.addEventListener("click", () => {
+        currentImage =
+            (currentImage - 1 + images.length) % images.length;
+        slider.src = images[currentImage];
+    });
+
+    nextBtn?.addEventListener("click", () => {
+        currentImage =
+            (currentImage + 1) % images.length;
+        slider.src = images[currentImage];
+    });
+
+}
