@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Gallery 📷</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<nav class="navbar">
+
+    <div class="logo">💌 Letters to Laiba</div>
+
+    <ul>
+        <li><a href="home.html">🏠 Home</a></li>
+        <li><a href="birthday.html">🎂 Birthday</a></li>
+        <li><a href="gallery.html">📷 Gallery</a></li>
+        <li><a href="letters.html">💌 Letters</a></li>
+    </ul>
+
+</nav>
+
+<div class="birthday-card">
+
+    <h1>📷 Our Gallery</h1>
+
+    <p>Beautiful memories deserve a beautiful place. ❤️</p>
+
+    <div class="gallery">
+
+        <img id="sliderImage" src="images/pic1.jpg" alt="Gallery Image">
+
+    </div>
+
+    <div class="slider-controls">
+
+        <button id="prevBtn">⬅ Previous</button>
+
+        <button id="nextBtn">Next ➡</button>
+
+    </div>
+
+    <div id="lightbox">
+
+        <span id="closeLightbox">&times;</span>
+
+        <img id="lightboxImg" src="" alt="Preview">
+
+    </div>
+
+    <br>
+
+    <button onclick="window.location.href='home.html'">
+        🏠 Back Home
+    </button>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
