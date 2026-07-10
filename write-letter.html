@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Write Your Letter 💌</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<nav class="navbar">
+
+<div class="logo">💌 Letters to Laiba</div>
+
+<ul>
+<li><a href="home.html">🏠 Home</a></li>
+<li><a href="gallery.html">📷 Gallery</a></li>
+<li><a href="letters.html">💌 Letters</a></li>
+</ul>
+
+</nav>
+
+<section class="letters-page">
+
+<h1>✍️ Write Your Letter</h1>
+
+<p class="letters-subtitle">
+Write something from your heart ❤️
+</p>
+
+<div class="letter-card">
+
+<input type="text" id="name" placeholder="Your Name">
+
+<br><br>
+
+<input type="text" id="title" placeholder="Letter Title">
+
+<br><br>
+
+<textarea id="message"
+placeholder="Write your letter..."
+maxlength="150"
+rows="8"></textarea>
+
+<p id="count">0 / 150</p>
+
+<br>
+
+<input type="file" id="photo">
+
+<br><br>
+
+<button id="saveBtn">💾 Save Letter</button>
+
+<button id="deleteBtn">🗑 Delete</button>
+
+<br><br>
+
+<button onclick="window.location.href='home.html'">
+🏠 Back Home
+</button>
+
+</div>
+
+</section>
+
+<script src="script.js"></script>
+
+</body>
+</html>

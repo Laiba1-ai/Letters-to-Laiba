@@ -510,3 +510,85 @@ letterCards.forEach(card => {
     });
 
 });
+/* ======================================
+   WRITE LETTER PAGE
+====================================== */
+
+const message = document.getElementById("message");
+const counter = document.getElementById("count");
+const saveBtn = document.getElementById("saveBtn");
+const deleteBtn = document.getElementById("deleteBtn");
+
+if(message && counter){
+
+    counter.innerHTML = message.value.length + " / 150";
+
+    message.addEventListener("input",()=>{
+
+        counter.innerHTML = message.value.length + " / 150";
+
+    });
+
+}
+
+if(saveBtn){
+
+    // Load Saved Data
+    document.getElementById("name").value =
+    localStorage.getItem("letterName") || "";
+
+    document.getElementById("title").value =
+    localStorage.getItem("letterTitle") || "";
+
+    document.getElementById("message").value =
+    localStorage.getItem("letterMessage") || "";
+
+    counter.innerHTML =
+    document.getElementById("message").value.length + " / 150";
+
+    saveBtn.addEventListener("click",()=>{
+
+        localStorage.setItem(
+            "letterName",
+            document.getElementById("name").value
+        );
+
+        localStorage.setItem(
+            "letterTitle",
+            document.getElementById("title").value
+        );
+
+        localStorage.setItem(
+            "letterMessage",
+            document.getElementById("message").value
+        );
+
+        alert("💖 Letter Saved Successfully!");
+
+    });
+
+}
+
+if(deleteBtn){
+
+    deleteBtn.addEventListener("click",()=>{
+
+        if(confirm("Delete your saved letter?")){
+
+            localStorage.removeItem("letterName");
+            localStorage.removeItem("letterTitle");
+            localStorage.removeItem("letterMessage");
+
+            document.getElementById("name").value="";
+            document.getElementById("title").value="";
+            document.getElementById("message").value="";
+
+            counter.innerHTML="0 / 150";
+
+            alert("🗑 Letter Deleted!");
+
+        }
+
+    });
+
+}
