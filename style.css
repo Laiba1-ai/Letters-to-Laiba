@@ -228,15 +228,14 @@ font-size:34px;
    Floating Hearts
 ========================== */
 
-#floating-hearts{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    pointer-events:none;
-    overflow:hidden;
-    z-index:1;
+#floating-hearts,
+#fireworks,
+#confetti{
+
+z-index:-1;
+
+pointer-events:none;
+
 }
 
 .heart{
@@ -1588,7 +1587,6 @@ main,
 /* Center every page */
 
 .home,
-.birthday-card,
 .letters-page,
 .sorry-page,
 .proposal-page,
@@ -1598,6 +1596,14 @@ main,
     flex-direction:column;
     justify-content:center;
     align-items:center;
+    text-align:center;
+}
+
+/* Birthday page alag */
+.birthday-card{
+    width:95%;
+    max-width:1200px;
+    margin:40px auto;
     text-align:center;
 }
 
@@ -1739,14 +1745,8 @@ main,
 }
 
 #preview{
-    display:none;
-    width:100%;
-    max-width:500px;
-    margin:25px auto 0;
-    border-radius:20px;
-    box-shadow:0 12px 30px rgba(255,105,180,.18);
-    object-fit:cover;
-    transition:.35s;
+display:block;
+margin:25px auto;
 }
 
 #preview:hover{
@@ -1755,6 +1755,61 @@ main,
 
 #saveBtn,
 #deleteBtn{
+width:48%;
+}
+
+.birthday-letter{
+display:flex;
+flex-wrap:wrap;
+gap:15px;
+}
+
+#saveBtn{
+flex:1;
+}
+
+#deleteBtn{
+flex:1;
+}
+/* ======================================
+   WRITE LETTER PAGE FIX
+====================================== */
+
+.birthday-card{
+    width:95%;
+    max-width:1200px;
+    margin:40px auto;
+    padding:35px;
+}
+
+.birthday-grid{
+    display:grid;
+    grid-template-columns:2fr 1fr;
+    gap:30px;
+    align-items:start;
+}
+
+.birthday-letter{
     width:100%;
-    margin-top:15px;
+    text-align:left;
+}
+
+.right-side{
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    gap:25px;
+}
+
+.gift-container,
+.cake-container{
+    width:100%;
+}
+
+@media(max-width:900px){
+
+.birthday-grid{
+grid-template-columns:1fr;
+}
+
 }
