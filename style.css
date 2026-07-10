@@ -415,53 +415,7 @@ font-size:34px;
     font-size:16px;
 
 
-}
-/* ==========================
-   Home Page
-========================== */
 
-.home{
-    min-height:100vh;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-}
-
-.home h1{
-    font-family:'Dancing Script',cursive;
-    font-size:60px;
-    color:#ff4081;
-}
-
-.home p{
-    color:#666;
-    margin-bottom:30px;
-}
-
-.menu{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:20px;
-    width:90%;
-    max-width:700px;
-}
-
-.menu a{
-    text-decoration:none;
-    padding:20px;
-    background:white;
-    border-radius:18px;
-    color:#ff4081;
-    font-weight:600;
-    box-shadow:0 10px 25px rgba(0,0,0,.1);
-    transition:.3s;
-}
-
-.menu a:hover{
-    transform:translateY(-6px) scale(1.03);
-}
 /* ==========================
    Birthday Page
 ========================== */
@@ -1469,6 +1423,125 @@ grid-template-columns:1fr;
 
 .proposal-actions button{
     width:240px;
+}
+
+}
+/* ======================================
+   PREMIUM HOME PAGE
+====================================== */
+
+.home{
+    min-height:calc(100vh - 90px);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:40px 20px;
+}
+
+.home h1{
+    font-family:'Dancing Script',cursive;
+    font-size:72px;
+    color:#ff4081;
+    margin-bottom:10px;
+}
+
+.home p{
+    font-size:22px;
+    color:#666;
+    margin-bottom:45px;
+}
+
+.menu{
+    width:100%;
+    max-width:900px;
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:25px;
+}
+
+.menu a{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:95px;
+    text-decoration:none;
+    background:rgba(255,255,255,.75);
+    backdrop-filter:blur(18px);
+    border-radius:22px;
+    color:#ff4081;
+    font-size:28px;
+    font-weight:600;
+    box-shadow:0 10px 25px rgba(255,105,180,.15);
+    transition:.35s;
+}
+
+.menu a:hover{
+    transform:translateY(-6px) scale(1.03);
+    background:white;
+    box-shadow:0 20px 35px rgba(255,105,180,.25);
+}
+
+.home-footer{
+    margin-top:50px;
+    font-size:22px;
+    color:#555;
+    font-style:italic;
+}
+
+/* Tablet */
+
+@media(max-width:900px){
+
+.home h1{
+    font-size:56px;
+}
+
+.home p{
+    font-size:19px;
+}
+
+.menu{
+    max-width:700px;
+}
+
+.menu a{
+    height:85px;
+    font-size:24px;
+}
+
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+.home{
+    padding:30px 15px;
+}
+
+.home h1{
+    font-size:42px;
+}
+
+.home p{
+    font-size:18px;
+    margin-bottom:30px;
+}
+
+.menu{
+    grid-template-columns:1fr;
+    gap:18px;
+}
+
+.menu a{
+    height:75px;
+    font-size:20px;
+}
+
+.home-footer{
+    font-size:18px;
 }
 
 }
