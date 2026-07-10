@@ -29,30 +29,80 @@
         <!-- LEFT -->
         <div class="birthday-letter">
 
-            <h2>💌 Your Letter</h2>
+    <h2>💌 Write Your Letter</h2>
 
-            <input
-            id="name"
-            type="text"
-            placeholder="Your Name">
+    <input
+        type="text"
+        id="name"
+        placeholder="👤 Your Name">
 
-            <br><br>
+    <br><br>
 
-            <input
-            id="title"
-            type="text"
-            placeholder="Letter Title">
+    <input
+        type="text"
+        id="title"
+        placeholder="💌 Letter Title">
 
-            <br><br>
+    <br><br>
 
-            <textarea
-            id="message"
-            maxlength="1500"
-            placeholder="Write your feelings..."></textarea>
+    <textarea
+        id="message"
+        maxlength="2000"
+        placeholder="Write your feelings here... ❤️"></textarea>
 
-            <div id="count">0 / 1500</div>
+    <div id="count">0 / 2000</div>
 
-        </div>
+    <br>
+
+    <button id="saveBtn">💖 Save Letter</button>
+
+    <button id="deleteBtn">🗑 Delete Letter</button>
+
+</div>
+
+<!-- Photo Upload -->
+
+<div class="gift-container">
+
+    <h2>📷 Upload Your Photo</h2>
+
+    <input
+        type="file"
+        id="photo"
+        accept="image/*">
+
+    <br><br>
+
+    <img
+        id="preview"
+        src=""
+        style="display:none; width:100%; border-radius:20px;">
+
+</div>
+
+<!-- Surprise -->
+
+<div class="gift-container">
+
+    <div id="giftBox">🎁</div>
+
+    <div id="giftMessage" style="display:none;">
+
+        💖 Thank you for writing this beautiful letter.
+
+    </div>
+
+</div>
+
+<!-- Cake -->
+
+<div class="cake-container">
+
+    <div id="cake">🎂</div>
+
+    <div id="wishMessage"></div>
+
+</div>
 
         <!-- RIGHT -->
         <div class="right-side">
