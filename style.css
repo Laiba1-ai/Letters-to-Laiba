@@ -5,30 +5,32 @@
     box-sizing:border-box;
     font-family:'Poppins',sans-serif;
 }
-
 body{
     margin:0;
     min-height:100vh;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    background:linear-gradient(135deg,#ffd6e7,#ffeef6,#fff8fc);
-
+    font-family:'Poppins',sans-serif;
     overflow-x:hidden;
-    overflow-y:auto;
-
+    background:linear-gradient(135deg,#ffe8f3 0%,#ffd6ea 40%,#fff4fa 100%);
+    background-attachment:fixed;
     animation:pageFade .8s ease;
 }
 /* Animated Background */
 .background{
     position:fixed;
-    width:100%;
-    height:100%;
-    background:linear-gradient(-45deg,#ffd6e7,#fff,#ffe8f1,#fff5fa);
-    background-size:400% 400%;
-    animation:bgMove 15s ease infinite;
+    inset:0;
+    background:
+    radial-gradient(circle at top left,
+    rgba(255,182,193,.35),
+    transparent 35%),
+
+    radial-gradient(circle at bottom right,
+    rgba(255,105,180,.20),
+    transparent 35%),
+
+    linear-gradient(135deg,#ffe8f3,#ffd8eb,#fff6fb);
+
+    background-size:cover;
+
     z-index:-2;
 }
 
@@ -413,7 +415,13 @@ font-size:34px;
     cursor:pointer;
 
     font-size:16px;
+    transition:.3s;
+}
 
+#continueBtn:hover{
+    background:#ff2f73;
+    transform:scale(1.05);
+}
 
 
 /* ==========================
@@ -824,64 +832,73 @@ grid-template-columns:1fr;
 ========================== */
 
 .navbar{
-
     position:sticky;
-
     top:0;
-
     width:100%;
-
     display:flex;
-
     justify-content:space-between;
-
     align-items:center;
-
-    padding:15px 40px;
-
-    background:rgba(255,255,255,.35);
-
-    backdrop-filter:blur(15px);
-
-    z-index:999;
-
+    padding:18px 40px;
+    background:rgba(255,255,255,.45);
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+    border-bottom:1px solid rgba(255,255,255,.4);
+    box-shadow:0 8px 25px rgba(255,105,180,.15);
+    z-index:1000;
 }
 
 .logo{
-
-    font-size:28px;
-
     font-family:'Dancing Script',cursive;
-
-    color:#ff4081;
-
+    font-size:34px;
+    color:#ff3b7f;
+    font-weight:bold;
 }
 
 .navbar ul{
-
     display:flex;
-
+    align-items:center;
     list-style:none;
+    gap:28px;
+    margin:0;
+    padding:0;
+}
 
-    gap:20px;
-
+.navbar ul li{
+    list-style:none;
 }
 
 .navbar a{
-
     text-decoration:none;
-
     color:#ff4081;
-
+    font-size:17px;
     font-weight:600;
-
     transition:.3s;
-
 }
 
 .navbar a:hover{
+    color:#ff1f68;
+    transform:translateY(-2px);
+}
 
-    color:#ff2f73;
+/* Mobile */
+
+@media(max-width:768px){
+
+    .navbar{
+        flex-direction:column;
+        gap:15px;
+        padding:18px;
+    }
+
+    .logo{
+        font-size:30px;
+    }
+
+    .navbar ul{
+        flex-wrap:wrap;
+        justify-content:center;
+        gap:15px;
+    }
 
 }
 #sliderImage{
@@ -920,7 +937,6 @@ grid-template-columns:1fr;
     align-items:center;
     z-index:999999;
 }
-
 #lightbox img{
     max-width:90%;
     max-height:90%;
@@ -1543,5 +1559,81 @@ grid-template-columns:1fr;
 .home-footer{
     font-size:18px;
 }
+
+}
+/* ======================================
+   GLOBAL PAGE LAYOUT
+====================================== */
+
+body{
+    display:flex;
+    flex-direction:column;
+    min-height:100vh;
+}
+
+main,
+.home,
+.birthday-card,
+.letters-page,
+.sorry-page,
+.proposal-page,
+.love-page,
+.surprise-page{
+    width:100%;
+    margin:0 auto;
+}
+
+/* Center every page */
+
+.home,
+.birthday-card,
+.letters-page,
+.sorry-page,
+.proposal-page,
+.love-page,
+.surprise-page{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
+
+/* Beautiful spacing */
+
+.birthday-card,
+.letters-page,
+.sorry-page,
+.proposal-page,
+.love-page,
+.surprise-page{
+    margin-top:40px;
+    margin-bottom:40px;
+}
+
+/* Glass cards */
+
+.letter-card,
+.message-box,
+.proposal-box,
+.love-box,
+.surprise-box{
+    width:100%;
+    max-width:850px;
+    margin:20px auto;
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+    .birthday-card,
+    .letters-page,
+    .sorry-page,
+    .proposal-page,
+    .love-page,
+    .surprise-page{
+        width:95%;
+    }
 
 }
