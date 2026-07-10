@@ -1158,13 +1158,14 @@ grid-template-columns:1fr;
 .login-wrapper{
     width:100%;
     min-height:100vh;
-
     display:flex;
     justify-content:center;
     align-items:center;
+}
 
-    position:relative;
-    z-index:2;
+.container{
+    width:430px;
+    max-width:90%;
 }
 /* ======================================
    WRITE LETTER PAGE
@@ -1470,38 +1471,36 @@ grid-template-columns:1fr;
 }
 
 .menu{
-    width:100%;
-    max-width:900px;
+    width:520px;
+    max-width:95%;
     display:grid;
     grid-template-columns:repeat(2,1fr);
-    gap:25px;
+    gap:15px;
+    margin:35px auto;
 }
 
 .menu a{
     display:flex;
     justify-content:center;
     align-items:center;
-    height:95px;
+    height:60px;
     text-decoration:none;
     background:rgba(255,255,255,.75);
-    backdrop-filter:blur(18px);
-    border-radius:22px;
+    border-radius:15px;
     color:#ff4081;
-    font-size:28px;
+    font-size:20px;
     font-weight:600;
-    box-shadow:0 10px 25px rgba(255,105,180,.15);
-    transition:.35s;
+    box-shadow:0 8px 18px rgba(255,105,180,.15);
+    transition:.3s;
 }
 
 .menu a:hover{
-    transform:translateY(-6px) scale(1.03);
-    background:white;
-    box-shadow:0 20px 35px rgba(255,105,180,.25);
+    transform:translateY(-3px);
 }
 
 .home-footer{
-    margin-top:50px;
-    font-size:22px;
+    margin-top:25px;
+    font-size:20px;
     color:#555;
     font-style:italic;
 }
@@ -1552,8 +1551,8 @@ grid-template-columns:1fr;
 }
 
 .menu a{
-    height:75px;
-    font-size:20px;
+    height:65px;
+    font-size:22px;
 }
 
 .home-footer{
@@ -1566,8 +1565,6 @@ grid-template-columns:1fr;
 ====================================== */
 
 body{
-    display:flex;
-    flex-direction:column;
     min-height:100vh;
 }
 
