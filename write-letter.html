@@ -1,143 +1,134 @@
 <body>
 
 <div class="background"></div>
+
 <div id="floating-hearts"></div>
+<div id="fireworks"></div>
+<div id="confetti"></div>
 
 <nav class="navbar">
 
     <div class="logo">💌 Letters to Laiba</div>
 
     <ul>
+
         <li><a href="home.html">🏠 Home</a></li>
+
         <li><a href="birthday.html">🎂 Birthday</a></li>
-        <li><a href="gallery.html">📷 Gallery</a></li>
+
         <li><a href="letters.html">💌 Letters</a></li>
+
     </ul>
 
 </nav>
 
-<div class="birthday-card">
+<main class="birthday-card">
 
-    <h1>✍️ Write Your Letter</h1>
+    <h1>💌 Write Your Letter</h1>
 
     <p>
-        Write anything from your heart...
+        Write your feelings from your heart ❤️
     </p>
 
     <div class="birthday-grid">
 
         <!-- LEFT -->
+
         <div class="birthday-letter">
 
-    <h2>💌 Write Your Letter</h2>
+            <h2>💌 Your Letter</h2>
 
-    <input
-        type="text"
-        id="name"
-        placeholder="👤 Your Name">
+            <input
+            type="text"
+            id="name"
+            placeholder="Your Name">
 
-    <br><br>
+            <br><br>
 
-    <input
-        type="text"
-        id="title"
-        placeholder="💌 Letter Title">
+            <input
+            type="text"
+            id="title"
+            placeholder="Letter Title">
 
-    <br><br>
+            <br><br>
 
-    <textarea
-        id="message"
-        maxlength="2000"
-        placeholder="Write your feelings here... ❤️"></textarea>
+            <textarea
+            id="message"
+            maxlength="2000"
+            placeholder="Write your feelings..."></textarea>
 
-    <div id="count">0 / 2000</div>
+            <div id="count">0 / 2000</div>
 
-    <br>
+            <br>
 
-    <button id="saveBtn">💖 Save Letter</button>
+            <button id="saveBtn">
+                💖 Save Letter
+            </button>
 
-    <button id="deleteBtn">🗑 Delete Letter</button>
+            <button id="deleteBtn">
+                🗑 Delete
+            </button>
 
-</div>
-
-<!-- Photo Upload -->
-
-<div class="gift-container">
-
-    <h2>📷 Upload Your Photo</h2>
-
-    <input
-        type="file"
-        id="photo"
-        accept="image/*">
-
-    <br><br>
-
-    <img
-        id="preview"
-        src=""
-        style="display:none; width:100%; border-radius:20px;">
-
-</div>
-
-<!-- Surprise -->
-
-<div class="gift-container">
-
-    <div id="giftBox">🎁</div>
-
-    <div id="giftMessage" style="display:none;">
-
-        💖 Thank you for writing this beautiful letter.
-
-    </div>
-
-</div>
-
-<!-- Cake -->
-
-<div class="cake-container">
-
-    <div id="cake">🎂</div>
-
-    <div id="wishMessage"></div>
-
-</div>
+      </div>
 
         <!-- RIGHT -->
+
         <div class="right-side">
 
             <div class="gift-container">
 
-                <h2>📷 Add Your Photo</h2>
+                <h2>📷 Upload Photo</h2>
 
                 <input
-                id="photo"
                 type="file"
+                id="photo"
                 accept="image/*">
+
+                <img
+    id="preview"
+    src=""
+    alt="Photo Preview"
+    style="display:none;">
 
             </div>
 
             <div class="gift-container">
 
-                <button id="saveBtn">
-                    💖 Save Letter
-                </button>
+                <div id="giftBox">
 
-                <br><br>
+                    🎁
 
-                <button id="deleteBtn">
-                    🗑 Delete
-                </button>
+                 </div>
+
+                <div
+                id="giftMessage"
+                style="display:none;">
+
+                    💖 Thank you for writing this beautiful letter.
+
+                </div>
 
             </div>
 
+            <div class="cake-container">
+
+                <div id="cake">
+
+                    🎂
+
+                </div>
+
+                <div id="wishMessage"></div>
+
+           </div>
+
         </div>
 
-    </div>
+ </div>
 
-</div>
+</main>
 
 <script src="script.js"></script>
 
 </body>
+</html>
