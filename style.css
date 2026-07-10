@@ -9,12 +9,18 @@
 body{
     margin:0;
     min-height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
     background:linear-gradient(135deg,#ffd6e7,#ffeef6,#fff8fc);
+
     overflow-x:hidden;
     overflow-y:auto;
+
     animation:pageFade .8s ease;
 }
-
 /* Animated Background */
 .background{
     position:fixed;
@@ -36,13 +42,7 @@ body{
 .container{
     width:420px;
     max-width:90%;
-
     padding:40px;
-
-    position:absolute;
-    top:50%;
-    left:50%;
-    transform:translate(-50%,-50%);
 
     text-align:center;
 
@@ -50,10 +50,11 @@ body{
     backdrop-filter:blur(18px);
 
     border-radius:25px;
-
     border:1px solid rgba(255,255,255,.4);
 
     box-shadow:0 15px 40px rgba(255,105,180,.25);
+
+    z-index:2;
 }
 .container h1{
     font-size:42px;
@@ -1183,4 +1184,15 @@ grid-template-columns:1fr;
 
     }
 
+}
+.login-wrapper{
+    width:100%;
+    min-height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    position:relative;
+    z-index:2;
 }
