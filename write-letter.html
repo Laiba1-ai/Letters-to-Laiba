@@ -1,76 +1,93 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Write Your Letter 💌</title>
-
-<link rel="stylesheet" href="style.css">
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
-</head>
-
 <body>
+
+<div class="background"></div>
+<div id="floating-hearts"></div>
 
 <nav class="navbar">
 
-<div class="logo">💌 Letters to Laiba</div>
+    <div class="logo">💌 Letters to Laiba</div>
 
-<ul>
-<li><a href="home.html">🏠 Home</a></li>
-<li><a href="gallery.html">📷 Gallery</a></li>
-<li><a href="letters.html">💌 Letters</a></li>
-</ul>
+    <ul>
+        <li><a href="home.html">🏠 Home</a></li>
+        <li><a href="birthday.html">🎂 Birthday</a></li>
+        <li><a href="gallery.html">📷 Gallery</a></li>
+        <li><a href="letters.html">💌 Letters</a></li>
+    </ul>
 
 </nav>
 
-<section class="letters-page">
+<div class="birthday-card">
 
-<h1>✍️ Write Your Letter</h1>
+    <h1>✍️ Write Your Letter</h1>
 
-<p class="letters-subtitle">
-Write something from your heart ❤️
-</p>
+    <p>
+        Write anything from your heart...
+    </p>
 
-<div class="letter-card">
+    <div class="birthday-grid">
 
-<input type="text" id="name" placeholder="Your Name">
+        <!-- LEFT -->
+        <div class="birthday-letter">
 
-<br><br>
+            <h2>💌 Your Letter</h2>
 
-<input type="text" id="title" placeholder="Letter Title">
+            <input
+            id="name"
+            type="text"
+            placeholder="Your Name">
 
-<br><br>
+            <br><br>
 
-<textarea id="message"
-placeholder="Write your letter..."
-maxlength="150"
-rows="8"></textarea>
+            <input
+            id="title"
+            type="text"
+            placeholder="Letter Title">
 
-<p id="count">0 / 150</p>
+            <br><br>
 
-<br>
+            <textarea
+            id="message"
+            maxlength="1500"
+            placeholder="Write your feelings..."></textarea>
 
-<input type="file" id="photo">
+            <div id="count">0 / 1500</div>
 
-<br><br>
+        </div>
 
-<button id="saveBtn">💾 Save Letter</button>
+        <!-- RIGHT -->
+        <div class="right-side">
 
-<button id="deleteBtn">🗑 Delete</button>
+            <div class="gift-container">
 
-<br><br>
+                <h2>📷 Add Your Photo</h2>
 
-<button onclick="window.location.href='home.html'">
-🏠 Back Home
-</button>
+                <input
+                id="photo"
+                type="file"
+                accept="image/*">
+
+            </div>
+
+            <div class="gift-container">
+
+                <button id="saveBtn">
+                    💖 Save Letter
+                </button>
+
+                <br><br>
+
+                <button id="deleteBtn">
+                    🗑 Delete
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
 
 </div>
-
-</section>
 
 <script src="script.js"></script>
 
 </body>
-</html>

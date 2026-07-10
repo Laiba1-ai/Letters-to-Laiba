@@ -1639,3 +1639,74 @@ main,
     }
 
 }
+#name,
+#title,
+#message{
+
+    width:100%;
+    padding:16px;
+
+    border:none;
+    outline:none;
+
+    border-radius:18px;
+
+    background:white;
+
+    font-size:17px;
+
+    margin-top:10px;
+
+}
+
+#message{
+
+    min-height:280px;
+
+    resize:none;
+
+}
+
+#photo{
+
+    width:100%;
+
+    padding:15px;
+
+    border-radius:15px;
+
+    background:white;
+
+}
+
+#saveBtn,
+#deleteBtn{
+
+    width:100%;
+    padding:15px;
+
+    border:none;
+
+    border-radius:50px;
+
+    cursor:pointer;
+
+    font-size:17px;
+
+    margin-top:15px;
+
+}
+
+#saveBtn{
+
+    background:#ff4f8b;
+    color:white;
+
+}
+
+#deleteBtn{
+
+    background:white;
+    color:#ff4081;
+
+}
