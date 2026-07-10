@@ -1298,3 +1298,177 @@ grid-template-columns:1fr;
     transform:scale(1.05);
 
 }
+/* ======================================
+   RESPONSIVE NAVBAR
+====================================== */
+
+.navbar{
+    position:sticky;
+    top:0;
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 40px;
+    background:rgba(255,255,255,.45);
+    backdrop-filter:blur(18px);
+    z-index:999;
+}
+
+.logo{
+    font-size:32px;
+    font-family:'Dancing Script',cursive;
+    color:#ff4081;
+    white-space:nowrap;
+}
+
+.navbar ul{
+    display:flex;
+    align-items:center;
+    gap:22px;
+    list-style:none;
+    margin:0;
+    padding:0;
+}
+
+.navbar a{
+    text-decoration:none;
+    color:#ff4081;
+    font-weight:600;
+    transition:.3s;
+}
+
+.navbar a:hover{
+    color:#ff2f73;
+}
+
+/* Mobile */
+@media (max-width:768px){
+
+    .navbar{
+        flex-direction:column;
+        gap:15px;
+        padding:18px;
+    }
+
+    .logo{
+        font-size:28px;
+        text-align:center;
+    }
+
+    .navbar ul{
+        width:100%;
+        justify-content:center;
+        flex-wrap:wrap;
+        gap:12px;
+    }
+
+}
+/* ======================================
+   PROPOSAL PAGE
+====================================== */
+
+.proposal-page{
+    width:95%;
+    max-width:1100px;
+    margin:40px auto;
+    text-align:center;
+}
+
+.proposal-page h1{
+    font-family:'Dancing Script',cursive;
+    font-size:65px;
+    color:#ff4081;
+    margin-bottom:15px;
+}
+
+.proposal-subtitle{
+    color:#666;
+    font-size:18px;
+    margin-bottom:40px;
+}
+
+.proposal-card{
+    background:rgba(255,255,255,.45);
+    backdrop-filter:blur(15px);
+    border-radius:25px;
+    padding:35px;
+    margin:30px auto;
+    max-width:850px;
+    box-shadow:0 15px 35px rgba(255,105,180,.15);
+    animation:fadeLetter .8s ease;
+}
+
+.proposal-card h2{
+    font-family:'Dancing Script',cursive;
+    color:#ff4081;
+    font-size:42px;
+    margin-bottom:18px;
+}
+
+.proposal-card p{
+    font-size:18px;
+    line-height:1.9;
+    color:#555;
+}
+
+.proposal-actions{
+    margin-top:35px;
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.proposal-actions button{
+    padding:15px 35px;
+    border:none;
+    border-radius:50px;
+    background:#ff4f8b;
+    color:#fff;
+    font-size:17px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.proposal-actions button:hover{
+    transform:translateY(-4px) scale(1.05);
+    background:#ff2f73;
+}
+
+#proposalResult{
+    margin-top:30px;
+    font-size:28px;
+    color:#ff4081;
+    font-weight:bold;
+    min-height:40px;
+}
+
+@media(max-width:768px){
+
+.proposal-page h1{
+    font-size:48px;
+}
+
+.proposal-card{
+    padding:25px;
+}
+
+.proposal-card h2{
+    font-size:34px;
+}
+
+.proposal-card p{
+    font-size:16px;
+}
+
+.proposal-actions{
+    flex-direction:column;
+    align-items:center;
+}
+
+.proposal-actions button{
+    width:240px;
+}
+
+}
