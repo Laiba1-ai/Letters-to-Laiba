@@ -29,8 +29,6 @@ function checkPassword() {
 
                 loading.style.display = "none";
 
-                document.getElementById("welcome-popup").style.display = "flex";
-
                 window.location.href = "home.html";
 
             }
