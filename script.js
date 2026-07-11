@@ -3,7 +3,43 @@
 // ===============================
 
 const websitePassword = "laiba123";
+// ===============================
+// Theme Effects
+// ===============================
 
+let floatingIcons = ["❤","💖","✨"];
+
+const themeEffects = {
+
+simple:["🤍","✨","🌿"],
+
+love:["💖","💕","🧸","🌹","⭐","💌"],
+
+sorry:["🍂","💧","🌧️","🥺","💙"],
+
+proposal:["🌹","💍","💎","🕊️","✨"],
+
+birthday:["🎈","🎉","🎊","🎂","🎁","✨"],
+
+friendship:["🌻","🌈","😊","⭐","🤝"],
+
+mother:["🌸","💐","🦋","❤️"],
+
+father:["💙","⭐","👔","🛡️"],
+
+eid:["🌙","🕌","🎁","✨","🌸"],
+
+ramadan:["🌙","⭐","🕌","🏮","✨"],
+
+valentine:["❤️","🌹","🧸","💝","💋"],
+
+anniversary:["💍","🥂","🌹","✨"],
+
+christmas:["🎄","🎅","❄️","🎁","⭐"],
+
+newyear:["🎆","🎇","🥂","✨","🎉"]
+
+};
 // Password Check
 function checkPassword() {
 
@@ -95,13 +131,6 @@ if (intro && startBtn) {
 
 }
 
-// ===============================
-// Floating Hearts
-// ===============================
-// ==========================
-// Cursor Hearts
-// ==========================
-
 document.addEventListener("mousemove", function(e){
 
     const heart = document.createElement("div");
@@ -124,35 +153,36 @@ const heartsContainer = document.getElementById("floating-hearts");
 
 if (heartsContainer) {
 
-    function createFloatingIcon(){
+    function createFloatingIcon() {
 
-const icon=document.createElement("div");
+        const icon = document.createElement("div");
 
-icon.className="heart";
+        icon.className = "heart";
 
-icon.innerHTML=
+        const icons = themeEffects[currentTheme] || themeEffects.simple;
 
-floatingIcons[
-Math.floor(Math.random()*floatingIcons.length)
-];
+icon.innerHTML =
+icons[Math.floor(Math.random() * icons.length)];
 
-icon.style.left=Math.random()*100+"vw";
+        icon.style.left = Math.random() * 100 + "vw";
 
-icon.style.fontSize=(18+Math.random()*22)+"px";
+        icon.style.fontSize = (18 + Math.random() * 22) + "px";
 
-icon.style.animationDuration=(4+Math.random()*3)+"s";
+        icon.style.animationDuration =
+            (4 + Math.random() * 3) + "s";
 
-heartsContainer.appendChild(icon);
+        heartsContainer.appendChild(icon);
 
-setTimeout(()=>{
+        setTimeout(() => {
 
-icon.remove();
+            icon.remove();
 
-},7000);
+        }, 7000);
 
-}
+    }
 
-setInterval(createFloatingIcon,350);
+    setInterval(createFloatingIcon, 350);
+
 }
 // ==========================
 // Welcome Popup
@@ -168,9 +198,7 @@ if (continueBtn) {
     };
 
 }
-// ==========================
-// Birthday Balloons
-// ==========================
+
 
 const balloons = document.getElementById("balloons");
 
@@ -201,9 +229,6 @@ if (balloons) {
     setInterval(createBalloon,700);
 
 }
-// ==========================
-// Fireworks
-// ==========================
 
 const fireworks = document.getElementById("fireworks");
 
@@ -215,7 +240,7 @@ if (fireworks) {
 
         fw.className = "firework";
 
-        const icons = ["✨","🎆","💖","⭐","🎇"];
+       const icons = floatingIcons;
 
         fw.innerHTML = icons[Math.floor(Math.random() * icons.length)];
 
@@ -233,9 +258,6 @@ if (fireworks) {
     setInterval(createFirework, 600);
 
 }
-// ==========================
-// Confetti
-// ==========================
 
 const confetti = document.getElementById("confetti");
 
@@ -247,8 +269,7 @@ if (confetti) {
 
         piece.className = "confetti";
 
-        const items = ["🎊","✨","💖","🌸","⭐"];
-
+const items = floatingIcons;
         piece.innerHTML = items[Math.floor(Math.random() * items.length)];
 
         piece.style.left = Math.random() * 100 + "vw";
@@ -617,128 +638,66 @@ if (photo && preview) {
     });
 }
 // ===============================
-// Theme Effects
-// ===============================
-
-let floatingIcons = ["❤","💖","✨"];
-
-const themeEffects = {
-
-simple:["🤍","✨","🌿"],
-
-love:["💖","💕","🧸","🌹","⭐","💌"],
-
-sorry:["🍂","💧","🌧️","🥺","💙"],
-
-proposal:["🌹","💍","💎","🕊️","✨"],
-
-birthday:["🎈","🎉","🎊","🎂","🎁","✨"],
-
-friendship:["🌻","🌈","😊","⭐","🤝"],
-
-mother:["🌸","💐","🦋","❤️"],
-
-father:["💙","⭐","👔","🛡️"],
-
-eid:["🌙","🕌","🎁","✨","🌸"],
-
-ramadan:["🌙","⭐","🕌","🏮","✨"],
-
-valentine:["❤️","🌹","🧸","💝","💋"],
-
-anniversary:["💍","🥂","🌹","✨"],
-
-christmas:["🎄","🎅","❄️","🎁","⭐"],
-
-newyear:["🎆","🎇","🥂","✨","🎉"]
-
-};
-
-// ===============================
-// Letter Theme Switcher
+// Letter Theme
 // ===============================
 
 const letterType = document.getElementById("letterType");
 
-if(letterType){
+function applyTheme(type) {
 
-letterType.addEventListener("change",function(){
+    document.body.classList.remove(
+        "simple",
+        "birthday",
+        "love",
+        "sorry",
+        "friendship",
+        "proposal",
+        "mother",
+        "father",
+        "eid",
+        "ramadan",
+        "valentine",
+        "anniversary",
+        "christmas",
+        "newyear"
+    );
 
-const type=this.value;
+    document.body.classList.add(type);
 
-document.body.classList.remove(
-"simple",
-"birthday",
-"love",
-"sorry",
-"friendship",
-"proposal",
-"mother",
-"father",
-"eid",
-"ramadan",
-"valentine",
-"anniversary",
-"christmas",
-"newyear"
-);
+    currentTheme = type;
 
-document.body.classList.add(type);
-floatingIcons = themeEffects[type] || themeEffects.simple;
+    floatingIcons = themeEffects[type] || themeEffects.simple;
 
-console.log(type);
-console.log(floatingIcons);
+    const cake = document.getElementById("cakeContainer");
+    if (cake) {
+        cake.style.display = type === "birthday" ? "block" : "none";
+    }
 
-// Birthday
-const cake = document.querySelector(".cake-container");
+    const gift = document.getElementById("giftContainer");
+    if (gift) {
+        gift.style.display =
+            (type === "birthday" || type === "proposal")
+                ? "block"
+                : "none";
+    }
 
-if(cake){
-    cake.style.display = type==="birthday" ? "block" : "none";
+    const proposal = document.getElementById("proposalBox");
+    if (proposal) {
+        proposal.style.display =
+            type === "proposal"
+                ? "block"
+                : "none";
+    }
 }
 
-// Gift
-const gifts = document.querySelectorAll(".gift-container");
+if (letterType) {
 
-if(gifts.length>1){
-    gifts[1].style.display =
-    (type==="birthday" || type==="proposal")
-    ? "block"
-    : "none";
-}
-const proposal=document.getElementById("proposalBox");
+    applyTheme(letterType.value);
 
-if(type==="proposal"){
+    letterType.addEventListener("change", function () {
 
-proposal.style.display="block";
+        applyTheme(this.value);
 
-}else{
-
-proposal.style.display="none";
+    });
 
 }
-});
-}
-const effects = {
-
-love:{
-floating:["💖","💕","🧸","🌹"],
-fireworks:["💖","✨","⭐"],
-confetti:["🌹","💕"],
-balloons:["💖","🎈"]
-},
-
-sorry:{
-floating:["🍂","💧","🥺"],
-fireworks:["💧"],
-confetti:["🍂","🌧️"],
-balloons:["💙"]
-},
-
-proposal:{
-floating:["🌹","💍"],
-fireworks:["💍","✨"],
-confetti:["🌹"],
-balloons:["💍"]
-}
-
-};
