@@ -1760,46 +1760,6 @@ cursor:pointer;
 box-shadow:0 8px 20px rgba(255,105,180,.12);
 
 }
-body.birthday{
-
-background:linear-gradient(135deg,#ffe0f1,#ffd2ea,#fff7fb);
-
-}
-body.sorry{
-
-background:linear-gradient(135deg,#dbefff,#eef7ff,#ffffff);
-
-}
-body.love{
-
-background:linear-gradient(135deg,#ffd6df,#ffc3d4,#fff2f6);
-
-}
-body.proposal{
-
-background:linear-gradient(135deg,#fff0d5,#ffe7b8,#fff9ef);
-
-}
-body.friendship{
-
-background:linear-gradient(135deg,#fff8cc,#fff1a8,#fffef2);
-
-}
-body.eid{
-
-background:linear-gradient(135deg,#dfffe5,#bff7d0,#f7fff8);
-
-}
-body.christmas{
-
-background:linear-gradient(135deg,#d8ffe1,#f2fff6,#ffffff);
-
-}
-body.simple{
-
-background:linear-gradient(135deg,#ffe8f3,#ffd6ea,#fff4fa);
-
-}
 .letter-type{
     width:100%;
     max-width:500px;
@@ -1876,80 +1836,58 @@ background:linear-gradient(135deg,#ffe8f3,#ffd6ea,#fff4fa);
     box-shadow:0 8px 20px rgba(255,105,180,.15);
 
 }
+body.simple{
+background:linear-gradient(135deg,#ffe8f3,#ffd6ea,#fff4fa);
+}
+
 body.birthday{
-
-background:linear-gradient(135deg,#ffe0f1,#ffd2ea,#fff8fc);
-
+background:linear-gradient(135deg,#ffe0ec,#ffd1e6);
 }
 
 body.sorry{
-
-background:linear-gradient(135deg,#dceeff,#eef6ff,#ffffff);
-
+background:linear-gradient(135deg,#d6e4ff,#f2f6ff);
 }
 
 body.proposal{
-
-background:linear-gradient(135deg,#fff1db,#ffe8cb,#fffaf5);
-
+background:linear-gradient(135deg,#ffe5e5,#fff5f5);
 }
 
 body.love{
-
-background:linear-gradient(135deg,#ffd8e4,#ffc5d5,#fff4f7);
-
+background:linear-gradient(135deg,#ffccd9,#ffeaf1);
 }
 
 body.friendship{
-
-background:linear-gradient(135deg,#fff8c6,#fff1a8,#fffef0);
-
+background:linear-gradient(135deg,#fff6c8,#fffbe8);
 }
 
 body.mother{
-
-background:linear-gradient(135deg,#ffe4ef,#ffd7e9,#fff8fc);
-
+background:linear-gradient(135deg,#ffe9f2,#fff8fb);
 }
 
 body.father{
-
-background:linear-gradient(135deg,#dfeeff,#cfe3ff,#f8fbff);
-
+background:linear-gradient(135deg,#dde7ff,#f5f8ff);
 }
 
 body.eid{
-
-background:linear-gradient(135deg,#dfffe7,#c8f7d4,#f7fff9);
-
+background:linear-gradient(135deg,#d8ffe7,#f5fff9);
 }
 
 body.ramadan{
-
-background:linear-gradient(135deg,#d7fff2,#c6ffee,#f5fffc);
-
+background:linear-gradient(135deg,#d7fff3,#effffc);
 }
 
 body.valentine{
-
-background:linear-gradient(135deg,#ffd8e2,#ffc3d3,#fff2f6);
-
+background:linear-gradient(135deg,#ffccd8,#fff0f4);
 }
 
 body.anniversary{
-
-background:linear-gradient(135deg,#ffe7ef,#ffd8e8,#fff8fc);
-
+background:linear-gradient(135deg,#fff0d8,#fff9f2);
 }
 
 body.christmas{
-
-background:linear-gradient(135deg,#e4ffe8,#d5ffd8,#ffffff);
-
+background:linear-gradient(135deg,#d7ffe0,#fff4f4);
 }
 
 body.newyear{
-
-background:linear-gradient(135deg,#fff6d8,#fff0bd,#fffdf5);
-
+background:linear-gradient(135deg,#dde9ff,#f7f9ff);
 }

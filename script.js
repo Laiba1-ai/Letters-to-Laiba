@@ -611,19 +611,7 @@ if (photo && preview) {
 
     });
 }
-const letterType = document.getElementById("letterType");
 
-if(letterType){
-
-letterType.addEventListener("change",function(){
-
-document.body.className="";
-
-document.body.classList.add(this.value);
-
-});
-
-}
 // ===============================
 // Letter Theme Switcher
 // ===============================
