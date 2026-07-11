@@ -1800,3 +1800,28 @@ body.simple{
 background:linear-gradient(135deg,#ffe8f3,#ffd6ea,#fff4fa);
 
 }
+.letter-type{
+    width:100%;
+    max-width:500px;
+    margin:25px auto;
+    text-align:center;
+}
+
+.letter-type label{
+    display:block;
+    font-size:18px;
+    color:#ff4081;
+    font-weight:600;
+    margin-bottom:10px;
+}
+
+.letter-type select{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:15px;
+    background:white;
+    font-size:17px;
+    outline:none;
+    box-shadow:0 8px 20px rgba(255,105,180,.15);
+}
