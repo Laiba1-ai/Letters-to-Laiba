@@ -124,30 +124,35 @@ const heartsContainer = document.getElementById("floating-hearts");
 
 if (heartsContainer) {
 
-    function createHeart() {
+    function createFloatingIcon(){
 
-        const heart = document.createElement("div");
+const icon=document.createElement("div");
 
-        heart.className = "heart";
+icon.className="heart";
 
-        heart.innerHTML = "❤";
+icon.innerHTML=
 
-        heart.style.left = Math.random() * 100 + "vw";
+floatingIcons[
+Math.floor(Math.random()*floatingIcons.length)
+];
 
-        heart.style.fontSize = (15 + Math.random() * 20) + "px";
+icon.style.left=Math.random()*100+"vw";
 
-        heart.style.animationDuration = (4 + Math.random() * 3) + "s";
+icon.style.fontSize=(18+Math.random()*22)+"px";
 
-        heartsContainer.appendChild(heart);
+icon.style.animationDuration=(4+Math.random()*3)+"s";
 
-        setTimeout(() => {
-            heart.remove();
-        }, 7000);
+heartsContainer.appendChild(icon);
 
-    }
+setTimeout(()=>{
 
-    setInterval(createHeart, 350);
+icon.remove();
 
+},7000);
+
+}
+
+setInterval(createFloatingIcon,350);
 }
 // ==========================
 // Welcome Popup
@@ -611,7 +616,43 @@ if (photo && preview) {
 
     });
 }
+// ===============================
+// Theme Effects
+// ===============================
 
+let floatingIcons = ["❤","💖","✨"];
+
+const themeEffects = {
+
+simple:["🤍","✨","🌿"],
+
+love:["💖","💕","🧸","🌹","⭐","💌"],
+
+sorry:["🍂","💧","🌧️","🥺","💙"],
+
+proposal:["🌹","💍","💎","🕊️","✨"],
+
+birthday:["🎈","🎉","🎊","🎂","🎁","✨"],
+
+friendship:["🌻","🌈","😊","⭐","🤝"],
+
+mother:["🌸","💐","🦋","❤️"],
+
+father:["💙","⭐","👔","🛡️"],
+
+eid:["🌙","🕌","🎁","✨","🌸"],
+
+ramadan:["🌙","⭐","🕌","🏮","✨"],
+
+valentine:["❤️","🌹","🧸","💝","💋"],
+
+anniversary:["💍","🥂","🌹","✨"],
+
+christmas:["🎄","🎅","❄️","🎁","⭐"],
+
+newyear:["🎆","🎇","🥂","✨","🎉"]
+
+};
 // ===============================
 // Letter Theme Switcher
 // ===============================
@@ -642,6 +683,9 @@ document.body.classList.remove(
 );
 
 document.body.classList.add(letterType.value);
+floatingIcons=
+themeEffects[type] ||
+themeEffects.simple;
 
 // Birthday
 const cake = document.querySelector(".cake-container");
