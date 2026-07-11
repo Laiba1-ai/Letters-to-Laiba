@@ -653,6 +653,7 @@ christmas:["🎄","🎅","❄️","🎁","⭐"],
 newyear:["🎆","🎇","🥂","✨","🎉"]
 
 };
+
 // ===============================
 // Letter Theme Switcher
 // ===============================
@@ -682,10 +683,11 @@ document.body.classList.remove(
 "newyear"
 );
 
-document.body.classList.add(letterType.value);
-floatingIcons=
-themeEffects[type] ||
-themeEffects.simple;
+document.body.classList.add(type);
+floatingIcons = themeEffects[type] || themeEffects.simple;
+
+console.log(type);
+console.log(floatingIcons);
 
 // Birthday
 const cake = document.querySelector(".cake-container");
@@ -716,3 +718,27 @@ proposal.style.display="none";
 }
 });
 }
+const effects = {
+
+love:{
+floating:["💖","💕","🧸","🌹"],
+fireworks:["💖","✨","⭐"],
+confetti:["🌹","💕"],
+balloons:["💖","🎈"]
+},
+
+sorry:{
+floating:["🍂","💧","🥺"],
+fireworks:["💧"],
+confetti:["🍂","🌧️"],
+balloons:["💙"]
+},
+
+proposal:{
+floating:["🌹","💍"],
+fireworks:["💍","✨"],
+confetti:["🌹"],
+balloons:["💍"]
+}
+
+};
