@@ -1663,8 +1663,11 @@ main,
 display:none;
 width:100%;
 max-width:450px;
+height:auto;
 margin:20px auto;
 border-radius:18px;
+object-fit:cover;
+box-shadow:0 10px 25px rgba(0,0,0,.15);
 }
 #preview:hover{
     transform:scale(1.02);

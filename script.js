@@ -519,11 +519,11 @@ const deleteBtn = document.getElementById("deleteBtn");
 
 if(message && counter){
 
-    counter.innerHTML = message.value.length + " / 150";
+    counter.innerHTML = message.value.length + " / 2000";
 
     message.addEventListener("input",()=>{
 
-        counter.innerHTML = message.value.length + " / 150";
+        counter.innerHTML="0 / 2000";
 
     });
 
@@ -589,4 +589,25 @@ if(deleteBtn){
 
     });
 
+}
+const photo = document.getElementById("photo");
+const preview = document.getElementById("preview");
+
+if (photo && preview) {
+    photo.addEventListener("change", function () {
+
+        const file = this.files[0];
+
+        if (file) {
+
+            preview.src = URL.createObjectURL(file);
+            preview.style.display = "block";
+
+        } else {
+
+            preview.style.display = "none";
+
+        }
+
+    });
 }
