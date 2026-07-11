@@ -622,38 +622,29 @@ if(letterType){
 
 letterType.addEventListener("change",function(){
 
-document.body.classList.remove(
+const type=this.value;
 
-"birthday",
+document.body.className="";
 
-"sorry",
+document.body.classList.add(type);
 
-"proposal",
+// Birthday
+document.querySelector(".cake-container").style.display =
+type==="birthday" ? "block" : "none";
 
-"love",
+// Gift
+document.querySelectorAll(".gift-container")[1].style.display =
+(type==="birthday" || type==="proposal") ? "block" : "none";
+const proposal=document.getElementById("proposalBox");
 
-"friendship",
+if(type==="proposal"){
 
-"mother",
+proposal.style.display="block";
 
-"father",
+}else{
 
-"eid",
+proposal.style.display="none";
 
-"ramadan",
-
-"valentine",
-
-"anniversary",
-
-"christmas",
-
-"newyear"
-
-);
-
-document.body.classList.add(this.value);
-
+}
 });
-
 }
