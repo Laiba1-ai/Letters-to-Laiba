@@ -644,12 +644,21 @@ document.body.classList.remove(
 document.body.classList.add(letterType.value);
 
 // Birthday
-document.querySelector(".cake-container").style.display =
-type==="birthday" ? "block" : "none";
+const cake = document.querySelector(".cake-container");
+
+if(cake){
+    cake.style.display = type==="birthday" ? "block" : "none";
+}
 
 // Gift
-document.querySelectorAll(".gift-container")[1].style.display =
-(type==="birthday" || type==="proposal") ? "block" : "none";
+const gifts = document.querySelectorAll(".gift-container");
+
+if(gifts.length>1){
+    gifts[1].style.display =
+    (type==="birthday" || type==="proposal")
+    ? "block"
+    : "none";
+}
 const proposal=document.getElementById("proposalBox");
 
 if(type==="proposal"){

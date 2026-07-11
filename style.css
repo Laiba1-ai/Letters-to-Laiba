@@ -1872,115 +1872,201 @@ body.newyear .background{
 background:linear-gradient(135deg,#dde9ff,#f7f9ff);
 }
 /* ======================================
-   THEME VARIABLES
+   PREMIUM DYNAMIC THEME ENGINE
 ====================================== */
 
+/* ---------- Global Colors ---------- */
+
 :root{
+
 --primary:#ff4f8b;
+--primary-dark:#ff2f73;
 --secondary:#ffd6ea;
+
+--bg1:#ffe8f3;
+--bg2:#ffd6ea;
+--bg3:#fff4fa;
+
+--card:rgba(255,255,255,.45);
+--card-solid:#ffffff;
+
+--text:#444;
+--text-light:#666;
+
 --shadow:rgba(255,105,180,.20);
+
 }
+
+/* ---------- Background ---------- */
+
+body{
+background:linear-gradient(135deg,var(--bg1),var(--bg2),var(--bg3));
+transition:.45s;
+}
+
+.background{
+background:inherit;
+transition:.45s;
+}
+
+/* ---------- Theme Variables ---------- */
 
 body.simple{
 --primary:#ff4f8b;
---secondary:#ffd6ea;
+--primary-dark:#ff2f73;
+--bg1:#ffe8f3;
+--bg2:#ffd6ea;
+--bg3:#fff4fa;
 --shadow:rgba(255,105,180,.20);
 }
 
 body.birthday{
 --primary:#ff4f8b;
---secondary:#ffd6ea;
---shadow:rgba(255,105,180,.25);
+--primary-dark:#ff2f73;
+--bg1:#ffe8f3;
+--bg2:#ffd6ea;
+--bg3:#fff4fa;
 }
 
 body.love{
---primary:#ff2f73;
---secondary:#ffe5ef;
---shadow:rgba(255,47,115,.25);
+--primary:#ff3366;
+--primary-dark:#ff0d4e;
+--bg1:#ffd7e5;
+--bg2:#ffeaf2;
+--bg3:#fff7fa;
 }
 
 body.sorry{
---primary:#4b8cff;
---secondary:#eef5ff;
---shadow:rgba(75,140,255,.20);
+--primary:#4285f4;
+--primary-dark:#1b5fd3;
+--bg1:#edf5ff;
+--bg2:#d9e9ff;
+--bg3:#ffffff;
 }
 
 body.friendship{
---primary:#ffb400;
---secondary:#fff9d6;
---shadow:rgba(255,180,0,.20);
+--primary:#f4b400;
+--primary-dark:#d79c00;
+--bg1:#fff9d7;
+--bg2:#fff4a8;
+--bg3:#fffef1;
 }
 
 body.proposal{
---primary:#d4a017;
---secondary:#fff6d9;
---shadow:rgba(212,160,23,.20);
+--primary:#d4af37;
+--primary-dark:#b28d18;
+--bg1:#fff8dc;
+--bg2:#fff0c4;
+--bg3:#fffdf6;
 }
 
 body.mother{
---primary:#ff6b9a;
---secondary:#fff0f6;
---shadow:rgba(255,107,154,.20);
+--primary:#ff6699;
+--primary-dark:#e6457d;
+--bg1:#fff0f5;
+--bg2:#ffe5ef;
+--bg3:#fffafd;
 }
 
 body.father{
---primary:#3d6df2;
---secondary:#edf3ff;
---shadow:rgba(61,109,242,.20);
+--primary:#3b82f6;
+--primary-dark:#2563eb;
+--bg1:#eef5ff;
+--bg2:#dce8ff;
+--bg3:#ffffff;
 }
 
 body.eid{
---primary:#18a85d;
---secondary:#effff6;
---shadow:rgba(24,168,93,.20);
+--primary:#16a34a;
+--primary-dark:#12813b;
+--bg1:#ecfff3;
+--bg2:#d8ffe7;
+--bg3:#ffffff;
 }
 
 body.ramadan{
---primary:#14b8a6;
---secondary:#effffd;
---shadow:rgba(20,184,166,.20);
+--primary:#0ea5a4;
+--primary-dark:#0b8b8b;
+--bg1:#ecffff;
+--bg2:#d5fffa;
+--bg3:#ffffff;
 }
 
 body.valentine{
---primary:#ff3366;
---secondary:#fff0f5;
---shadow:rgba(255,51,102,.20);
+--primary:#ff1744;
+--primary-dark:#d50032;
+--bg1:#ffe6ee;
+--bg2:#ffd4df;
+--bg3:#fff8fa;
 }
 
 body.anniversary{
 --primary:#ff8c42;
---secondary:#fff8ef;
---shadow:rgba(255,140,66,.20);
+--primary-dark:#ea6f14;
+--bg1:#fff6ec;
+--bg2:#ffe6cf;
+--bg3:#fffdf8;
 }
 
 body.christmas{
---primary:#1fa34a;
---secondary:#f4fff7;
---shadow:rgba(31,163,74,.20);
+--primary:#16a34a;
+--primary-dark:#0f7d37;
+--bg1:#eefef3;
+--bg2:#dbffe5;
+--bg3:#ffffff;
 }
 
 body.newyear{
---primary:#6c63ff;
---secondary:#f5f5ff;
---shadow:rgba(108,99,255,.20);
+--primary:#6d5dfc;
+--primary-dark:#5340ef;
+--bg1:#f2efff;
+--bg2:#e2dcff;
+--bg3:#ffffff;
 }
-/* ======================================
-   DYNAMIC THEME COLORS
-====================================== */
+
+/* ---------- Headings ---------- */
 
 .logo,
 h1,
 h2,
 h3{
-color:var(--primary);
+color:var(--primary)!important;
 }
+
+/* ---------- Paragraph ---------- */
+
+p,
+.subtitle,
+.quote,
+.letters-subtitle,
+.proposal-subtitle,
+.subtitle-home{
+color:var(--text-light)!important;
+}
+
+/* ---------- Navbar ---------- */
+
+.navbar a{
+color:var(--primary)!important;
+}
+
+.navbar a:hover{
+color:var(--primary-dark)!important;
+}
+
+/* ---------- Buttons ---------- */
 
 button,
 #saveBtn,
+#deleteBtn,
 #continueBtn,
 #startBtn,
 .password-box button{
-background:var(--primary);
+
+background:var(--primary)!important;
+color:#fff!important;
+border:none!important;
+
 }
 
 button:hover,
@@ -1988,26 +2074,98 @@ button:hover,
 #continueBtn:hover,
 #startBtn:hover,
 .password-box button:hover{
-filter:brightness(.92);
+
+background:var(--primary-dark)!important;
+
 }
+
+/* ---------- Cards ---------- */
 
 .container,
-.birthday-card,
-.letter-card,
 .popup-card,
-.proposal-card,
+.letter-card,
+.birthday-card,
 .birthday-letter,
+.proposal-card,
 .gift-container,
 .cake-container{
-box-shadow:0 15px 35px var(--shadow);
+
+background:var(--card)!important;
+box-shadow:0 15px 35px var(--shadow)!important;
+
 }
 
-.navbar a{
-color:var(--primary);
+/* ---------- Inputs ---------- */
+
+input,
+textarea,
+select{
+
+background:#fff!important;
+border:2px solid transparent!important;
+
 }
 
-.quote,
-.subtitle,
-.subtitle-home{
-color:#666;
+input:focus,
+textarea:focus,
+select:focus{
+
+border-color:var(--primary)!important;
+
+}
+
+/* ---------- Progress ---------- */
+
+.progress{
+
+background:linear-gradient(
+90deg,
+var(--primary),
+var(--primary-dark)
+)!important;
+
+}
+
+/* ---------- Gift ---------- */
+
+#giftMessage{
+
+color:var(--primary)!important;
+
+}
+
+/* ---------- Wish ---------- */
+
+#wishMessage{
+
+color:var(--primary)!important;
+
+}
+
+/* ---------- Letter Counter ---------- */
+
+#count{
+
+color:var(--primary)!important;
+
+}
+
+/* ---------- Hover Glow ---------- */
+
+.letter-card:hover,
+.menu a:hover,
+.proposal-card:hover{
+
+box-shadow:0 20px 45px var(--shadow)!important;
+
+}
+
+/* ---------- Smooth ---------- */
+
+*{
+transition:
+background .35s,
+color .35s,
+border-color .35s,
+box-shadow .35s;
 }
