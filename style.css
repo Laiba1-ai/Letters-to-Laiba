@@ -1825,3 +1825,131 @@ background:linear-gradient(135deg,#ffe8f3,#ffd6ea,#fff4fa);
     outline:none;
     box-shadow:0 8px 20px rgba(255,105,180,.15);
 }
+/* ==========================
+   Letter Type
+========================== */
+
+.letter-type{
+
+    width:100%;
+
+    max-width:500px;
+
+    margin:25px auto;
+
+    text-align:center;
+
+}
+
+.letter-type label{
+
+    display:block;
+
+    font-size:18px;
+
+    font-weight:600;
+
+    color:#ff4081;
+
+    margin-bottom:10px;
+
+}
+
+#letterType{
+
+    width:100%;
+
+    padding:15px;
+
+    border:none;
+
+    outline:none;
+
+    border-radius:15px;
+
+    background:white;
+
+    font-size:17px;
+
+    cursor:pointer;
+
+    box-shadow:0 8px 20px rgba(255,105,180,.15);
+
+}
+body.birthday{
+
+background:linear-gradient(135deg,#ffe0f1,#ffd2ea,#fff8fc);
+
+}
+
+body.sorry{
+
+background:linear-gradient(135deg,#dceeff,#eef6ff,#ffffff);
+
+}
+
+body.proposal{
+
+background:linear-gradient(135deg,#fff1db,#ffe8cb,#fffaf5);
+
+}
+
+body.love{
+
+background:linear-gradient(135deg,#ffd8e4,#ffc5d5,#fff4f7);
+
+}
+
+body.friendship{
+
+background:linear-gradient(135deg,#fff8c6,#fff1a8,#fffef0);
+
+}
+
+body.mother{
+
+background:linear-gradient(135deg,#ffe4ef,#ffd7e9,#fff8fc);
+
+}
+
+body.father{
+
+background:linear-gradient(135deg,#dfeeff,#cfe3ff,#f8fbff);
+
+}
+
+body.eid{
+
+background:linear-gradient(135deg,#dfffe7,#c8f7d4,#f7fff9);
+
+}
+
+body.ramadan{
+
+background:linear-gradient(135deg,#d7fff2,#c6ffee,#f5fffc);
+
+}
+
+body.valentine{
+
+background:linear-gradient(135deg,#ffd8e2,#ffc3d3,#fff2f6);
+
+}
+
+body.anniversary{
+
+background:linear-gradient(135deg,#ffe7ef,#ffd8e8,#fff8fc);
+
+}
+
+body.christmas{
+
+background:linear-gradient(135deg,#e4ffe8,#d5ffd8,#ffffff);
+
+}
+
+body.newyear{
+
+background:linear-gradient(135deg,#fff6d8,#fff0bd,#fffdf5);
+
+}

@@ -624,3 +624,48 @@ document.body.classList.add(this.value);
 });
 
 }
+// ===============================
+// Letter Theme Switcher
+// ===============================
+
+const letterType = document.getElementById("letterType");
+
+if(letterType){
+
+letterType.addEventListener("change",function(){
+
+document.body.classList.remove(
+
+"birthday",
+
+"sorry",
+
+"proposal",
+
+"love",
+
+"friendship",
+
+"mother",
+
+"father",
+
+"eid",
+
+"ramadan",
+
+"valentine",
+
+"anniversary",
+
+"christmas",
+
+"newyear"
+
+);
+
+document.body.classList.add(this.value);
+
+});
+
+}
