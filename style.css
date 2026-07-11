@@ -18,19 +18,7 @@ body{
 .background{
     position:fixed;
     inset:0;
-    background:
-    radial-gradient(circle at top left,
-    rgba(255,182,193,.35),
-    transparent 35%),
-
-    radial-gradient(circle at bottom right,
-    rgba(255,105,180,.20),
-    transparent 35%),
-
-    linear-gradient(135deg,#ffe8f3,#ffd8eb,#fff6fb);
-
-    background-size:cover;
-
+    background:inherit;
     z-index:-2;
 }
 
@@ -1836,83 +1824,50 @@ box-shadow:0 8px 20px rgba(255,105,180,.12);
     box-shadow:0 8px 20px rgba(255,105,180,.15);
 
 }
-body.simple{
+body.simple .background{
 background:linear-gradient(135deg,#ffe8f3,#ffd6ea,#fff4fa);
 }
 
-body.birthday{
+body.birthday .background{
 background:linear-gradient(135deg,#ffe0ec,#ffd1e6);
 }
 
-body.sorry{
-background:linear-gradient(135deg,#d6e4ff,#f2f6ff);
-}
-
-body.proposal{
-background:linear-gradient(135deg,#ffe5e5,#fff5f5);
-}
-
-body.love{
+body.love .background{
 background:linear-gradient(135deg,#ffccd9,#ffeaf1);
 }
 
-body.friendship{
+body.sorry .background{
+background:linear-gradient(135deg,#d6e4ff,#f2f6ff);
+}
+
+body.friendship .background{
 background:linear-gradient(135deg,#fff6c8,#fffbe8);
 }
 
-body.mother{
-background:linear-gradient(135deg,#ffe9f2,#fff8fb);
+body.proposal .background{
+background:linear-gradient(135deg,#ffe5e5,#fff5f5);
 }
 
-body.father{
-background:linear-gradient(135deg,#dde7ff,#f5f8ff);
-}
-
-body.eid{
+body.eid .background{
 background:linear-gradient(135deg,#d8ffe7,#f5fff9);
 }
 
-body.ramadan{
+body.ramadan .background{
 background:linear-gradient(135deg,#d7fff3,#effffc);
 }
 
-body.valentine{
+body.valentine .background{
 background:linear-gradient(135deg,#ffccd8,#fff0f4);
 }
 
-body.anniversary{
+body.anniversary .background{
 background:linear-gradient(135deg,#fff0d8,#fff9f2);
 }
 
-body.christmas{
+body.christmas .background{
 background:linear-gradient(135deg,#d7ffe0,#fff4f4);
 }
 
-body.newyear{
+body.newyear .background{
 background:linear-gradient(135deg,#dde9ff,#f7f9ff);
-}
-#proposalBox{
-
-display:none;
-
-text-align:center;
-
-padding:20px;
-
-}
-
-#ring{
-
-font-size:100px;
-
-cursor:pointer;
-
-transition:.4s;
-
-}
-
-#ring:hover{
-
-transform:scale(1.15) rotate(-10deg);
-
 }

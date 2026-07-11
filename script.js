@@ -624,9 +624,24 @@ letterType.addEventListener("change",function(){
 
 const type=this.value;
 
-document.body.className="";
+document.body.classList.remove(
+"simple",
+"birthday",
+"love",
+"sorry",
+"friendship",
+"proposal",
+"mother",
+"father",
+"eid",
+"ramadan",
+"valentine",
+"anniversary",
+"christmas",
+"newyear"
+);
 
-document.body.classList.add(type);
+document.body.classList.add(letterType.value);
 
 // Birthday
 document.querySelector(".cake-container").style.display =
