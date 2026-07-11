@@ -137,7 +137,10 @@ document.addEventListener("mousemove", function(e){
 
     heart.className = "cursor-heart";
 
-    heart.innerHTML = "💖";
+    const cursorIcons = themeEffects[currentTheme] || ["💖"];
+
+heart.innerHTML =
+cursorIcons[Math.floor(Math.random() * cursorIcons.length)];
 
     heart.style.left = e.clientX + "px";
     heart.style.top = e.clientY + "px";
@@ -239,7 +242,9 @@ if (fireworks) {
         const fw = document.createElement("div");
 
         fw.className = "firework";
-
+if (
+    !["birthday", "newyear", "anniversary"].includes(currentTheme)
+) return;
        const icons = floatingIcons;
 
         fw.innerHTML = icons[Math.floor(Math.random() * icons.length)];
@@ -262,7 +267,16 @@ if (fireworks) {
 const confetti = document.getElementById("confetti");
 
 if (confetti) {
-
+if (
+    ![
+        "birthday",
+        "proposal",
+        "eid",
+        "christmas",
+        "newyear",
+        "valentine"
+    ].includes(currentTheme)
+) return;
     function createConfetti() {
 
         const piece = document.createElement("div");
@@ -667,6 +681,84 @@ function applyTheme(type) {
     currentTheme = type;
 
     floatingIcons = themeEffects[type] || themeEffects.simple;
+    // Background Change
+const bg = document.querySelector(".background");
+
+if (bg) {
+
+    switch (type) {
+
+        case "love":
+            bg.style.background =
+                "linear-gradient(135deg,#ff9ec4,#ff5d9e)";
+            break;
+
+        case "sorry":
+            bg.style.background =
+                "linear-gradient(135deg,#6c7a89,#2c3e50)";
+            break;
+
+        case "proposal":
+            bg.style.background =
+                "linear-gradient(135deg,#ffd89b,#19547b)";
+            break;
+
+        case "birthday":
+            bg.style.background =
+                "linear-gradient(135deg,#ff9a9e,#fad0c4)";
+            break;
+
+        case "friendship":
+            bg.style.background =
+                "linear-gradient(135deg,#43cea2,#185a9d)";
+            break;
+
+        case "mother":
+            bg.style.background =
+                "linear-gradient(135deg,#fbc2eb,#a6c1ee)";
+            break;
+
+        case "father":
+            bg.style.background =
+                "linear-gradient(135deg,#667eea,#764ba2)";
+            break;
+
+        case "eid":
+            bg.style.background =
+                "linear-gradient(135deg,#0f9b0f,#000428)";
+            break;
+
+        case "ramadan":
+            bg.style.background =
+                "linear-gradient(135deg,#141e30,#243b55)";
+            break;
+
+        case "valentine":
+            bg.style.background =
+                "linear-gradient(135deg,#ff758c,#ff7eb3)";
+            break;
+
+        case "anniversary":
+            bg.style.background =
+                "linear-gradient(135deg,#f6d365,#fda085)";
+            break;
+
+        case "christmas":
+            bg.style.background =
+                "linear-gradient(135deg,#11998e,#38ef7d)";
+            break;
+
+        case "newyear":
+            bg.style.background =
+                "linear-gradient(135deg,#4facfe,#00f2fe)";
+            break;
+
+        default:
+            bg.style.background =
+                "linear-gradient(135deg,#1d2671,#c33764)";
+    }
+
+}
 
     const cake = document.getElementById("cakeContainer");
     if (cake) {
