@@ -30,7 +30,94 @@
 <p>
 Some feelings are too beautiful to stay hidden forever. ❤️
 </p>
+<div class="birthday-grid">
 
+    <!-- LEFT -->
+
+    <div class="birthday-letter">
+
+        <h2>💍 Your Proposal</h2>
+
+        <textarea
+            id="proposalMessage"
+            placeholder="Write your proposal here..."></textarea>
+
+        <br><br>
+
+        <button>
+            💖 Save Proposal
+        </button>
+
+    </div>
+
+    <!-- RIGHT -->
+
+    <div class="right-side">
+
+        <!-- Upload -->
+
+        <div class="gift-container">
+
+            <h2>📷 Upload Photo</h2>
+
+            <input
+                type="file"
+                id="proposalPhoto"
+                accept="image/*">
+
+            <img
+                id="proposalPreview"
+                style="display:none;max-width:100%;border-radius:12px;">
+
+        </div>
+
+        <!-- Gift -->
+
+        <div
+            class="gift-container"
+            id="proposalGift">
+
+            🎁
+
+        </div>
+
+        <div
+            id="proposalGiftMessage"
+            style="display:none;">
+
+            💖 A beautiful surprise is waiting...
+
+        </div>
+
+        <!-- Flower -->
+
+        <div
+            class="cake-container"
+            id="proposalFlower">
+
+            🌹
+
+        </div>
+
+        <div
+            id="proposalRing"
+            style="display:none;font-size:90px;">
+
+            💍
+
+        </div>
+
+        <h2
+            id="proposalText"
+            style="display:none;">
+
+            Will You Marry Me? ❤️
+
+        </h2>
+
+    </div>
+
+</div>
 <button onclick="window.location.href='home.html'">
 🏠 Back Home
 </button>

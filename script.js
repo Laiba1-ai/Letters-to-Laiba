@@ -879,3 +879,62 @@ this.innerHTML="📋 Copy Letter";
 });
 
 });
+// ===============================
+// Proposal Page
+// ===============================
+
+const proposalPhoto = document.getElementById("proposalPhoto");
+const proposalPreview = document.getElementById("proposalPreview");
+
+if (proposalPhoto && proposalPreview) {
+
+    proposalPhoto.addEventListener("change", function () {
+
+        const file = this.files[0];
+
+        if (file) {
+
+            proposalPreview.src = URL.createObjectURL(file);
+            proposalPreview.style.display = "block";
+
+        }
+
+    });
+
+}
+
+const proposalGift = document.getElementById("proposalGift");
+const proposalGiftMessage = document.getElementById("proposalGiftMessage");
+
+if (proposalGift && proposalGiftMessage) {
+
+    proposalGift.addEventListener("click", function () {
+
+        proposalGift.innerHTML = "💝";
+
+        proposalGiftMessage.style.display = "block";
+
+        proposalGiftMessage.innerHTML =
+        "❤️ Every love story begins with one beautiful question.";
+
+    });
+
+}
+
+const proposalFlower = document.getElementById("proposalFlower");
+const proposalRing = document.getElementById("proposalRing");
+const proposalText = document.getElementById("proposalText");
+
+if (proposalFlower && proposalRing && proposalText) {
+
+    proposalFlower.addEventListener("click", function () {
+
+        proposalFlower.innerHTML = "💐";
+
+        proposalRing.style.display = "block";
+
+        proposalText.style.display = "block";
+
+    });
+
+}
