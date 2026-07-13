@@ -9,6 +9,8 @@ const websitePassword = "laiba123";
 
 let floatingIcons = ["❤","💖","✨"];
 
+let currentTheme = "simple";
+
 const themeEffects = {
 
 simple:["🤍","✨","🌿"],
@@ -267,7 +269,9 @@ if (
 const confetti = document.getElementById("confetti");
 
 if (confetti) {
-if (
+
+    function createConfetti() {
+        if (
     ![
         "birthday",
         "proposal",
@@ -276,8 +280,9 @@ if (
         "newyear",
         "valentine"
     ].includes(currentTheme)
-) return;
-    function createConfetti() {
+){
+    return;
+}
 
         const piece = document.createElement("div");
 
@@ -563,9 +568,10 @@ if(message && counter){
 
     message.addEventListener("input",()=>{
 
-        counter.innerHTML="0 / 2000";
+counter.innerHTML =
+message.value.length + " / 2000";
 
-    });
+});
 
 }
 
@@ -582,7 +588,7 @@ if(saveBtn){
     localStorage.getItem("letterMessage") || "";
 
     counter.innerHTML =
-    document.getElementById("message").value.length + " / 150";
+document.getElementById("message").value.length + " / 2000";
 
     saveBtn.addEventListener("click",()=>{
 
@@ -675,7 +681,8 @@ function applyTheme(type) {
         "christmas",
         "newyear"
     );
-
+ 
+    
     document.body.classList.add(type);
 
     currentTheme = type;
