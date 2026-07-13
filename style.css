@@ -10,9 +10,34 @@ body{
     min-height:100vh;
     font-family:'Poppins',sans-serif;
     overflow-x:hidden;
+    overflow-y:auto;
     background:linear-gradient(135deg,#ffe8f3 0%,#ffd6ea 40%,#fff4fa 100%);
     background-attachment:fixed;
     animation:pageFade .8s ease;
+}
+.cursor-heart{
+
+position:fixed;
+
+pointer-events:none;
+
+z-index:999999;
+
+font-size:24px;
+
+will-change:transform;
+
+}
+.heart{
+
+position:fixed;
+
+bottom:-50px;
+
+pointer-events:none;
+
+z-index:9999;
+
 }
 /* Animated Background */
 .background{
@@ -1954,8 +1979,15 @@ background:linear-gradient(135deg,#dde9ff,#f7f9ff);
 /* ---------- Background ---------- */
 
 body{
-background:linear-gradient(135deg,var(--bg1),var(--bg2),var(--bg3));
-transition:.45s;
+
+background:
+linear-gradient(
+135deg,
+var(--bg1),
+var(--bg2),
+var(--bg3)
+);
+
 }
 
 .background{

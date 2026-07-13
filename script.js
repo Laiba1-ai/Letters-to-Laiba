@@ -133,25 +133,26 @@ if (intro && startBtn) {
 
 }
 
-document.addEventListener("mousemove", function(e){
+document.addEventListener("mousemove",(e)=>{
 
-    const heart = document.createElement("div");
+const heart=document.createElement("div");
 
-    heart.className = "cursor-heart";
+heart.className="cursor-heart";
 
-    const cursorIcons = themeEffects[currentTheme] || ["💖"];
+const icons =
+themeEffects[currentTheme] || themeEffects.simple;
 
-heart.innerHTML =
-cursorIcons[Math.floor(Math.random() * cursorIcons.length)];
+heart.textContent=
+icons[Math.floor(Math.random()*icons.length)];
 
-    heart.style.left = e.clientX + "px";
-    heart.style.top = e.clientY + "px";
+heart.style.left=e.pageX+"px";
+heart.style.top=e.pageY+"px";
 
-    document.body.appendChild(heart);
+document.body.appendChild(heart);
 
-    setTimeout(()=>{
-        heart.remove();
-    },800);
+setTimeout(()=>{
+heart.remove();
+},800);
 
 });
 const heartsContainer = document.getElementById("floating-hearts");
@@ -186,7 +187,7 @@ icons[Math.floor(Math.random() * icons.length)];
 
     }
 
-    setInterval(createFloatingIcon, 350);
+   setInterval(createFloatingIcon,600);
 
 }
 // ==========================
@@ -259,7 +260,11 @@ if (fireworks) {
 if (
     !["birthday", "newyear", "anniversary"].includes(currentTheme)
 ) return;
-       const icons = floatingIcons;
+       const icons =
+themeEffects[currentTheme] || themeEffects.simple;
+
+icon.textContent =
+icons[Math.floor(Math.random()*icons.length)];
 
         fw.innerHTML = icons[Math.floor(Math.random() * icons.length)];
 
@@ -307,7 +312,7 @@ if (confetti) {
 
         piece.className = "confetti";
 
-const items = floatingIcons;
+const items = themeEffects[currentTheme] || themeEffects.simple;
         piece.innerHTML = items[Math.floor(Math.random() * items.length)];
 
         piece.style.left = Math.random() * 100 + "vw";
