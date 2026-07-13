@@ -338,16 +338,16 @@ const typingText = document.getElementById("typingText");
 
 if (typingText) {
 
-    const message =
+const birthdayMessage =
 "Happy Birthday! 🎂 May your day be filled with happiness, laughter, beautiful memories, and endless blessings. May every dream you have come true, and may every new year bring more success, love, and peace into your life. 💖✨";
 
     let i = 0;
 
     function typeLetter() {
 
-        if (i < message.length) {
+        if (i < birthdayMessage.length) {
 
-            typingText.innerHTML += message.charAt(i);
+            typingText.innerHTML += birthdayMessage.charAt(i)
 
             i++;
 
@@ -364,7 +364,8 @@ if (typingText) {
 // Birthday Cake
 // ==========================
 
-const cake = document.getElementById("cake");
+const cakeContainer =
+document.getElementById("cakeContainer");
 const wishMessage = document.getElementById("wishMessage");
 
 if (cake && wishMessage){
@@ -409,37 +410,29 @@ const flowerText = document.getElementById("flowerText");
 const proposalBox =
 document.getElementById("proposalBox");
 
-if(flower){
+if (flower && flowerText) {
 
-flower.onclick=function(){
+    flower.onclick = function () {
 
-flower.innerHTML="💐";
+        flower.innerHTML = "💐";
+        flower.style.transform = "scale(1.2)";
+        flowerText.innerHTML = "💍 A Surprise For You";
 
-flower.style.transform="scale(1.2)";
+        if (proposalBox) {
+            proposalBox.style.display = "none";
+        }
 
-flowerText.innerHTML="💍 A Surprise For You";
+        const proposalFlower =
+            document.getElementById("proposalFlower");
 
-const proposalFlower =
-document.getElementById("proposalFlower");
+        if (proposalFlower) {
+            proposalFlower.style.display = "block";
+        }
 
-if(proposalBox){
-
-proposalBox.style.display="none";
-
-}
-
-if(proposalFlower){
-
-proposalFlower.style.display =
-type==="proposal"
-? "block"
-: "none";
+    };
 
 }
 
-};
-
-}
 // ==========================
 // Smooth Page Transition
 // ==========================
@@ -450,7 +443,11 @@ document.querySelectorAll("a").forEach(link => {
 
         const href = this.getAttribute("href");
 
-        if(href){
+        if (
+    href &&
+    !href.startsWith("#") &&
+    !href.startsWith("javascript:")
+) {
 
             e.preventDefault();
 
@@ -480,11 +477,10 @@ const images = [
     "images/pic4.jpg",
     "images/pic5.jpg",
     "images/pic6.jpg"
-];
-
+].filter(Boolean);
 let current = 0;
 
-if (slider) {
+if (slider && images.length > 0) {
 
     setInterval(() => {
         current = (current + 1) % images.length;
@@ -623,19 +619,18 @@ letterCards.forEach(card => {
    WRITE LETTER PAGE
 ====================================== */
 
-const message = document.getElementById("message");
+cconstletterMessage = document.getElementById("message");
 const counter = document.getElementById("count");
 const saveBtn = document.getElementById("saveBtn");
 const deleteBtn = document.getElementById("deleteBtn");
-
 if(message && counter){
 
-    counter.innerHTML = message.value.length + " / 2000";
+    counter.innerHTML = letterMessage.value.length + " / 2000";
 
-    message.addEventListener("input",()=>{
+   letterMessage.addEventListener("input",()=>{
 
 counter.innerHTML =
-message.value.length + " / 2000";
+letterMessage.value.length + " / 2000";
 
 });
 
@@ -650,11 +645,11 @@ if(saveBtn){
     document.getElementById("title").value =
     localStorage.getItem("letterTitle") || "";
 
-    document.getElementById("message").value =
+    document.getElementByIdletterMessage.value =
     localStorage.getItem("letterMessage") || "";
 
     counter.innerHTML =
-document.getElementById("message").value.length + " / 2000";
+document.getElementByIdletterMessage.value.length + " / 2000";
 
     saveBtn.addEventListener("click",()=>{
 
@@ -693,8 +688,7 @@ if(deleteBtn){
             document.getElementById("title").value="";
             document.getElementById("message").value="";
 
-            counter.innerHTML="0 / 150";
-
+counter.innerHTML = "0 / 2000";
             alert("🗑 Letter Deleted!");
 
         }
@@ -730,25 +724,47 @@ if (photo && preview) {
 const letterType = document.getElementById("letterType");
 
 function applyTheme(type) {
-document.querySelectorAll(".heart").forEach(e=>e.remove());
-document.querySelectorAll(".confetti").forEach(e=>e.remove());
-document.querySelectorAll(".firework").forEach(e=>e.remove());
-document.querySelectorAll(".balloon").forEach(e=>e.remove());
-document.querySelectorAll(".cursor-heart").forEach(e=>e.remove());
-    
-    
+
+    // Remove old theme classes
+    document.body.classList.remove(
+        "simple",
+        "love",
+        "sorry",
+        "proposal",
+        "birthday",
+        "friendship",
+        "mother",
+        "father",
+        "eid",
+        "ramadan",
+        "valentine",
+        "anniversary",
+        "christmas",
+        "newyear"
+    );
+
+    // Add new theme
     document.body.classList.add(type);
 
     currentTheme = type;
-
     floatingIcons = themeEffects[type] || themeEffects.simple;
+
+    // Remove old effects
+    document.querySelectorAll(
+        ".heart,.confetti,.firework,.balloon,.cursor-heart"
+    ).forEach(el => el.remove());
+
+    // Birthday Cake
+    if (cakeContainer) {
+
+    cakeContainer.style.display =
+        type === "birthday"
+        ? "block"
+        : "none";
+
 }
 
-    const cake = document.getElementById("cakeContainer");
-    if (cake) {
-        cake.style.display = type === "birthday" ? "block" : "none";
-    }
-
+    // Gift
     const gift = document.getElementById("giftContainer");
     if (gift) {
         gift.style.display =
@@ -757,24 +773,42 @@ document.querySelectorAll(".cursor-heart").forEach(e=>e.remove());
                 : "none";
     }
 
+    // Proposal Box
     const proposal = document.getElementById("proposalBox");
     if (proposal) {
-        proposal.style.display="none";
+        proposal.style.display =
+            type === "proposal"
+                ? "block"
+                : "none";
+    }
 
-if(proposalFlower){
+    // Proposal Flower
+    const proposalFlower =
+        document.getElementById("proposalFlower");
 
-proposalFlower.style.display=
-type==="proposal"
-? "block"
-: "none";
-
+    if (proposalFlower) {
+        proposalFlower.style.display =
+            type === "proposal"
+                ? "block"
+                : "none";
+    }
+localStorage.setItem("selectedTheme", type);
 }
-
-}
-
 if (letterType) {
 
-    applyTheme(letterType.value);
+    const savedTheme =
+        localStorage.getItem("selectedTheme");
+
+    if (savedTheme) {
+
+        letterType.value = savedTheme;
+        applyTheme(savedTheme);
+
+    } else {
+
+        applyTheme(letterType.value);
+
+    }
 
     letterType.addEventListener("change", function () {
 
@@ -783,6 +817,7 @@ if (letterType) {
     });
 
 }
+
 // ===============================
 // Copy Letter
 // ===============================
@@ -793,7 +828,26 @@ btn.addEventListener("click",function(){
 
 const text=this.previousElementSibling.innerText;
 
-navigator.clipboard.writeText(text);
+if (navigator.clipboard) {
+
+    navigator.clipboard.writeText(text);
+
+} else {
+
+    const textarea =
+        document.createElement("textarea");
+
+    textarea.value = text;
+
+    document.body.appendChild(textarea);
+
+    textarea.select();
+
+    document.execCommand("copy");
+
+    textarea.remove();
+
+}
 
 this.innerHTML="✅ Copied!";
 
@@ -869,20 +923,25 @@ const saveProposal = document.getElementById("saveProposal");
 const proposalMessage =
 document.getElementById("proposalMessage");
 
-if(saveProposal){
+if (proposalMessage) {
 
-saveProposal.onclick=function(){
-
-localStorage.setItem(
-"proposalMessage",
-proposalMessage.value
-);
-
-alert("💖 Proposal Saved!");
-
-};
-
-proposalMessage.value =
-localStorage.getItem("proposalMessage") || "";
+    proposalMessage.value =
+        localStorage.getItem("proposalMessage") || "";
 
 }
+window.onerror = function (
+    message,
+    source,
+    line,
+    column,
+    error
+) {
+
+    console.error(
+        "JS Error:",
+        message,
+        "Line:",
+        line
+    );
+
+};
