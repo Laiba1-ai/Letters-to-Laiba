@@ -392,7 +392,36 @@ if (giftBox && giftMessage){
     };
 
 }
+// ==========================
+// Proposal Flower
+// ==========================
 
+const flower = document.getElementById("flower");
+
+const flowerText = document.getElementById("flowerText");
+
+const proposalBox =
+document.getElementById("proposalBox");
+
+if(flower){
+
+flower.onclick=function(){
+
+flower.innerHTML="💐";
+
+flower.style.transform="scale(1.2)";
+
+flowerText.innerHTML="💍 A Surprise For You";
+
+if(proposalBox){
+
+proposalBox.style.display="block";
+
+}
+
+};
+
+}
 // ==========================
 // Smooth Page Transition
 // ==========================
@@ -800,11 +829,19 @@ if (bg) {
     }
 
     const proposal = document.getElementById("proposalBox");
+    const proposalFlower =
+document.getElementById("proposalFlower");
     if (proposal) {
-        proposal.style.display =
-            type === "proposal"
-                ? "block"
-                : "none";
+        proposal.style.display="none";
+
+if(proposalFlower){
+
+proposalFlower.style.display=
+type==="proposal"
+? "block"
+: "none";
+
+}
     }
 }
 

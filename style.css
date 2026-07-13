@@ -2258,3 +2258,46 @@ transform:scale(1.06);
 box-shadow:0 8px 20px rgba(255,0,100,.3);
 
 }
+/* ===========================
+Proposal Flower
+=========================== */
+
+#proposalFlower{
+
+display:none;
+
+text-align:center;
+
+margin-top:20px;
+
+animation:fadeIn .6s ease;
+
+}
+
+#flower{
+
+font-size:90px;
+
+cursor:pointer;
+
+transition:.4s;
+
+}
+
+#flower:hover{
+
+transform:scale(1.15) rotate(-8deg);
+
+}
+
+#flowerText{
+
+margin-top:10px;
+
+font-size:18px;
+
+font-weight:600;
+
+color:#fff;
+
+}
