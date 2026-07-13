@@ -240,6 +240,18 @@ const fireworks = document.getElementById("fireworks");
 if (fireworks) {
 
     function createFirework() {
+        if (
+    ![
+        "birthday",
+        "love",
+        "proposal",
+        "anniversary",
+        "newyear",
+        "valentine"
+    ].includes(currentTheme)
+){
+    return;
+}
 
         const fw = document.createElement("div");
 
@@ -275,10 +287,17 @@ if (confetti) {
     ![
         "birthday",
         "proposal",
+        "love",
+        "sorry",
+        "friendship",
+        "mother",
+        "father",
+        "ramadan",
         "eid",
         "christmas",
         "newyear",
-        "valentine"
+        "valentine",
+        "anniversary"
     ].includes(currentTheme)
 ){
     return;
