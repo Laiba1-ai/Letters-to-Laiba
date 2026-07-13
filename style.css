@@ -1934,11 +1934,7 @@ var(--bg2),
 var(--bg3)
 );
 
-}
-
-.background{
-background:inherit;
-transition:.45s;
+transition:background .5s;
 }
 
 /* ---------- Theme Variables ---------- */

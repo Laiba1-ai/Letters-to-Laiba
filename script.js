@@ -133,14 +133,16 @@ if (intro && startBtn) {
 
 }
 
+if(document.getElementById("letterType")){
+
 document.addEventListener("mousemove",(e)=>{
 
 const heart=document.createElement("div");
 
 heart.className="cursor-heart";
 
-const icons =
-themeEffects[currentTheme] || themeEffects.simple;
+const icons=
+themeEffects[currentTheme]||themeEffects.simple;
 
 heart.textContent=
 icons[Math.floor(Math.random()*icons.length)];
@@ -155,6 +157,8 @@ heart.remove();
 },800);
 
 });
+
+}
 const heartsContainer = document.getElementById("floating-hearts");
 
 if (heartsContainer) {
@@ -369,6 +373,8 @@ document.getElementById("cakeContainer");
 const wishMessage = document.getElementById("wishMessage");
 
 if (cake && wishMessage){
+    const cake = document.getElementById("cake");
+
 
     cake.onclick = function(){
 
@@ -619,11 +625,11 @@ letterCards.forEach(card => {
    WRITE LETTER PAGE
 ====================================== */
 
-cconstletterMessage = document.getElementById("message");
+const letterMessage = document.getElementById("message");
 const counter = document.getElementById("count");
 const saveBtn = document.getElementById("saveBtn");
 const deleteBtn = document.getElementById("deleteBtn");
-if(message && counter){
+if(letterMessage && counter){
 
     counter.innerHTML = letterMessage.value.length + " / 2000";
 
@@ -645,12 +651,11 @@ if(saveBtn){
     document.getElementById("title").value =
     localStorage.getItem("letterTitle") || "";
 
-    document.getElementByIdletterMessage.value =
-    localStorage.getItem("letterMessage") || "";
+    letterMessage.value =
+localStorage.getItem("letterMessage") || "";
 
-    counter.innerHTML =
-document.getElementByIdletterMessage.value.length + " / 2000";
-
+counter.innerHTML =
+letterMessage.value.length + " / 2000";
     saveBtn.addEventListener("click",()=>{
 
         localStorage.setItem(
