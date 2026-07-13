@@ -936,9 +936,7 @@ if (proposalFlower && proposalRing && proposalText) {
     });
 
 }
-const saveProposal =
-document.getElementById("saveProposal");
-
+const saveProposal = document.getElementById("saveProposal");
 const proposalMessage =
 document.getElementById("proposalMessage");
 
