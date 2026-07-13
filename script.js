@@ -819,3 +819,26 @@ if (letterType) {
     });
 
 }
+// ===============================
+// Copy Letter
+// ===============================
+
+document.querySelectorAll(".copy-btn").forEach(btn=>{
+
+btn.addEventListener("click",function(){
+
+const text=this.previousElementSibling.innerText;
+
+navigator.clipboard.writeText(text);
+
+this.innerHTML="✅ Copied!";
+
+setTimeout(()=>{
+
+this.innerHTML="📋 Copy Letter";
+
+},2000);
+
+});
+
+});

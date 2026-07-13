@@ -2223,3 +2223,38 @@ color .35s,
 border-color .35s,
 box-shadow .35s;
 }
+/* Copy Button */
+
+.copy-btn{
+
+margin-top:15px;
+
+padding:10px 20px;
+
+border:none;
+
+border-radius:30px;
+
+background:#ff4f8b;
+
+color:#fff;
+
+font-size:15px;
+
+cursor:pointer;
+
+transition:.3s;
+
+font-weight:600;
+
+}
+
+.copy-btn:hover{
+
+background:#ff2d73;
+
+transform:scale(1.06);
+
+box-shadow:0 8px 20px rgba(255,0,100,.3);
+
+}
