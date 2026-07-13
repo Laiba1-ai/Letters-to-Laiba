@@ -132,35 +132,32 @@ if (intro && startBtn) {
     };
 
 }
+document.addEventListener("mousemove", (e) => {
 
-if(document.getElementById("letterType")){
+    const heart = document.createElement("div");
 
-document.addEventListener("mousemove",(e)=>{
+    heart.className = "cursor-heart";
 
-const heart=document.createElement("div");
+    const icons = themeEffects[currentTheme] || themeEffects.simple;
 
-heart.className="cursor-heart";
+    heart.textContent =
+        icons[Math.floor(Math.random() * icons.length)];
 
-const icons=
-themeEffects[currentTheme]||themeEffects.simple;
+    heart.style.left = e.pageX + "px";
+    heart.style.top = e.pageY + "px";
 
-heart.textContent=
-icons[Math.floor(Math.random()*icons.length)];
+    document.body.appendChild(heart);
 
-heart.style.left=e.pageX+"px";
-heart.style.top=e.pageY+"px";
-
-document.body.appendChild(heart);
-
-setTimeout(()=>{
-heart.remove();
-},800);
+    setTimeout(() => {
+        heart.remove();
+    }, 800);
 
 });
 
-}
-const heartsContainer = document.getElementById("floating-hearts");
-
+const heartsContainer =
+isWriteLetterPage
+? document.getElementById("floating-hearts")
+: null;
 if (heartsContainer) {
 
     function createFloatingIcon() {
@@ -210,8 +207,10 @@ if (continueBtn) {
 }
 
 
-const balloons = document.getElementById("balloons");
-
+const balloons =
+isWriteLetterPage
+? document.getElementById("balloons")
+: null;
 if (balloons) {
 
     function createBalloon() {
@@ -241,7 +240,10 @@ if (balloons) {
 
 }
 
-const fireworks = document.getElementById("fireworks");
+const fireworks =
+isWriteLetterPage
+? document.getElementById("fireworks")
+: null;
 
 if (fireworks) {
 
@@ -288,7 +290,10 @@ icons[Math.floor(Math.random()*icons.length)];
 
 }
 
-const confetti = document.getElementById("confetti");
+const confetti =
+isWriteLetterPage
+? document.getElementById("confetti")
+: null;
 
 if (confetti) {
 
@@ -372,8 +377,8 @@ const cakeContainer =
 document.getElementById("cakeContainer");
 const wishMessage = document.getElementById("wishMessage");
 
-if (cake && wishMessage){
     const cake = document.getElementById("cake");
+if (cake && wishMessage){
 
 
     cake.onclick = function(){
