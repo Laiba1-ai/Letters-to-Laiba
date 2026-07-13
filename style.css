@@ -46,61 +46,7 @@ z-index:9999;
     background:inherit;
     z-index:-2;
 }
-body.simple .background{
-    filter:none;
-}
 
-body.love .background{
-    filter:hue-rotate(-20deg) saturate(1.5);
-}
-
-body.sorry .background{
-    filter:grayscale(.5) brightness(.75);
-}
-
-body.proposal .background{
-    filter:saturate(1.8);
-}
-
-body.birthday .background{
-    filter:saturate(2);
-}
-
-body.friendship .background{
-    filter:hue-rotate(60deg);
-}
-
-body.mother .background{
-    filter:brightness(1.1) saturate(1.4);
-}
-
-body.father .background{
-    filter:contrast(1.2);
-}
-
-body.eid .background{
-    filter:hue-rotate(90deg);
-}
-
-body.ramadan .background{
-    filter:brightness(.8);
-}
-
-body.valentine .background{
-    filter:saturate(2);
-}
-
-body.anniversary .background{
-    filter:sepia(.2);
-}
-
-body.christmas .background{
-    filter:hue-rotate(120deg);
-}
-
-body.newyear .background{
-    filter:brightness(1.3) saturate(2);
-}
 @keyframes bgMove{
     0%{background-position:0% 50%;}
     50%{background-position:100% 50%;}

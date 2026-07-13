@@ -211,6 +211,7 @@ const balloons = document.getElementById("balloons");
 if (balloons) {
 
     function createBalloon() {
+        if(currentTheme !== "birthday") return;
 
         const balloon = document.createElement("div");
 
@@ -263,7 +264,7 @@ if (
        const icons =
 themeEffects[currentTheme] || themeEffects.simple;
 
-icon.textContent =
+fw.innerHTML =
 icons[Math.floor(Math.random()*icons.length)];
 
         fw.innerHTML = icons[Math.floor(Math.random() * icons.length)];
@@ -418,9 +419,21 @@ flower.style.transform="scale(1.2)";
 
 flowerText.innerHTML="💍 A Surprise For You";
 
+const proposalFlower =
+document.getElementById("proposalFlower");
+
 if(proposalBox){
 
-proposalBox.style.display="block";
+proposalBox.style.display="none";
+
+}
+
+if(proposalFlower){
+
+proposalFlower.style.display =
+type==="proposal"
+? "block"
+: "none";
 
 }
 
@@ -717,107 +730,18 @@ if (photo && preview) {
 const letterType = document.getElementById("letterType");
 
 function applyTheme(type) {
-
-    document.body.classList.remove(
-        "simple",
-        "birthday",
-        "love",
-        "sorry",
-        "friendship",
-        "proposal",
-        "mother",
-        "father",
-        "eid",
-        "ramadan",
-        "valentine",
-        "anniversary",
-        "christmas",
-        "newyear"
-    );
- 
+document.querySelectorAll(".heart").forEach(e=>e.remove());
+document.querySelectorAll(".confetti").forEach(e=>e.remove());
+document.querySelectorAll(".firework").forEach(e=>e.remove());
+document.querySelectorAll(".balloon").forEach(e=>e.remove());
+document.querySelectorAll(".cursor-heart").forEach(e=>e.remove());
+    
     
     document.body.classList.add(type);
 
     currentTheme = type;
 
     floatingIcons = themeEffects[type] || themeEffects.simple;
-    // Background Change
-const bg = document.querySelector(".background");
-
-if (bg) {
-
-    switch (type) {
-
-        case "love":
-            bg.style.background =
-                "linear-gradient(135deg,#ff9ec4,#ff5d9e)";
-            break;
-
-        case "sorry":
-            bg.style.background =
-                "linear-gradient(135deg,#6c7a89,#2c3e50)";
-            break;
-
-        case "proposal":
-            bg.style.background =
-                "linear-gradient(135deg,#ffd89b,#19547b)";
-            break;
-
-        case "birthday":
-            bg.style.background =
-                "linear-gradient(135deg,#ff9a9e,#fad0c4)";
-            break;
-
-        case "friendship":
-            bg.style.background =
-                "linear-gradient(135deg,#43cea2,#185a9d)";
-            break;
-
-        case "mother":
-            bg.style.background =
-                "linear-gradient(135deg,#fbc2eb,#a6c1ee)";
-            break;
-
-        case "father":
-            bg.style.background =
-                "linear-gradient(135deg,#667eea,#764ba2)";
-            break;
-
-        case "eid":
-            bg.style.background =
-                "linear-gradient(135deg,#0f9b0f,#000428)";
-            break;
-
-        case "ramadan":
-            bg.style.background =
-                "linear-gradient(135deg,#141e30,#243b55)";
-            break;
-
-        case "valentine":
-            bg.style.background =
-                "linear-gradient(135deg,#ff758c,#ff7eb3)";
-            break;
-
-        case "anniversary":
-            bg.style.background =
-                "linear-gradient(135deg,#f6d365,#fda085)";
-            break;
-
-        case "christmas":
-            bg.style.background =
-                "linear-gradient(135deg,#11998e,#38ef7d)";
-            break;
-
-        case "newyear":
-            bg.style.background =
-                "linear-gradient(135deg,#4facfe,#00f2fe)";
-            break;
-
-        default:
-            bg.style.background =
-                "linear-gradient(135deg,#1d2671,#c33764)";
-    }
-
 }
 
     const cake = document.getElementById("cakeContainer");
@@ -845,7 +769,7 @@ type==="proposal"
 : "none";
 
 }
-    }
+
 }
 
 if (letterType) {
