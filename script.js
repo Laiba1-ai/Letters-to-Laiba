@@ -829,8 +829,6 @@ if (bg) {
     }
 
     const proposal = document.getElementById("proposalBox");
-    const proposalFlower =
-document.getElementById("proposalFlower");
     if (proposal) {
         proposal.style.display="none";
 
@@ -936,5 +934,28 @@ if (proposalFlower && proposalRing && proposalText) {
         proposalText.style.display = "block";
 
     });
+
+}
+const saveProposal =
+document.getElementById("saveProposal");
+
+const proposalMessage =
+document.getElementById("proposalMessage");
+
+if(saveProposal){
+
+saveProposal.onclick=function(){
+
+localStorage.setItem(
+"proposalMessage",
+proposalMessage.value
+);
+
+alert("💖 Proposal Saved!");
+
+};
+
+proposalMessage.value =
+localStorage.getItem("proposalMessage") || "";
 
 }
