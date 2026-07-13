@@ -138,7 +138,30 @@ document.addEventListener("mousemove", (e) => {
 
     heart.className = "cursor-heart";
 
-    const icons = themeEffects[currentTheme] || themeEffects.simple;
+    let icons;
+
+    // Password & Home Page
+    if (isPasswordPage || isHomePage) {
+
+        icons = ["❤️"];
+
+    }
+
+    // Write Letter Page
+    else if (isWriteLetterPage) {
+
+        icons =
+            themeEffects[currentTheme] ||
+            themeEffects.simple;
+
+    }
+
+    // Other Pages
+    else {
+
+        icons = ["❤️"];
+
+    }
 
     heart.textContent =
         icons[Math.floor(Math.random() * icons.length)];
@@ -149,7 +172,9 @@ document.addEventListener("mousemove", (e) => {
     document.body.appendChild(heart);
 
     setTimeout(() => {
+
         heart.remove();
+
     }, 800);
 
 });
@@ -290,11 +315,14 @@ icons[Math.floor(Math.random()*icons.length)];
 
 }
 
-const confetti =
-isWriteLetterPage
-? document.getElementById("confetti")
-: null;
+const isWriteLetterPage =
+document.getElementById("letterType") !== null;
 
+const isHomePage =
+document.body.classList.contains("home-page");
+
+const isPasswordPage =
+document.body.classList.contains("password-page");
 if (confetti) {
 
     function createConfetti() {
