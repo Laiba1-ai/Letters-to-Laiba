@@ -748,7 +748,29 @@ letterMessage.value.length + " / 2000";
             "letterMessage",
             document.getElementById("message").value
         );
+// Save into Memory Box
 
+const letters =
+JSON.parse(localStorage.getItem("memoryLetters")) || [];
+
+letters.unshift({
+
+name:nameInput.value,
+
+title:titleInput.value,
+
+message:letterMessage.value,
+
+date:new Date().toLocaleDateString(),
+
+favorite:false
+
+});
+
+localStorage.setItem(
+"memoryLetters",
+JSON.stringify(letters)
+);
         alert("💖 Letter Saved Successfully!");
 
     });
@@ -1208,6 +1230,45 @@ recentLetterCard.innerHTML = `
 <h3>${title || "Untitled Letter"}</h3>
 <p>${message || ""}</p>
 `;
+
+}
+
+}
+// ===============================
+// Memory Box
+// ===============================
+
+const memoryList =
+document.getElementById("memoryList");
+
+if(memoryList){
+
+const letters =
+JSON.parse(localStorage.getItem("memoryLetters")) || [];
+
+if(letters.length){
+
+memoryList.innerHTML="";
+
+letters.forEach(letter=>{
+
+memoryList.innerHTML += `
+
+<div class="memory-card">
+
+<h3>${letter.title}</h3>
+
+<p>${letter.message.substring(0,120)}...</p>
+
+<small>
+📅 ${letter.date}
+</small>
+
+</div>
+
+`;
+
+});
 
 }
 
