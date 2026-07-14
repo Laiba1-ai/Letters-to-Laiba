@@ -1128,6 +1128,7 @@ window.onerror = function (
 
 };
 const pdfBtn = document.getElementById("pdfBtn");
+const imageBtn = document.getElementById("imageBtn");
 
 if(pdfBtn){
 
@@ -1160,6 +1161,31 @@ doc.splitTextToSize(message,170);
 doc.text(lines,20,50);
 
 doc.save("Letter.pdf");
+
+});
+
+}
+if(imageBtn){
+
+imageBtn.addEventListener("click",()=>{
+
+const preview =
+document.querySelector(".preview-card");
+
+html2canvas(preview,{
+backgroundColor:null,
+scale:2
+}).then(canvas=>{
+
+const link=document.createElement("a");
+
+link.download="Letter.png";
+
+link.href=canvas.toDataURL("image/png");
+
+link.click();
+
+});
 
 });
 
