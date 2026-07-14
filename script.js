@@ -1281,7 +1281,13 @@ ${letter.message.substring(0,120)}...
 📅 ${letter.date}
 
 </small>
+<button
+class="readBtn"
+data-index="${index}">
 
+👁 Read
+
+</button>
 </div>
 
 `;
@@ -1311,3 +1317,31 @@ location.reload();
 }
 
 }
+document.querySelectorAll(".readBtn").forEach(btn=>{
+
+btn.addEventListener("click",()=>{
+
+const i = btn.dataset.index;
+
+document.getElementById("popupTitle").innerHTML =
+letters[i].title;
+
+document.getElementById("popupName").innerHTML =
+"From: " + letters[i].name;
+
+document.getElementById("popupMessage").innerHTML =
+letters[i].message;
+
+document.getElementById("letterPopup").style.display =
+"flex";
+
+});
+
+});
+
+document.getElementById("closePopup")?.addEventListener("click",()=>{
+
+document.getElementById("letterPopup").style.display =
+"none";
+
+});
