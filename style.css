@@ -2603,3 +2603,47 @@ line-height:1.8;
 color:#555;
 
 }
+/* ===========================
+   Recent Letter
+=========================== */
+
+.recent-letters{
+
+width:100%;
+max-width:900px;
+margin:50px auto;
+
+}
+
+.recent-letters h2{
+
+font-family:'Dancing Script',cursive;
+font-size:42px;
+color:var(--primary);
+margin-bottom:20px;
+
+}
+
+#recentLetterCard{
+
+background:rgba(255,255,255,.55);
+backdrop-filter:blur(15px);
+padding:25px;
+border-radius:20px;
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+text-align:left;
+
+}
+
+#recentLetterCard h3{
+
+margin-bottom:10px;
+
+}
+
+#recentLetterCard p{
+
+white-space:pre-wrap;
+line-height:1.7;
+
+}

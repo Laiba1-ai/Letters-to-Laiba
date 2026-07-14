@@ -752,6 +752,7 @@ letterMessage.value.length + " / 2000";
         alert("💖 Letter Saved Successfully!");
 
     });
+
 // ===============================
 // Auto Save Draft
 // ===============================
@@ -1188,5 +1189,26 @@ link.click();
 });
 
 });
+
+}
+const recentLetterCard =
+document.getElementById("recentLetterCard");
+
+if(recentLetterCard){
+
+const title =
+localStorage.getItem("letterTitle");
+
+const message =
+localStorage.getItem("letterMessage");
+
+if(title || message){
+
+recentLetterCard.innerHTML = `
+<h3>${title || "Untitled Letter"}</h3>
+<p>${message || ""}</p>
+`;
+
+}
 
 }
