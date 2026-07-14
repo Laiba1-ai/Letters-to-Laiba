@@ -2718,3 +2718,36 @@ color:#888;
 font-style:italic;
 
 }
+.memory-card{
+
+background:white;
+
+padding:20px;
+
+border-radius:18px;
+
+box-shadow:0 8px 18px rgba(0,0,0,.08);
+
+transition:.3s;
+
+}
+
+.memory-card:hover{
+
+transform:translateY(-5px);
+
+}
+
+.memory-card h3{
+
+color:var(--primary);
+
+margin-bottom:10px;
+
+}
+
+.memory-card small{
+
+color:#999;
+
+}
