@@ -1250,23 +1250,61 @@ if(letters.length){
 
 memoryList.innerHTML="";
 
-letters.forEach(letter=>{
+letters.forEach((letter,index)=>{
 
 memoryList.innerHTML += `
 
 <div class="memory-card">
 
+<div class="memory-top">
+
 <h3>${letter.title}</h3>
 
-<p>${letter.message.substring(0,120)}...</p>
+<button
+class="favoriteBtn"
+data-index="${index}">
+
+${letter.favorite ? "⭐" : "☆"}
+
+</button>
+
+</div>
+
+<p>
+
+${letter.message.substring(0,120)}...
+
+</p>
 
 <small>
+
 📅 ${letter.date}
+
 </small>
 
 </div>
 
 `;
+
+});
+
+document.querySelectorAll(".favoriteBtn").forEach(btn=>{
+
+btn.addEventListener("click",()=>{
+
+const i = btn.dataset.index;
+
+letters[i].favorite =
+!letters[i].favorite;
+
+localStorage.setItem(
+"memoryLetters",
+JSON.stringify(letters)
+);
+
+location.reload();
+
+});
 
 });
 
