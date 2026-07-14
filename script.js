@@ -673,19 +673,6 @@ if(letterMessage && counter){
     counter.innerHTML = letterMessage.value.length + " / 2000";
 
    letterMessage.addEventListener("input",()=>{
-    
-nameInput?.addEventListener("input",updatePreview);
-
-titleInput?.addEventListener("input",updatePreview);
-
-letterMessage?.addEventListener("input",updatePreview);
-
-updatePreview();
-    const nameInput =
-document.getElementById("name");
-
-const titleInput =
-document.getElementById("title");
 
 function updatePreview(){
 
