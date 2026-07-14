@@ -132,6 +132,16 @@ if (intro && startBtn) {
     };
 
 }
+const isWriteLetterPage =
+document.getElementById("letterType") !== null;
+
+const isHomePage =
+document.body.classList.contains("home-page");
+
+const isPasswordPage =
+document.body.classList.contains("password-page");
+
+
 document.addEventListener("mousemove", (e) => {
 
     const heart = document.createElement("div");
@@ -140,42 +150,33 @@ document.addEventListener("mousemove", (e) => {
 
     let icons;
 
-    // Password & Home Page
     if (isPasswordPage || isHomePage) {
 
         icons = ["❤️"];
 
-    }
-
-    // Write Letter Page
-    else if (isWriteLetterPage) {
+    } else if (isWriteLetterPage) {
 
         icons =
             themeEffects[currentTheme] ||
             themeEffects.simple;
 
-    }
-
-    // Other Pages
-    else {
+    } else {
 
         icons = ["❤️"];
 
     }
 
     heart.textContent =
-        icons[Math.floor(Math.random() * icons.length)];
+        icons[Math.floor(Math.random()*icons.length)];
 
     heart.style.left = e.pageX + "px";
     heart.style.top = e.pageY + "px";
 
     document.body.appendChild(heart);
 
-    setTimeout(() => {
-
+    setTimeout(()=>{
         heart.remove();
-
-    }, 800);
+    },800);
 
 });
 
@@ -314,15 +315,11 @@ icons[Math.floor(Math.random()*icons.length)];
     setInterval(createFirework, 600);
 
 }
+const confetti =
+isWriteLetterPage
+? document.getElementById("confetti")
+: null;
 
-const isWriteLetterPage =
-document.getElementById("letterType") !== null;
-
-const isHomePage =
-document.body.classList.contains("home-page");
-
-const isPasswordPage =
-document.body.classList.contains("password-page");
 if (confetti) {
 
     function createConfetti() {
