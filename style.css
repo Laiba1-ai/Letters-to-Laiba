@@ -1957,19 +1957,25 @@ body.birthday{
 }
 
 body.love{
---primary:#ff3366;
---primary-dark:#ff0d4e;
---bg1:#ffd7e5;
---bg2:#ffeaf2;
---bg3:#fff7fa;
+
+--primary:#e91e63;
+--primary-dark:#c2185b;
+
+--bg1:#ffdde8;
+--bg2:#ffc2d6;
+--bg3:#fff5f9;
+
 }
 
 body.sorry{
---primary:#4285f4;
---primary-dark:#1b5fd3;
---bg1:#edf5ff;
---bg2:#d9e9ff;
+
+--primary:#5c6bc0;
+--primary-dark:#3f51b5;
+
+--bg1:#eef2ff;
+--bg2:#dde5ff;
 --bg3:#ffffff;
+
 }
 
 body.friendship{
@@ -1981,11 +1987,14 @@ body.friendship{
 }
 
 body.proposal{
+
 --primary:#d4af37;
---primary-dark:#b28d18;
---bg1:#fff8dc;
---bg2:#fff0c4;
---bg3:#fffdf6;
+--primary-dark:#b8860b;
+
+--bg1:#fff7da;
+--bg2:#fff0bf;
+--bg3:#fffdf5;
+
 }
 
 body.mother{
