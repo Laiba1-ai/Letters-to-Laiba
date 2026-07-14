@@ -1948,119 +1948,145 @@ body.simple{
 --shadow:rgba(255,105,180,.20);
 }
 
-body.birthday{
---primary:#ff4f8b;
---primary-dark:#ff2f73;
---bg1:#ffe8f3;
+bbody.birthday{
+
+--primary:#ff5ca8;
+--primary-dark:#ff9f1c;
+
+--bg1:#fff1c9;
 --bg2:#ffd6ea;
---bg3:#fff4fa;
+--bg3:#fff9ef;
+
 }
 
 body.love{
 
---primary:#e91e63;
---primary-dark:#c2185b;
+--primary:#ff3d6e;
+--primary-dark:#ff1744;
 
---bg1:#ffdde8;
---bg2:#ffc2d6;
---bg3:#fff5f9;
+--bg1:#ffd6e5;
+--bg2:#ffe7ef;
+--bg3:#fff8fb;
 
 }
 
 body.sorry{
 
 --primary:#5c6bc0;
---primary-dark:#3f51b5;
+--primary-dark:#90a4ae;
 
---bg1:#eef2ff;
---bg2:#dde5ff;
+--bg1:#eef3ff;
+--bg2:#dde8ff;
 --bg3:#ffffff;
 
 }
 
 body.friendship{
---primary:#f4b400;
---primary-dark:#d79c00;
---bg1:#fff9d7;
---bg2:#fff4a8;
---bg3:#fffef1;
+
+--primary:#ff9800;
+--primary-dark:#fdd835;
+
+--bg1:#fff7d6;
+--bg2:#fff3b5;
+--bg3:#fffdf4;
+
 }
 
 body.proposal{
 
 --primary:#d4af37;
---primary-dark:#b8860b;
+--primary-dark:#ff6f91;
 
---bg1:#fff7da;
---bg2:#fff0bf;
---bg3:#fffdf5;
+--bg1:#fff6cf;
+--bg2:#ffe4ef;
+--bg3:#fffdf7;
 
 }
 
 body.mother{
---primary:#ff6699;
---primary-dark:#e6457d;
---bg1:#fff0f5;
---bg2:#ffe5ef;
---bg3:#fffafd;
+
+--primary:#ff69b4;
+--primary-dark:#ba68c8;
+
+--bg1:#fff0f6;
+--bg2:#ffe4f2;
+--bg3:#faf5ff;
+
 }
 
 body.father{
---primary:#3b82f6;
---primary-dark:#2563eb;
---bg1:#eef5ff;
---bg2:#dce8ff;
---bg3:#ffffff;
+
+--primary:#3f51b5;
+--primary-dark:#263238;
+
+--bg1:#eef3ff;
+--bg2:#dfe8ff;
+--bg3:#f8fbff;
+
 }
 
 body.eid{
+
 --primary:#16a34a;
---primary-dark:#12813b;
---bg1:#ecfff3;
---bg2:#d8ffe7;
---bg3:#ffffff;
+--primary-dark:#d4af37;
+
+--bg1:#eaffef;
+--bg2:#d8ffe8;
+--bg3:#fffef8;
+
 }
 
 body.ramadan{
---primary:#0ea5a4;
---primary-dark:#0b8b8b;
---bg1:#ecffff;
---bg2:#d5fffa;
---bg3:#ffffff;
-}
 
+--primary:#00897b;
+--primary-dark:#1565c0;
+
+--bg1:#e7fffb;
+--bg2:#d4fff9;
+--bg3:#f6ffff;
+
+}
 body.valentine{
+
 --primary:#ff1744;
---primary-dark:#d50032;
---bg1:#ffe6ee;
---bg2:#ffd4df;
---bg3:#fff8fa;
+--primary-dark:#ff80ab;
+
+--bg1:#ffe8ef;
+--bg2:#ffd6e4;
+--bg3:#fff9fb;
+
 }
 
 body.anniversary{
---primary:#ff8c42;
---primary-dark:#ea6f14;
---bg1:#fff6ec;
---bg2:#ffe6cf;
---bg3:#fffdf8;
-}
 
+--primary:#ff9800;
+--primary-dark:#e91e63;
+
+--bg1:#fff7e5;
+--bg2:#ffe7d1;
+--bg3:#fff9f4;
+
+}
 body.christmas{
+
 --primary:#16a34a;
---primary-dark:#0f7d37;
---bg1:#eefef3;
---bg2:#dbffe5;
---bg3:#ffffff;
-}
+--primary-dark:#e53935;
 
+--bg1:#eefef1;
+--bg2:#dcffe4;
+--bg3:#fff6f6;
+
+}
 body.newyear{
---primary:#6d5dfc;
---primary-dark:#5340ef;
---bg1:#f2efff;
---bg2:#e2dcff;
---bg3:#ffffff;
-}
 
+--primary:#7c4dff;
+--primary-dark:#00bcd4;
+
+--bg1:#f3eeff;
+--bg2:#e3ddff;
+--bg3:#eefcff;
+
+}
 /* ---------- Headings ---------- */
 
 .logo,
