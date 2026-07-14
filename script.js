@@ -664,6 +664,48 @@ if(letterMessage && counter){
     counter.innerHTML = letterMessage.value.length + " / 2000";
 
    letterMessage.addEventListener("input",()=>{
+    const nameInput =
+document.getElementById("name");
+
+const titleInput =
+document.getElementById("title");
+
+function updatePreview(){
+
+if(previewTitle){
+
+previewTitle.innerHTML =
+titleInput.value || "Letter Title";
+
+}
+
+if(previewMessage){
+
+previewMessage.innerHTML =
+letterMessage.value ||
+
+"Your letter will appear here...";
+
+}
+
+if(previewName){
+
+previewName.innerHTML =
+nameInput.value ||
+
+"Your Name";
+
+}
+
+}
+
+nameInput.addEventListener("input",updatePreview);
+
+titleInput.addEventListener("input",updatePreview);
+
+letterMessage.addEventListener("input",updatePreview);
+
+updatePreview();
 
 counter.innerHTML =
 letterMessage.value.length + " / 2000";
@@ -733,6 +775,14 @@ counter.innerHTML = "0 / 2000";
 }
 const photo = document.getElementById("photo");
 const preview = document.getElementById("preview");
+const previewTitle =
+document.getElementById("previewTitle");
+
+const previewMessage =
+document.getElementById("previewMessage");
+
+const previewName =
+document.getElementById("previewName");
 
 if (photo && preview) {
     photo.addEventListener("change", function () {
@@ -827,6 +877,88 @@ function applyTheme(type) {
                 ? "block"
                 : "none";
     }
+    const templates = {
+
+love:{
+title:"My Love ❤️",
+message:"Every heartbeat reminds me of you. You are the most beautiful part of my life."
+},
+
+sorry:{
+title:"I'm Sorry 💙",
+message:"I know I made mistakes. Please forgive me because you mean everything to me."
+},
+
+birthday:{
+title:"Happy Birthday 🎂",
+message:"May your life always be filled with happiness, success, laughter and endless blessings."
+},
+
+proposal:{
+title:"Will You Marry Me? 💍",
+message:"From the very first day I knew you were special. I want to spend my whole life with you."
+},
+
+friendship:{
+title:"Best Friend 🌻",
+message:"True friendship never fades. Thank you for always being with me."
+},
+
+mother:{
+title:"Dear Mom ❤️",
+message:"Thank you for every sacrifice you made for me. I love you forever."
+},
+
+father:{
+title:"Dear Dad 💙",
+message:"Your strength, guidance and love have always inspired me."
+},
+
+eid:{
+title:"Eid Mubarak 🌙",
+message:"May Allah accept all your prayers and fill your life with happiness."
+},
+
+ramadan:{
+title:"Ramadan Mubarak 🕌",
+message:"May Allah shower His endless mercy and blessings upon you."
+},
+
+valentine:{
+title:"Happy Valentine's Day ❤️",
+message:"Every love story is beautiful, but ours is my favourite."
+},
+
+anniversary:{
+title:"Happy Anniversary 💍",
+message:"Every year with you is another beautiful chapter of our love story."
+},
+
+christmas:{
+title:"Merry Christmas 🎄",
+message:"May your Christmas sparkle with joy, love and peace."
+},
+
+newyear:{
+title:"Happy New Year 🎆",
+message:"May this new year bring happiness, success and beautiful memories."
+
+}
+
+};
+
+if(letterMessage && templates[type]){
+
+document.getElementById("title").value =
+templates[type].title;
+
+letterMessage.value =
+templates[type].message;
+
+counter.innerHTML =
+letterMessage.value.length + " / 2000";
+
+}
 localStorage.setItem("selectedTheme", type);
 }
 if (letterType) {
@@ -980,3 +1112,40 @@ window.onerror = function (
     );
 
 };
+const pdfBtn = document.getElementById("pdfBtn");
+
+if(pdfBtn){
+
+pdfBtn.addEventListener("click",()=>{
+
+const { jsPDF } = window.jspdf;
+
+const doc = new jsPDF();
+
+const name =
+document.getElementById("name").value;
+
+const title =
+document.getElementById("title").value;
+
+const message =
+document.getElementById("message").value;
+
+doc.setFontSize(22);
+doc.text(title || "Letter",20,20);
+
+doc.setFontSize(14);
+doc.text("From: " + (name || "Anonymous"),20,35);
+
+doc.setFontSize(12);
+
+const lines =
+doc.splitTextToSize(message,170);
+
+doc.text(lines,20,50);
+
+doc.save("Letter.pdf");
+
+});
+
+}
