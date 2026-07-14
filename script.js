@@ -752,7 +752,25 @@ letterMessage.value.length + " / 2000";
         alert("💖 Letter Saved Successfully!");
 
     });
+// ===============================
+// Auto Save Draft
+// ===============================
 
+function autoSaveDraft(){
+
+localStorage.setItem("letterName", nameInput.value);
+
+localStorage.setItem("letterTitle", titleInput.value);
+
+localStorage.setItem("letterMessage", letterMessage.value);
+
+}
+
+nameInput?.addEventListener("input", autoSaveDraft);
+
+titleInput?.addEventListener("input", autoSaveDraft);
+
+letterMessage?.addEventListener("input", autoSaveDraft);
 }
 
 if(deleteBtn){
