@@ -679,7 +679,14 @@ function updatePreview(){
 if(previewTitle){
 
 previewTitle.innerHTML =
-titleInput.value || "Letter Title";
+titleInput.value || "Your Letter Title";
+
+}
+
+if(previewName){
+
+previewName.innerHTML =
+"From: " + (nameInput.value || "Your Name");
 
 }
 
@@ -687,27 +694,20 @@ if(previewMessage){
 
 previewMessage.innerHTML =
 letterMessage.value ||
-
-"Your letter will appear here...";
-
-}
-
-if(previewName){
-
-previewName.innerHTML =
-nameInput.value ||
-
-"Your Name";
+"Start typing your beautiful letter...";
 
 }
 
+counter.innerHTML =
+letterMessage.value.length + " / 2000";
+
 }
 
-nameInput.addEventListener("input",updatePreview);
+nameInput?.addEventListener("input", updatePreview);
 
-titleInput.addEventListener("input",updatePreview);
+titleInput?.addEventListener("input", updatePreview);
 
-letterMessage.addEventListener("input",updatePreview);
+letterMessage?.addEventListener("input", updatePreview);
 
 updatePreview();
 
