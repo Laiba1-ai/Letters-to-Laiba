@@ -673,32 +673,7 @@ if(letterMessage && counter){
     counter.innerHTML = letterMessage.value.length + " / 2000";
 
    letterMessage.addEventListener("input",()=>{
-    function updatePreview(){
-
-if(previewName){
-
-previewName.innerHTML =
-"From: " + (nameInput.value || "Your Name");
-
-}
-
-if(previewTitle){
-
-previewTitle.innerHTML =
-titleInput.value || "Your Letter Title";
-
-}
-
-if(previewMessage){
-
-previewMessage.innerHTML =
-letterMessage.value ||
-"Start typing your beautiful letter...";
-
-}
-
-}
-
+    
 nameInput?.addEventListener("input",updatePreview);
 
 titleInput?.addEventListener("input",updatePreview);
