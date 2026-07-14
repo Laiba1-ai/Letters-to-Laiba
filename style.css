@@ -1177,7 +1177,35 @@ transform:scale(1.05);
 
 #saveBtn,
 #deleteBtn{
+#imageBtn{
 
+width:100%;
+
+padding:15px;
+
+border:none;
+
+border-radius:50px;
+
+cursor:pointer;
+
+font-size:17px;
+
+margin-top:15px;
+
+background:#ff4f8b;
+
+color:#fff;
+
+}
+
+#imageBtn:hover{
+
+background:#ff2f73;
+
+transform:scale(1.05);
+
+}
     padding:14px 28px;
 
     margin:10px;
