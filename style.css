@@ -2647,3 +2647,74 @@ white-space:pre-wrap;
 line-height:1.7;
 
 }
+/* ==========================
+   Memory Box
+========================== */
+
+.memory-box{
+
+width:100%;
+
+max-width:900px;
+
+margin:50px auto;
+
+padding:30px;
+
+background:rgba(255,255,255,.45);
+
+backdrop-filter:blur(15px);
+
+border-radius:25px;
+
+box-shadow:0 15px 35px rgba(255,105,180,.15);
+
+}
+
+.memory-box h2{
+
+font-family:'Dancing Script',cursive;
+
+font-size:42px;
+
+color:var(--primary);
+
+margin-bottom:20px;
+
+}
+
+#searchLetter{
+
+width:100%;
+
+padding:15px;
+
+border:none;
+
+border-radius:15px;
+
+margin-bottom:25px;
+
+font-size:16px;
+
+}
+
+#memoryList{
+
+display:flex;
+
+flex-direction:column;
+
+gap:15px;
+
+}
+
+.empty-memory{
+
+text-align:center;
+
+color:#888;
+
+font-style:italic;
+
+}
