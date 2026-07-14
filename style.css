@@ -2501,3 +2501,64 @@ transform:scale(1.05);
 background:#512da8;
 
 }
+/* ===========================
+   LIVE LETTER PREVIEW
+=========================== */
+
+.letter-preview{
+
+margin-top:35px;
+
+}
+
+.preview-card{
+
+background:white;
+
+padding:25px;
+
+border-radius:20px;
+
+box-shadow:0 10px 25px rgba(0,0,0,.12);
+
+text-align:left;
+
+}
+
+.preview-card h3{
+
+margin-bottom:10px;
+
+color:var(--primary);
+
+}
+
+.preview-card hr{
+
+margin:15px 0;
+
+border:none;
+
+height:1px;
+
+background:#eee;
+
+}
+
+#previewName{
+
+font-weight:600;
+
+margin-bottom:10px;
+
+}
+
+#previewMessage{
+
+white-space:pre-wrap;
+
+line-height:1.8;
+
+color:#555;
+
+}

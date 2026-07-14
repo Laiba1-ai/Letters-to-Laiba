@@ -656,6 +656,15 @@ letterCards.forEach(card => {
 ====================================== */
 
 const letterMessage = document.getElementById("message");
+const nameInput = document.getElementById("name");
+
+const titleInput = document.getElementById("title");
+
+const previewName = document.getElementById("previewName");
+
+const previewTitle = document.getElementById("previewTitle");
+
+const previewMessage = document.getElementById("previewMessage");
 const counter = document.getElementById("count");
 const saveBtn = document.getElementById("saveBtn");
 const deleteBtn = document.getElementById("deleteBtn");
@@ -664,6 +673,39 @@ if(letterMessage && counter){
     counter.innerHTML = letterMessage.value.length + " / 2000";
 
    letterMessage.addEventListener("input",()=>{
+    function updatePreview(){
+
+if(previewName){
+
+previewName.innerHTML =
+"From: " + (nameInput.value || "Your Name");
+
+}
+
+if(previewTitle){
+
+previewTitle.innerHTML =
+titleInput.value || "Your Letter Title";
+
+}
+
+if(previewMessage){
+
+previewMessage.innerHTML =
+letterMessage.value ||
+"Start typing your beautiful letter...";
+
+}
+
+}
+
+nameInput?.addEventListener("input",updatePreview);
+
+titleInput?.addEventListener("input",updatePreview);
+
+letterMessage?.addEventListener("input",updatePreview);
+
+updatePreview();
     const nameInput =
 document.getElementById("name");
 
@@ -775,14 +817,7 @@ counter.innerHTML = "0 / 2000";
 }
 const photo = document.getElementById("photo");
 const preview = document.getElementById("preview");
-const previewTitle =
-document.getElementById("previewTitle");
 
-const previewMessage =
-document.getElementById("previewMessage");
-
-const previewName =
-document.getElementById("previewName");
 
 if (photo && preview) {
     photo.addEventListener("change", function () {
