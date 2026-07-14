@@ -1300,8 +1300,7 @@ btn.addEventListener("click",()=>{
 
 const i = btn.dataset.index;
 
-letters[i].favorite =
-!letters[i].favorite;
+letters[i].favorite = !letters[i].favorite;
 
 localStorage.setItem(
 "memoryLetters",
@@ -1314,9 +1313,10 @@ location.reload();
 
 });
 
-}
+// =========================
+// Read Button
+// =========================
 
-}
 document.querySelectorAll(".readBtn").forEach(btn=>{
 
 btn.addEventListener("click",()=>{
@@ -1327,7 +1327,7 @@ document.getElementById("popupTitle").innerHTML =
 letters[i].title;
 
 document.getElementById("popupName").innerHTML =
-"From: " + letters[i].name;
+"From: " + (letters[i].name || "Anonymous");
 
 document.getElementById("popupMessage").innerHTML =
 letters[i].message;
@@ -1338,6 +1338,10 @@ document.getElementById("letterPopup").style.display =
 });
 
 });
+
+// =========================
+// Close Popup
+// =========================
 
 document.getElementById("closePopup")?.addEventListener("click",()=>{
 
