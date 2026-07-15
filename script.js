@@ -1388,19 +1388,12 @@ attachEvents();
   
 const closePopup = document.getElementById("closePopup");
 
-if(closePopup){
+if (closePopup) {
 
-closePopup.addEventListener("click",function(e){
+    closePopup.onclick = function () {
 
-e.preventDefault();
-e.stopPropagation();
+        document.getElementById("letterPopup").style.display = "none";
 
-const popup=document.getElementById("letterPopup");
-
-popup.style.display="none";
-
-alert("Working");
-
-});
+    };
 
 }
