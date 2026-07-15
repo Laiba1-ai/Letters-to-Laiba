@@ -1362,8 +1362,9 @@ document.getElementById("popupName").innerHTML =
 document.getElementById("popupMessage").innerHTML =
 letters[i].message;
 
-document.getElementById("letterPopup").style.display =
-"flex";
+const popup = document.getElementById("letterPopup");
+popup.style.display = "flex";
+console.log("Popup Open");
 
 };
 
@@ -1385,14 +1386,14 @@ attachEvents();
 }
     }
   
+const closePopup = document.getElementById("closePopup");
+
+closePopup.onclick = function(){
+
 const popup = document.getElementById("letterPopup");
 
-popup?.addEventListener("click", function(e){
+popup.style.display = "none";
 
-    if(e.target === popup){
+console.log("Popup Closed");
 
-        popup.style.display = "none";
-
-    }
-
-});
+};
