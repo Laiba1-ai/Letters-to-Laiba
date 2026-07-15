@@ -1397,3 +1397,18 @@ if (closePopup) {
     };
 
 }
+window.addEventListener("load", () => {
+
+const closePopup = document.getElementById("closePopup");
+
+if(closePopup){
+
+closePopup.onclick = function(){
+
+document.getElementById("letterPopup").style.display = "none";
+
+};
+
+}
+
+});
