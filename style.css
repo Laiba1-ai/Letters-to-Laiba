@@ -2868,3 +2868,33 @@ line-height:1.8;
 margin-top:20px;
 
 }
+/* ==========================
+   Dark / Light Mode
+========================== */
+
+body.dark-mode{
+    background:#111;
+    color:#fff;
+}
+
+body.dark-mode .memory-card,
+body.dark-mode .popup-content,
+body.dark-mode .recent-letters,
+body.dark-mode .memory-box{
+    background:#1e1e1e;
+    color:#fff;
+    border-color:#444;
+}
+
+body.dark-mode input,
+body.dark-mode textarea,
+body.dark-mode select{
+    background:#2b2b2b;
+    color:#fff;
+    border:1px solid #555;
+}
+
+body.dark-mode button{
+    background:#ff4081;
+    color:#fff;
+}
