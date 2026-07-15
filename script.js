@@ -1384,6 +1384,7 @@ attachEvents();
 
 }
     }
+  
 const closePopup = document.getElementById("closePopup");
 
 if (closePopup) {
