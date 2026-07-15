@@ -1377,6 +1377,54 @@ console.log("Popup Open");
 
 });
 
+document.querySelectorAll(".readBtn").forEach(btn=>{
+
+btn.onclick=function(){
+
+const i=this.dataset.index;
+
+document.getElementById("popupTitle").innerHTML =
+letters[i].title;
+
+document.getElementById("popupName").innerHTML =
+"From: " + (letters[i].name || "Anonymous");
+
+document.getElementById("popupMessage").innerHTML =
+letters[i].message;
+
+const popup = document.getElementById("letterPopup");
+popup.style.display = "flex";
+console.log("Popup Open");
+
+};
+
+});
+    document.querySelectorAll(".deleteBtn").forEach(btn=>{
+
+btn.onclick=function(){
+
+const i=this.dataset.index;
+
+if(confirm("Delete this letter? 💔")){
+
+letters.splice(i,1);
+
+localStorage.setItem(
+"memoryLetters",
+JSON.stringify(letters)
+);
+
+renderLetters(
+searchInput ? searchInput.value : ""
+);
+
+attachEvents();
+
+}
+
+};
+
+});
 }
     renderLetters();
 attachEvents();
