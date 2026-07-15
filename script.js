@@ -1317,6 +1317,13 @@ data-index="${index}">
 
 
 </button>
+<button
+class="deleteBtn"
+data-index="${index}">
+
+🗑 Delete
+
+</button>
 
 </div>
 
