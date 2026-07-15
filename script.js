@@ -1384,8 +1384,14 @@ attachEvents();
 
 }
     }
-document.getElementById("closePopup")?.addEventListener("click",()=>{
+const closeBtn = document.getElementById("closePopup");
 
-document.getElementById("letterPopup").style.display="none";
+if(closeBtn){
 
-});
+closeBtn.onclick = function(){
+
+document.getElementById("letterPopup").style.display = "none";
+
+};
+
+}
