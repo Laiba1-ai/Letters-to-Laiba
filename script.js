@@ -1385,16 +1385,14 @@ attachEvents();
 }
     }
   
-const closePopup = document.getElementById("closePopup");
+const popup = document.getElementById("letterPopup");
 
-if (closePopup) {
+popup?.addEventListener("click", function(e){
 
-    closePopup.onclick = function () {
+    if(e.target === popup){
 
-        console.log("Close button clicked");
+        popup.style.display = "none";
 
-        document.getElementById("letterPopup").style.display = "none";
+    }
 
-    };
-
-}
+});
