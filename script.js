@@ -1388,6 +1388,8 @@ attachEvents();
   
 const closePopup = document.getElementById("closePopup");
 
+if(closePopup){
+
 closePopup.onclick = function(){
 
 const popup = document.getElementById("letterPopup");
@@ -1397,3 +1399,5 @@ popup.style.display = "none";
 console.log("Popup Closed");
 
 };
+
+}
