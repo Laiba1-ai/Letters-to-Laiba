@@ -1501,3 +1501,90 @@ if(themeToggle){
     });
 
 }
+// ===============================
+// Birthday Letter Edit
+// ===============================
+
+const typingText = document.getElementById("typingText");
+
+const editBirthdayBtn =
+document.getElementById("editBirthdayBtn");
+
+const saveBirthdayBtn =
+document.getElementById("saveBirthdayBtn");
+
+const resetBirthdayBtn =
+document.getElementById("resetBirthdayBtn");
+
+if(typingText && editBirthdayBtn){
+
+const defaultLetter = `Happy Birthday! 🎂
+
+May your life always be filled with happiness, success, love, and beautiful memories.
+
+Stay blessed and keep smiling forever. 💖`;
+
+if(localStorage.getItem("birthdayLetter")){
+
+typingText.innerText =
+localStorage.getItem("birthdayLetter");
+
+}else{
+
+typingText.innerText =
+defaultLetter;
+
+}
+
+editBirthdayBtn.onclick = function(){
+
+typingText.contentEditable = "true";
+
+typingText.focus();
+
+typingText.style.border =
+"2px dashed #ff4081";
+
+typingText.style.padding = "10px";
+
+saveBirthdayBtn.style.display =
+"inline-block";
+
+resetBirthdayBtn.style.display =
+"inline-block";
+
+};
+
+saveBirthdayBtn.onclick = function(){
+
+typingText.contentEditable = "false";
+
+typingText.style.border = "none";
+
+localStorage.setItem(
+"birthdayLetter",
+typingText.innerText
+);
+
+alert("✅ Birthday Letter Saved!");
+
+};
+
+resetBirthdayBtn.onclick = function(){
+
+typingText.innerText =
+defaultLetter;
+
+typingText.contentEditable = "false";
+
+typingText.style.border = "none";
+
+localStorage.removeItem(
+"birthdayLetter"
+);
+
+alert("↺ Default Letter Restored!");
+
+};
+
+}
