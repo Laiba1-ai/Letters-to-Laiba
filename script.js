@@ -1315,6 +1315,7 @@ data-index="${index}">
 
 👁 Read
 
+
 </button>
 
 </div>
@@ -1324,17 +1325,67 @@ data-index="${index}">
         });
 
     }
+function attachEvents(){
 
-    renderLetters();
+document.querySelectorAll(".favoriteBtn").forEach(btn=>{
 
-    if(searchInput){
+btn.onclick=function(){
 
-        searchInput.addEventListener("input",()=>{
+const i=this.dataset.index;
 
-            renderLetters(searchInput.value);
+letters[i].favorite=!letters[i].favorite;
 
-        });
+localStorage.setItem(
+"memoryLetters",
+JSON.stringify(letters)
+);
 
-    }
+renderLetters(searchInput ? searchInput.value : "");
+attachEvents();
+
+};
+
+});
+
+document.querySelectorAll(".readBtn").forEach(btn=>{
+
+btn.onclick=function(){
+
+const i=this.dataset.index;
+
+document.getElementById("popupTitle").innerHTML =
+letters[i].title;
+
+document.getElementById("popupName").innerHTML =
+"From: " + (letters[i].name || "Anonymous");
+
+document.getElementById("popupMessage").innerHTML =
+letters[i].message;
+
+document.getElementById("letterPopup").style.display =
+"flex";
+
+};
+
+});
 
 }
+    renderLetters();
+attachEvents();
+
+if(searchInput){
+
+searchInput.addEventListener("input",()=>{
+
+renderLetters(searchInput.value);
+attachEvents();
+
+});
+
+}
+    }
+document.getElementById("closePopup")?.addEventListener("click",()=>{
+
+document.getElementById("letterPopup").style.display="none";
+
+});
