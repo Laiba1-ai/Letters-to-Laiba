@@ -1238,21 +1238,48 @@ recentLetterCard.innerHTML = `
 // Memory Box
 // ===============================
 
-const memoryList =
-document.getElementById("memoryList");
+const memoryList = document.getElementById("memoryList");
 
-if(memoryList){
+if (memoryList) {
 
-const letters =
-JSON.parse(localStorage.getItem("memoryLetters")) || [];
+    let letters = JSON.parse(
+        localStorage.getItem("memoryLetters")
+    ) || [];
 
-if(letters.length){
+    const searchInput =
+        document.getElementById("searchLetters");
 
-memoryList.innerHTML="";
+    function renderLetters(filter = "") {
 
-letters.forEach((letter,index)=>{
+        memoryList.innerHTML = "";
 
-memoryList.innerHTML += `
+        const filtered = letters.filter(letter => {
+
+            const text =
+                (
+                    (letter.title || "") +
+                    " " +
+                    (letter.message || "") +
+                    " " +
+                    (letter.name || "")
+                ).toLowerCase();
+
+            return text.includes(filter.toLowerCase());
+
+        });
+
+        if (!filtered.length) {
+
+            memoryList.innerHTML =
+            "<p>No letters found 💌</p>";
+
+            return;
+
+        }
+
+        filtered.forEach((letter,index)=>{
+
+            memoryList.innerHTML += `
 
 <div class="memory-card">
 
@@ -1278,9 +1305,10 @@ ${letter.message.substring(0,120)}...
 
 <small>
 
-📅 ${letter.date}
+📅 ${letter.date || ""}
 
 </small>
+
 <button
 class="readBtn"
 data-index="${index}">
@@ -1288,90 +1316,25 @@ data-index="${index}">
 👁 Read
 
 </button>
+
 </div>
 
 `;
 
-});
+        });
 
-document.querySelectorAll(".favoriteBtn").forEach(btn=>{
+    }
 
-btn.addEventListener("click",()=>{
+    renderLetters();
 
-const i = btn.dataset.index;
+    if(searchInput){
 
-letters[i].favorite = !letters[i].favorite;
+        searchInput.addEventListener("input",()=>{
 
-localStorage.setItem(
-"memoryLetters",
-JSON.stringify(letters)
-);
+            renderLetters(searchInput.value);
 
-location.reload();
+        });
 
-});
-
-});
-
-// =========================
-// Read Button
-// =========================
-
-document.querySelectorAll(".readBtn").forEach(btn=>{
-
-btn.addEventListener("click",()=>{
-
-const i = btn.dataset.index;
-
-document.getElementById("popupTitle").innerHTML =
-letters[i].title;
-
-document.getElementById("popupName").innerHTML =
-"From: " + (letters[i].name || "Anonymous");
-
-document.getElementById("popupMessage").innerHTML =
-letters[i].message;
-
-document.getElementById("letterPopup").style.display =
-"flex";
-
-});
-
-});
-
-// =========================
-// Close Popup
-// =========================
-
-document.getElementById("closePopup")?.addEventListener("click",()=>{
-
-document.getElementById("letterPopup").style.display =
-"none";
-
-});
-}
-
-}
-const searchInput =
-document.getElementById("searchLetters");
-
-if(searchInput){
-
-searchInput.addEventListener("input",function(){
-
-const keyword = this.value.toLowerCase();
-
-document.querySelectorAll(".memory-card").forEach(card=>{
-
-const text = card.innerText.toLowerCase();
-
-card.style.display =
-text.includes(keyword)
-? "block"
-: "none";
-
-});
-
-});
+    }
 
 }
