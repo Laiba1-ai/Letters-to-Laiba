@@ -2898,3 +2898,23 @@ body.dark-mode button{
     background:#ff4081;
     color:#fff;
 }
+.deleteBtn{
+
+margin-top:10px;
+padding:10px 18px;
+border:none;
+border-radius:10px;
+background:#ff4d6d;
+color:white;
+cursor:pointer;
+font-weight:600;
+transition:.3s;
+
+}
+
+.deleteBtn:hover{
+
+background:#d90429;
+transform:scale(1.05);
+
+}
