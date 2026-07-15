@@ -1390,14 +1390,17 @@ const closePopup = document.getElementById("closePopup");
 
 if(closePopup){
 
-closePopup.onclick = function(){
+closePopup.addEventListener("click",function(e){
 
-const popup = document.getElementById("letterPopup");
+e.preventDefault();
+e.stopPropagation();
 
-popup.style.display = "none";
+const popup=document.getElementById("letterPopup");
 
-console.log("Popup Closed");
+popup.style.display="none";
 
-};
+alert("Working");
+
+});
 
 }
