@@ -2918,3 +2918,40 @@ background:#d90429;
 transform:scale(1.05);
 
 }
+.birthday-buttons{
+
+display:flex;
+flex-wrap:wrap;
+gap:12px;
+margin-top:20px;
+
+}
+
+.birthday-buttons button{
+
+padding:12px 20px;
+border:none;
+border-radius:12px;
+cursor:pointer;
+font-size:15px;
+font-weight:600;
+
+background:linear-gradient(
+135deg,
+#ff5ea8,
+#ff8ec7
+);
+
+color:#fff;
+
+transition:.3s;
+
+}
+
+.birthday-buttons button:hover{
+
+transform:translateY(-3px);
+
+box-shadow:0 10px 20px rgba(255,105,180,.35);
+
+}
