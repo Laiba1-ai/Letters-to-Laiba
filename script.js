@@ -1826,7 +1826,7 @@ function getShareData() {
 // ===============================
 
 document.addEventListener("DOMContentLoaded", function () {
-
+console.log("Share JS Loaded");
 const shareBtn = document.querySelector(".shareBtn");
 
 const sharePopup = document.getElementById("sharePopup");
@@ -1836,7 +1836,7 @@ const closeShare = document.getElementById("closeShare");
 if (!shareBtn || !sharePopup) return;
 
 shareBtn.onclick = function () {
-
+alert("Share Button Clicked");
 sharePopup.style.display = "flex";
 
 };
