@@ -447,6 +447,78 @@ if (giftBox && giftMessage){
     };
 
 }
+// ===============================
+// Birthday Gift Edit
+// ===============================
+
+const giftText = document.getElementById("giftText");
+
+const editGiftBtn = document.getElementById("editGiftBtn");
+
+const saveGiftBtn = document.getElementById("saveGiftBtn");
+
+const resetGiftBtn = document.getElementById("resetGiftBtn");
+
+if(giftText && editGiftBtn){
+
+const defaultGift = `💖 You are amazing!
+
+Wishing you endless happiness, success and beautiful moments.`;
+
+giftText.innerText =
+localStorage.getItem("birthdayGift") || defaultGift;
+
+editGiftBtn.onclick = function(){
+
+giftText.contentEditable = "true";
+
+giftText.focus();
+
+giftText.style.border =
+"2px dashed #ff4081";
+
+giftText.style.padding = "10px";
+
+saveGiftBtn.style.display = "inline-block";
+
+resetGiftBtn.style.display = "inline-block";
+
+};
+
+saveGiftBtn.onclick = function(){
+
+giftText.contentEditable = "false";
+
+giftText.style.border = "none";
+
+localStorage.setItem(
+"birthdayGift",
+giftText.innerText
+);
+
+saveGiftBtn.style.display = "none";
+
+resetGiftBtn.style.display = "none";
+
+};
+
+resetGiftBtn.onclick = function(){
+
+giftText.innerText = defaultGift;
+
+giftText.contentEditable = "false";
+
+giftText.style.border = "none";
+
+localStorage.removeItem("birthdayGift");
+
+saveGiftBtn.style.display = "none";
+
+resetGiftBtn.style.display = "none";
+
+};
+
+}
 // ==========================
 // Proposal Flower
 // ==========================
