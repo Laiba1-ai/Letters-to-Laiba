@@ -1582,6 +1582,8 @@ typingText.style.padding = "0";
 
 const birthdayPhoto =
 document.getElementById("birthdayPhoto");
+const changeBirthdayPhoto =
+document.getElementById("changeBirthdayPhoto");
 
 const birthdayPreview =
 document.getElementById("birthdayPreview");
@@ -1599,7 +1601,15 @@ birthdayPreview.src = savedImage;
 birthdayPreview.style.display = "block";
 
 }
+if(changeBirthdayPhoto){
 
+changeBirthdayPhoto.onclick=function(){
+
+birthdayPhoto.click();
+
+};
+
+}
 birthdayPhoto.onchange = function(){
 
 const file = this.files[0];
