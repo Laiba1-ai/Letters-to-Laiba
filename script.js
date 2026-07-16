@@ -1576,3 +1576,51 @@ typingText.style.padding = "0";
 };
 
 }
+// ===============================
+// Birthday Photo
+// ===============================
+
+const birthdayPhoto =
+document.getElementById("birthdayPhoto");
+
+const birthdayPreview =
+document.getElementById("birthdayPreview");
+
+if(birthdayPhoto && birthdayPreview){
+
+const savedImage =
+localStorage.getItem("birthdayPhoto");
+
+if(savedImage){
+
+birthdayPreview.src = savedImage;
+birthdayPreview.style.display = "block";
+
+}
+
+birthdayPhoto.onchange = function(){
+
+const file = this.files[0];
+
+if(!file) return;
+
+const reader = new FileReader();
+
+reader.onload = function(e){
+
+birthdayPreview.src = e.target.result;
+
+birthdayPreview.style.display = "block";
+
+localStorage.setItem(
+"birthdayPhoto",
+e.target.result
+);
+
+};
+
+reader.readAsDataURL(file);
+
+};
+
+}
