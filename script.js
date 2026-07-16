@@ -1772,3 +1772,52 @@ sharePopup.style.display = "none";
 }
 
 });
+// ===============================
+// Universal Share System
+// ===============================
+
+function getShareData() {
+
+    let title = document.title;
+    let text = "💌 Letters to Laiba";
+
+    // Birthday
+    if (document.body.classList.contains("birthday-page")) {
+        text = "🎂 Happy Birthday ❤️";
+    }
+
+    // Proposal
+    else if (document.body.classList.contains("proposal-page")) {
+        text = "💍 Will You Marry Me? ❤️";
+    }
+
+    // Sorry
+    else if (document.body.classList.contains("sorry-page")) {
+        text = "🥺 I'm Sorry ❤️";
+    }
+
+    // Love
+    else if (document.body.classList.contains("love-page")) {
+        text = "💖 Love Letter";
+    }
+
+    // Write Letter
+    else if (document.getElementById("letterType")) {
+
+        const titleInput = document.getElementById("title");
+
+        if (titleInput && titleInput.value.trim() !== "") {
+
+            text = "💌 " + titleInput.value;
+
+        }
+
+    }
+
+    return {
+        title,
+        text,
+        url: window.location.href
+    };
+
+}
