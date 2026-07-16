@@ -1552,7 +1552,10 @@ typingText.innerText
 );
 
 alert("✅ Birthday Letter Saved!");
+saveBirthdayBtn.style.display = "none";
+resetBirthdayBtn.style.display = "none";
 
+typingText.style.padding = "0";
 };
 
 resetBirthdayBtn.onclick = function(){
@@ -1566,7 +1569,10 @@ typingText.style.border = "none";
 localStorage.removeItem("birthdayLetter");
 
 alert("↺ Default Letter Restored!");
+saveBirthdayBtn.style.display = "none";
+resetBirthdayBtn.style.display = "none";
 
+typingText.style.padding = "0";
 };
 
 }
