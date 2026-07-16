@@ -1912,3 +1912,38 @@ break;
 });
 
 });
+// ===============================
+// Create Share Popup Automatically
+// ===============================
+
+document.addEventListener("DOMContentLoaded", () => {
+
+if(document.getElementById("sharePopup")) return;
+
+document.body.insertAdjacentHTML("beforeend",`
+
+<div id="sharePopup" class="share-popup">
+
+<div class="share-box">
+
+<h2>📤 Share This Page</h2>
+
+<button class="shareOption" data-type="whatsapp">💚 WhatsApp</button>
+
+<button class="shareOption" data-type="facebook">💙 Facebook</button>
+
+<button class="shareOption" data-type="twitter">🖤 X</button>
+
+<button class="shareOption" data-type="telegram">📩 Telegram</button>
+
+<button class="shareOption" data-type="copy">📋 Copy Link</button>
+
+<button id="closeShare">❌ Close</button>
+
+</div>
+
+</div>
+
+`);
+
+});
