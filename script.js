@@ -1562,7 +1562,7 @@ if(themeToggle){
     if(localStorage.getItem("theme") === "dark"){
 
         document.body.classList.add("dark-mode");
-        themeToggle.innerHTML = "☀️ Light Mode";
+       themeToggle.innerHTML = "☀️";
 
     }
 
@@ -1573,12 +1573,12 @@ if(themeToggle){
         if(document.body.classList.contains("dark-mode")){
 
             localStorage.setItem("theme","dark");
-            themeToggle.innerHTML = "☀️ Light Mode";
+            themeToggle.innerHTML = "☀️";
 
         }else{
 
             localStorage.setItem("theme","light");
-            themeToggle.innerHTML = "🌙 Dark Mode";
+           themeToggle.innerHTML = "🌙";
 
         }
 
