@@ -1585,6 +1585,8 @@ document.getElementById("birthdayPhoto");
 
 const birthdayPreview =
 document.getElementById("birthdayPreview");
+const deleteBirthdayPhoto =
+document.getElementById("deleteBirthdayPhoto");
 
 if(birthdayPhoto && birthdayPreview){
 
@@ -1611,7 +1613,7 @@ reader.onload = function(e){
 birthdayPreview.src = e.target.result;
 
 birthdayPreview.style.display = "block";
-
+deleteBirthdayPhoto.style.display="inline-block";
 localStorage.setItem(
 "birthdayPhoto",
 e.target.result
@@ -1620,6 +1622,28 @@ e.target.result
 };
 
 reader.readAsDataURL(file);
+
+};
+
+}
+if(deleteBirthdayPhoto && birthdayPreview && birthdayPhoto){
+
+if(localStorage.getItem("birthdayPhoto")){
+
+deleteBirthdayPhoto.style.display="inline-block";
+
+}
+
+deleteBirthdayPhoto.onclick = function(){
+
+localStorage.removeItem("birthdayPhoto");
+
+birthdayPreview.src = "";
+birthdayPreview.style.display = "none";
+
+birthdayPhoto.value = "";
+
+deleteBirthdayPhoto.style.display = "none";
 
 };
 
