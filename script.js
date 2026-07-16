@@ -1821,3 +1821,94 @@ function getShareData() {
     };
 
 }
+// ===============================
+// Universal Share Popup
+// ===============================
+
+document.addEventListener("DOMContentLoaded", function () {
+
+const shareBtn = document.querySelector(".shareBtn");
+
+const sharePopup = document.getElementById("sharePopup");
+
+const closeShare = document.getElementById("closeShare");
+
+if (!shareBtn || !sharePopup) return;
+
+shareBtn.onclick = function () {
+
+sharePopup.style.display = "flex";
+
+};
+
+closeShare.onclick = function () {
+
+sharePopup.style.display = "none";
+
+};
+
+document.querySelectorAll(".shareOption").forEach(btn => {
+
+btn.onclick = function () {
+
+const type = this.dataset.type;
+
+const data = getShareData();
+
+const url = encodeURIComponent(data.url);
+
+const text = encodeURIComponent(data.text);
+
+switch(type){
+
+case "whatsapp":
+
+window.open(
+`https://wa.me/?text=${text}%20${url}`,
+"_blank"
+);
+
+break;
+
+case "facebook":
+
+window.open(
+`https://www.facebook.com/sharer/sharer.php?u=${url}`,
+"_blank"
+);
+
+break;
+
+case "twitter":
+
+window.open(
+`https://twitter.com/intent/tweet?text=${text}&url=${url}`,
+"_blank"
+);
+
+break;
+
+case "telegram":
+
+window.open(
+`https://t.me/share/url?url=${url}&text=${text}`,
+"_blank"
+);
+
+break;
+
+case "copy":
+
+navigator.clipboard.writeText(data.url);
+
+alert("✅ Link Copied!");
+
+break;
+
+}
+
+};
+
+});
+
+});
