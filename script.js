@@ -367,7 +367,7 @@ const items = themeEffects[currentTheme] || themeEffects.simple;
 // ==========================
 // Birthday Typewriter Letter
 // ==========================
-
+/*
 const typingText = document.getElementById("typingText");
 
 if (typingText) {
@@ -394,6 +394,7 @@ const birthdayMessage =
     typeLetter();
 
 }
+*/
 // ==========================
 // Birthday Cake
 // ==========================
