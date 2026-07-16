@@ -1741,3 +1741,81 @@ deleteBirthdayPhoto.style.display = "none";
 };
 
 }
+// ===============================
+// Share Popup
+// ===============================
+
+const shareBtn=document.getElementById("shareBirthdayBtn");
+
+const sharePopup=document.getElementById("sharePopup");
+
+const closeShare=document.getElementById("closeShare");
+
+if(shareBtn){
+
+shareBtn.onclick=function(){
+
+sharePopup.style.display="flex";
+
+};
+
+}
+
+if(closeShare){
+
+closeShare.onclick=function(){
+
+sharePopup.style.display="none";
+
+};
+
+}
+
+document.querySelectorAll(".shareOption").forEach(btn=>{
+
+btn.onclick=function(){
+
+const type=this.dataset.type;
+
+const url=encodeURIComponent(window.location.href);
+
+const text=encodeURIComponent("🎂 Happy Birthday ❤️");
+
+switch(type){
+
+case "whatsapp":
+
+window.open(`https://wa.me/?text=${text}%20${url}`);
+
+break;
+
+case "facebook":
+
+window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`);
+
+break;
+
+case "twitter":
+
+window.open(`https://twitter.com/intent/tweet?text=${text}&url=${url}`);
+
+break;
+
+case "telegram":
+
+window.open(`https://t.me/share/url?url=${url}&text=${text}`);
+
+break;
+
+case "copy":
+
+navigator.clipboard.writeText(window.location.href);
+
+alert("✅ Link Copied!");
+
+break;
+
+}
+
+};
+});
