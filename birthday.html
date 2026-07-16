@@ -45,51 +45,53 @@ Today is all about smiles, happiness and beautiful memories. 🌸
 
 <div class="birthday-grid">
 
-   <div class="birthday-letter">
+  <div class="birthday-letter">
 
     <h2>💌 A Special Message</h2>
 
     <p id="typingText"></p>
 
+    <img
+    id="birthdayPreview"
+    style="
+    display:none;
+    width:220px;
+    margin-top:15px;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,.2);
+    ">
+
+    <input
+    type="file"
+    id="birthdayPhoto"
+    accept="image/*"
+    hidden>
+
     <div class="birthday-buttons">
 
         <button id="editBirthdayBtn">
-            ✏️ Edit Letter
+        ✏️ Edit Letter
         </button>
 
-        <button id="saveBirthdayBtn" style="display:none;">
-            💾 Save Changes
+        <button id="changeBirthdayPhoto">
+        🖼 Change Picture
         </button>
 
-        <button id="resetBirthdayBtn" style="display:none;">
-            🔄 Reset
+        <button id="saveBirthdayBtn">
+        💾 Save
         </button>
-<input
-type="file"
-id="birthdayPhoto"
-accept="image/*"
-hidden>
 
-<button id="changeBirthdayPhoto">
-🖼 Change Picture
-</button>
+        <button id="deleteBirthdayPhoto">
+        🗑 Delete Picture
+        </button>
 
-<img
-id="birthdayPreview"
-style="
-display:none;
-width:220px;
-margin-top:15px;
-border-radius:15px;
-box-shadow:0 5px 15px rgba(0,0,0,.2);
-">
-   <button id="deleteBirthdayPhoto" style="display:none;">
-🗑 Delete Picture
-</button>
+        <button id="resetBirthdayBtn">
+        🔄 Reset
+        </button>
+
     </div>
 
 </div>
-
 <div class="right-side">
         <div class="cake-container">
 
