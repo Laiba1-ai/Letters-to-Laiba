@@ -407,15 +407,26 @@ const wishMessage = document.getElementById("wishMessage");
 if (cake && wishMessage){
 
 
-    cake.onclick = function(){
+   cake.onclick = function(){
 
-        cake.innerHTML = "🧁";
+cake.style.transition="0.5s";
 
-        wishMessage.innerHTML = "🎉 Make a Wish! ✨";
+cake.style.transform="scale(1.3) rotate(-10deg)";
 
-        cake.style.transform = "scale(1.2)";
+setTimeout(()=>{
 
-    };
+cake.innerHTML="🍰";
+
+cake.style.transform="scale(1)";
+
+wishMessage.innerHTML=
+"🎉 Happy Birthday!<br>✨ Make Your Wish ✨";
+
+wishMessage.style.animation="fadeIn 1s";
+
+},400);
+
+};
 
 }
 // ==========================
