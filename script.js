@@ -1819,3 +1819,14 @@ break;
 
 };
 });
+if(shareBtn){
+
+shareBtn.onclick=function(){
+
+alert("Button Working");
+
+sharePopup.style.display="flex";
+
+};
+
+}
