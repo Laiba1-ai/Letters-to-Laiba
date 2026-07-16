@@ -2955,3 +2955,94 @@ transform:translateY(-3px);
 box-shadow:0 10px 20px rgba(255,105,180,.35);
 
 }
+/* ===============================
+   Birthday Photo Premium
+=============================== */
+
+#birthdayPreview{
+
+display:none;
+
+width:260px;
+
+height:260px;
+
+object-fit:cover;
+
+margin:25px auto;
+
+display:block;
+
+border-radius:25px;
+
+padding:6px;
+
+background:linear-gradient(
+135deg,
+#ff4f9d,
+#ffc4df,
+#ffffff
+);
+
+box-shadow:
+0 10px 30px rgba(255,105,180,.35);
+
+transition:.4s;
+
+}
+
+#birthdayPreview:hover{
+
+transform:scale(1.05);
+
+box-shadow:
+0 15px 45px rgba(255,105,180,.55);
+
+}
+
+#birthdayPreview:not([src]),
+
+#birthdayPreview[src=""]{
+
+display:none;
+
+}
+.birthday-buttons button{
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+.birthday-buttons button::after{
+
+content:"";
+
+position:absolute;
+
+top:50%;
+
+left:50%;
+
+width:0;
+
+height:0;
+
+border-radius:50%;
+
+background:rgba(255,255,255,.35);
+
+transform:translate(-50%,-50%);
+
+transition:.5s;
+
+}
+
+.birthday-buttons button:active::after{
+
+width:300px;
+
+height:300px;
+
+}
