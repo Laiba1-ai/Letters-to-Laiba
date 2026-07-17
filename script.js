@@ -1944,54 +1944,44 @@ document.addEventListener("DOMContentLoaded", () => {
 // Birthday Intro Countdown
 // ===============================
 
-const birthdayIntro =
-document.getElementById("birthdayIntro");
+const birthdayIntro = document.getElementById("birthdayIntro");
+const countNumber = document.getElementById("countNumber");
+const introText = document.getElementById("introText");
 
-const countNumber =
-document.getElementById("countNumber");
+if (birthdayIntro && countNumber && introText) {
 
-const introText =
-document.getElementById("introText");
+    let count = 3;
 
-if(birthdayIntro){
+    const timer = setInterval(() => {
 
-let count = 3;
+        count--;
 
-const timer = setInterval(()=>{
+        if (count > 0) {
 
-count--;
+            countNumber.textContent = count;
 
-if(count > 0){
+        } else {
 
-countNumber.innerHTML = count;
+            clearInterval(timer);
 
-}
+            countNumber.textContent = "🎉";
+            introText.textContent = "Happy Birthday ❤️";
 
-else{
+            setTimeout(() => {
 
-clearInterval(timer);
+                birthdayIntro.style.opacity = "0";
+                birthdayIntro.style.pointerEvents = "none";
 
-countNumber.innerHTML = "🎉";
+                setTimeout(() => {
 
-introText.innerHTML =
-"Happy Birthday ❤️";
+                    birthdayIntro.remove();
 
-setTimeout(()=>{
+                }, 1000);
 
-birthdayIntro.style.opacity = "0";
+            }, 1500);
 
-birthdayIntro.style.pointerEvents = "none";
+        }
 
-setTimeout(()=>{
-
-birthdayIntro.remove();
-
-},1000);
-
-},1500);
-
-}
-
-},1000);
+    }, 1000);
 
 }
