@@ -1771,26 +1771,6 @@ birthdayPhoto.value = "";
 deleteBirthdayPhoto.style.display = "none";
 
 };
-
-}
-window.addEventListener("DOMContentLoaded", function(){
-
-const shareBtn = document.getElementById("shareBirthdayBtn");
-const sharePopup = document.getElementById("sharePopup");
-const closeShare = document.getElementById("closeShare");
-
-console.log(shareBtn);
-console.log(sharePopup);
-console.log(closeShare);
-
-if(shareBtn){
-
-shareBtn.addEventListener("click", function(){
-
-sharePopup.style.display = "flex";
-
-});
-
 }
 
 if(closeShare){
