@@ -1960,3 +1960,58 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 });
+// ===============================
+// Birthday Intro Countdown
+// ===============================
+
+const birthdayIntro =
+document.getElementById("birthdayIntro");
+
+const countNumber =
+document.getElementById("countNumber");
+
+const introText =
+document.getElementById("introText");
+
+if(birthdayIntro){
+
+let count = 3;
+
+const timer = setInterval(()=>{
+
+count--;
+
+if(count > 0){
+
+countNumber.innerHTML = count;
+
+}
+
+else{
+
+clearInterval(timer);
+
+countNumber.innerHTML = "🎉";
+
+introText.innerHTML =
+"Happy Birthday ❤️";
+
+setTimeout(()=>{
+
+birthdayIntro.style.opacity = "0";
+
+birthdayIntro.style.pointerEvents = "none";
+
+setTimeout(()=>{
+
+birthdayIntro.remove();
+
+},1000);
+
+},1500);
+
+}
+
+},1000);
+
+}
