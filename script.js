@@ -399,34 +399,32 @@ const birthdayMessage =
 // Birthday Cake
 // ==========================
 
-const cakeContainer =
-document.getElementById("cakeContainer");
+const cake = document.getElementById("cake");
 const wishMessage = document.getElementById("wishMessage");
+const cakeEffect = document.getElementById("cakeEffect");
 
-    const cake = document.getElementById("cake");
-if (cake && wishMessage){
+if (cake) {
 
+    cake.onclick = function () {
 
-   cake.onclick = function(){
+        cake.classList.add("cut");
 
-cake.style.transition="0.5s";
+        cake.innerHTML = "🍰";
 
-cake.style.transform="scale(1.3) rotate(-10deg)";
+        wishMessage.innerHTML =
+        "🎉 Happy Birthday! Make a Wish! ✨";
 
-setTimeout(()=>{
+        if (cakeEffect) {
+            cakeEffect.innerHTML = "🎊 🎈 ✨ 🎁 ❤️";
+        }
 
-cake.innerHTML="🍰";
+        setTimeout(() => {
 
-cake.style.transform="scale(1)";
+            cake.classList.remove("cut");
 
-wishMessage.innerHTML=
-"🎉 Happy Birthday!<br>✨ Make Your Wish ✨";
+        }, 800);
 
-wishMessage.style.animation="fadeIn 1s";
-
-},400);
-
-};
+    };
 
 }
 // ==========================
