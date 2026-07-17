@@ -428,21 +428,55 @@ if (cake) {
 
 }
 // ==========================
-// Gift Box Surprise
+// Editable Gift
 // ==========================
 
 const giftBox = document.getElementById("giftBox");
 const giftMessage = document.getElementById("giftMessage");
+const giftEditor = document.getElementById("giftEditor");
+const saveGiftBtn = document.getElementById("saveGiftBtn");
 
-if (giftBox && giftMessage){
+if(giftBox){
 
-    giftBox.onclick = function(){
+const savedGift =
+localStorage.getItem("birthdayGift");
 
-        giftBox.innerHTML = "💝";
+if(savedGift){
 
-        giftMessage.style.display = "block";
+giftMessage.innerHTML = savedGift;
 
-    };
+}
+
+giftBox.onclick = function(){
+
+giftBox.innerHTML = "💝";
+
+giftMessage.style.display = "block";
+
+giftEditor.style.display = "block";
+
+saveGiftBtn.style.display = "inline-block";
+
+giftEditor.value = giftMessage.innerText;
+
+};
+
+}
+
+if(saveGiftBtn){
+
+saveGiftBtn.onclick = function(){
+
+giftMessage.innerHTML = giftEditor.value;
+
+localStorage.setItem(
+"birthdayGift",
+giftEditor.value
+);
+
+alert("🎁 Gift Saved!");
+
+};
 
 }
 // ===============================
