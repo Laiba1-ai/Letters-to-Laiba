@@ -1960,3 +1960,57 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 });
+// ==========================
+// Birthday Countdown
+// ==========================
+
+const birthdayCountdown =
+document.getElementById("birthdayCountdown");
+
+if(birthdayCountdown){
+
+const birthday = new Date("2027-07-20 00:00:00").getTime();
+
+setInterval(()=>{
+
+const now = new Date().getTime();
+
+const distance = birthday - now;
+
+if(distance <= 0){
+
+birthdayCountdown.innerHTML =
+"🎉 Happy Birthday! 🎂";
+
+return;
+
+}
+
+const days =
+Math.floor(distance/(1000*60*60*24));
+
+const hours =
+Math.floor((distance%(1000*60*60*24))/(1000*60*60));
+
+const minutes =
+Math.floor((distance%(1000*60*60))/(1000*60));
+
+const seconds =
+Math.floor((distance%(1000*60))/1000);
+
+birthdayCountdown.innerHTML =
+`
+🎂 <b>Birthday Countdown</b><br><br>
+
+${days} Days
+
+${hours} Hours
+
+${minutes} Minutes
+
+${seconds} Seconds
+`;
+
+},1000);
+
+}
