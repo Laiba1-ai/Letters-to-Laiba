@@ -1620,7 +1620,7 @@ if(themeToggle){
 // ===============================
 // Birthday Letter Edit
 // ===============================
-
+const typingText = document.getElementById("typingText");
 const editBirthdayBtn = document.getElementById("editBirthdayBtn");
 const saveBirthdayBtn = document.getElementById("saveBirthdayBtn");
 const resetBirthdayBtn = document.getElementById("resetBirthdayBtn");
