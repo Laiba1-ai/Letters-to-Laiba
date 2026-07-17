@@ -3490,3 +3490,56 @@ color:white;
 margin-top:15px;
 
 }
+/* ===============================
+   Birthday Countdown
+=============================== */
+
+#birthdayCountdown{
+
+margin:20px auto;
+
+padding:18px;
+
+max-width:420px;
+
+border-radius:20px;
+
+font-size:22px;
+
+font-weight:600;
+
+text-align:center;
+
+background:rgba(255,255,255,.15);
+
+backdrop-filter:blur(15px);
+
+box-shadow:0 10px 30px rgba(0,0,0,.2);
+
+color:#ff4f9d;
+
+animation:pulseCountdown 2s infinite;
+
+}
+
+@keyframes pulseCountdown{
+
+0%{
+
+transform:scale(1);
+
+}
+
+50%{
+
+transform:scale(1.03);
+
+}
+
+100%{
+
+transform:scale(1);
+
+}
+
+}
