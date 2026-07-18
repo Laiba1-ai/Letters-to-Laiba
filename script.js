@@ -4,6 +4,11 @@
 
 const websitePassword = "laiba123";
 // ===============================
+// Owner / Visitor Mode
+// ===============================
+
+const isOwner = window.location.search.includes("owner=true");
+// ===============================
 // Theme Effects
 // ===============================
 
@@ -1989,5 +1994,64 @@ const params = new URLSearchParams(window.location.search);
 if (params.get("surprise") === "true") {
 
     document.getElementById("previewBirthdayBtn")?.click();
+
+}
+// ===============================
+// Hide Edit Buttons For Visitors
+// ===============================
+
+if (!isOwner) {
+
+    document.querySelectorAll(`
+        #editBirthdayBtn,
+        #saveBirthdayBtn,
+        #resetBirthdayBtn,
+        #changeBirthdayPhoto,
+        #deleteBirthdayPhoto,
+        #previewBirthdayBtn,
+        #saveGiftBtn,
+        #giftEditor
+    `).forEach(el => {
+
+        if (el) el.style.display = "none";
+
+    });
+
+}
+// ===============================
+// Show "Create Your Own Letter"
+// ===============================
+
+if (!isOwner) {
+
+    setTimeout(() => {
+
+        const popup = document.createElement("div");
+
+        popup.id = "visitorPopup";
+
+        popup.innerHTML = `
+            <div class="visitorBox">
+                <h2>💌 Hope You Loved This Letter</h2>
+
+                <p>Create your own beautiful surprise now.</p>
+
+                <button id="createLetterBtn">
+                    ✨ Create Your Own Letter
+                </button>
+            </div>
+        `;
+
+        document.body.appendChild(popup);
+
+        document
+            .getElementById("createLetterBtn")
+            .onclick = function () {
+
+                window.location.href = "home.html";
+
+            };
+
+    }, 3000);
 
 }
