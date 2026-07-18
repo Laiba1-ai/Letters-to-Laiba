@@ -1934,7 +1934,6 @@ if (birthdayIntro && countNumber && introText) {
 
 }   
 */
-/*
 document.addEventListener("DOMContentLoaded", () => {
 
     const previewBirthdayBtn = document.getElementById("previewBirthdayBtn");
@@ -1992,15 +1991,4 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 });
-*/
-const previewBirthdayBtn = document.getElementById("previewBirthdayBtn");
 
-if (previewBirthdayBtn) {
-
-    previewBirthdayBtn.onclick = function () {
-
-        alert("Preview Button Working ❤️");
-
-    };
-
-}
