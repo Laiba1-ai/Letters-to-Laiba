@@ -2019,39 +2019,30 @@ if (!isOwner) {
 
 }
 // ===============================
-// Show "Create Your Own Letter"
+// Visitor Popup
 // ===============================
 
-if (!isOwner) {
+const visitorPopup = document.getElementById("visitorPopup");
+const createLetterBtn = document.getElementById("createLetterBtn");
+
+if (!isOwner && visitorPopup) {
+
+    visitorPopup.style.display = "none";
 
     setTimeout(() => {
 
-        const popup = document.createElement("div");
+        visitorPopup.style.display = "block";
 
-        popup.id = "visitorPopup";
+    }, 5000);
 
-        popup.innerHTML = `
-            <div class="visitorBox">
-                <h2>💌 Hope You Loved This Letter</h2>
+}
 
-                <p>Create your own beautiful surprise now.</p>
+if (createLetterBtn) {
 
-                <button id="createLetterBtn">
-                    ✨ Create Your Own Letter
-                </button>
-            </div>
-        `;
+    createLetterBtn.onclick = function () {
 
-        document.body.appendChild(popup);
+        window.location.href = "home.html";
 
-        document
-            .getElementById("createLetterBtn")
-            .onclick = function () {
-
-                window.location.href = "home.html";
-
-            };
-
-    }, 3000);
+    };
 
 }
