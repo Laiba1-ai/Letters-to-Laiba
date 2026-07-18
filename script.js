@@ -1889,7 +1889,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 });
-// ===============================
+/*// ===============================
 // Birthday Intro Countdown
 // ===============================
     
@@ -1933,3 +1933,63 @@ if (birthdayIntro && countNumber && introText) {
     }, 1000);
 
 }   
+*/
+const previewBirthdayBtn = document.getElementById("previewBirthdayBtn");
+
+if (previewBirthdayBtn) {
+
+    previewBirthdayBtn.addEventListener("click", () => {
+
+        const birthdayIntro = document.getElementById("birthdayIntro");
+        const countNumber = document.getElementById("countNumber");
+        const introText = document.getElementById("introText");
+
+        if (!birthdayIntro || !countNumber || !introText) return;
+
+        // Show intro
+        birthdayIntro.style.display = "flex";
+        birthdayIntro.style.opacity = "1";
+        birthdayIntro.style.pointerEvents = "all";
+
+        let count = 3;
+        countNumber.textContent = count;
+        introText.textContent = "🎂 A Special Surprise Is Waiting...";
+
+        const timer = setInterval(() => {
+
+            count--;
+
+            if (count > 0) {
+
+                countNumber.textContent = count;
+
+         } else {
+
+    clearInterval(timer);
+
+    countNumber.textContent = "🎉";
+    introText.textContent = "Happy Birthday ❤️";
+
+    setTimeout(() => {
+
+        birthdayIntro.style.opacity = "0";
+        birthdayIntro.style.pointerEvents = "none";
+
+        setTimeout(() => {
+
+            birthdayIntro.style.display = "none";
+
+            // Reset for next preview
+            birthdayIntro.style.opacity = "1";
+            birthdayIntro.style.pointerEvents = "all";
+
+        }, 1000);
+
+    }, 1500);
+
+}
+        }, 1000);
+
+    });
+
+}
