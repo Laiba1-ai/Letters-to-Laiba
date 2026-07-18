@@ -994,7 +994,7 @@ function applyTheme(type) {
     ).forEach(el => el.remove());
 
     // Birthday Cake
-const cakeContainer = document.getElementById("cakeContainer");
+const cakeContainer = document.querySelector(".cake-container");
 
 if (cakeContainer) {
     cakeContainer.style.display =
@@ -1771,17 +1771,6 @@ deleteBirthdayPhoto.style.display = "none";
 
 };
 }
-
-if(closeShare){
-
-closeShare.addEventListener("click", function(){
-
-sharePopup.style.display = "none";
-
-});
-
-}
-
 // ===============================
 // Universal Share System
 // ===============================
