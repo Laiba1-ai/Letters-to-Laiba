@@ -1893,12 +1893,15 @@ document.addEventListener("DOMContentLoaded", () => {
 // Birthday Intro Countdown
 // ===============================
     
+const birthdayIntro = document.getElementById("birthdayIntro");
 const countNumber = document.getElementById("countNumber");
 const introText = document.getElementById("introText");
 
 if (birthdayIntro && countNumber && introText) {
 
     let count = 3;
+
+    countNumber.textContent = count;
 
     const timer = setInterval(() => {
 
@@ -1918,7 +1921,6 @@ if (birthdayIntro && countNumber && introText) {
             setTimeout(() => {
 
                 birthdayIntro.style.opacity = "0";
-                birthdayIntro.style.pointerEvents = "none";
 
                 setTimeout(() => {
 
