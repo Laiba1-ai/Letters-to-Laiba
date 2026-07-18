@@ -1991,20 +1991,3 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 });
-document.addEventListener("DOMContentLoaded", () => {
-
-    const btn = document.getElementById("previewBirthdayBtn");
-
-    console.log(btn);
-
-    if(btn){
-
-        btn.onclick = function(){
-
-            alert("Working ❤️");
-
-        };
-
-    }
-
-});
