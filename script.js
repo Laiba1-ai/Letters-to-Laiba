@@ -487,7 +487,7 @@ const giftText = document.getElementById("giftText");
 
 const editGiftBtn = document.getElementById("editGiftBtn");
 
-const saveGiftBtn = document.getElementById("saveGiftBtn");
+const birthdaySaveGiftBtn = document.getElementById("saveGiftBtn");
 
 const resetGiftBtn = document.getElementById("resetGiftBtn");
 
@@ -517,7 +517,7 @@ resetGiftBtn.style.display = "inline-block";
 
 };
 
-saveGiftBtn.onclick = function(){
+birthdaySaveGiftBtn.onclick = function(){
 
 giftText.contentEditable = "false";
 
