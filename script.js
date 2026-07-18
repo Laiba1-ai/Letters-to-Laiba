@@ -1934,9 +1934,11 @@ if (birthdayIntro && countNumber && introText) {
 
 }   
 */
-const previewBirthdayBtn = document.getElementById("previewBirthdayBtn");
+document.addEventListener("DOMContentLoaded", () => {
 
-if (previewBirthdayBtn) {
+    const previewBirthdayBtn = document.getElementById("previewBirthdayBtn");
+
+    if (!previewBirthdayBtn) return;
 
     previewBirthdayBtn.addEventListener("click", () => {
 
@@ -1946,7 +1948,6 @@ if (previewBirthdayBtn) {
 
         if (!birthdayIntro || !countNumber || !introText) return;
 
-        // Show intro
         birthdayIntro.style.display = "flex";
         birthdayIntro.style.opacity = "1";
         birthdayIntro.style.pointerEvents = "all";
@@ -1963,33 +1964,30 @@ if (previewBirthdayBtn) {
 
                 countNumber.textContent = count;
 
-         } else {
+            } else {
 
-    clearInterval(timer);
+                clearInterval(timer);
 
-    countNumber.textContent = "🎉";
-    introText.textContent = "Happy Birthday ❤️";
+                countNumber.textContent = "🎉";
+                introText.textContent = "Happy Birthday ❤️";
 
-    setTimeout(() => {
+                setTimeout(() => {
 
-        birthdayIntro.style.opacity = "0";
-        birthdayIntro.style.pointerEvents = "none";
+                    birthdayIntro.style.opacity = "0";
 
-        setTimeout(() => {
+                    setTimeout(() => {
 
-            birthdayIntro.style.display = "none";
+                        birthdayIntro.style.display = "none";
+                        birthdayIntro.style.opacity = "1";
 
-            // Reset for next preview
-            birthdayIntro.style.opacity = "1";
-            birthdayIntro.style.pointerEvents = "all";
+                    },1000);
 
-        }, 1000);
+                },1500);
 
-    }, 1500);
+            }
 
-}
-        }, 1000);
+        },1000);
 
     });
 
-}
+});
