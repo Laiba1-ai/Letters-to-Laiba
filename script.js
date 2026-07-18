@@ -1930,7 +1930,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!previewBirthdayBtn) return;
 
     previewBirthdayBtn.addEventListener("click", () => {
-
+        sessionStorage.removeItem("editorMode");
         const birthdayIntro = document.getElementById("birthdayIntro");
         const countNumber = document.getElementById("countNumber");
         const introText = document.getElementById("introText");
@@ -1968,6 +1968,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                         birthdayIntro.style.display = "none";
                         birthdayIntro.style.opacity = "1";
+                        sessionStorage.setItem("editorMode", "true");
 
                     },1000);
 
@@ -1980,3 +1981,13 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 });
+const birthdayIntro = document.getElementById("birthdayIntro");
+
+if (
+    birthdayIntro &&
+    !sessionStorage.getItem("editorMode")
+) {
+
+    document.getElementById("previewBirthdayBtn")?.click();
+
+}
