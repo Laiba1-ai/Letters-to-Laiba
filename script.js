@@ -2002,16 +2002,24 @@ if (params.get("surprise") === "true") {
 
 if (!isOwner) {
 
-    document.querySelectorAll(`
-        #editBirthdayBtn,
-        #saveBirthdayBtn,
-        #resetBirthdayBtn,
-        #changeBirthdayPhoto,
-        #deleteBirthdayPhoto,
-        #previewBirthdayBtn,
-        #saveGiftBtn,
-        #giftEditor
-    `).forEach(el => {
+    document.addEventListener("DOMContentLoaded", () => {
+
+        const visitorPopup = document.getElementById("visitorPopup");
+        const backHomeBtn = document.getElementById("backHomeBtn");
+
+        if (visitorPopup) {
+            visitorPopup.style.display = "block";
+        }
+
+        if (backHomeBtn) {
+            backHomeBtn.style.display = "block";
+        }
+
+    });
+
+    document.querySelectorAll(
+        "#editBirthdayBtn, #saveBirthdayBtn, #resetBirthdayBtn, #changeBirthdayPhoto, #deleteBirthdayPhoto, #previewBirthdayBtn, #saveGiftBtn, #giftEditor"
+    ).forEach(el => {
 
         if (el) el.style.display = "none";
 
