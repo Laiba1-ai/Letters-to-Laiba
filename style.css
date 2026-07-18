@@ -3565,67 +3565,42 @@ transform:scale(.7);
 /* ===============================
    Visitor Popup
 =============================== */
-
 .visitor-popup{
 
 display:none;
-margin-top:20px;
-padding:20px;
-background:#ffffff15;
-backdrop-filter:blur(10px);
+
+margin-top:25px;
+
+padding:25px;
+
+background:#1b1b1b;
+
 border-radius:18px;
+
 text-align:center;
+
 animation:fadeUp .8s;
 
 }
 
-.visitor-popup h3{
+.visitor-popup button{
 
-color:#ff4d94;
-margin-bottom:10px;
+width:100%;
 
-}
+padding:16px;
 
-.visitor-popup p{
+font-size:18px;
 
-color:#fff;
-margin-bottom:15px;
-
-}
-
-#createLetterBtn{
-
-padding:12px 25px;
 border:none;
-border-radius:30px;
-background:#ff4d94;
-color:#fff;
-font-size:16px;
+
+border-radius:12px;
+
 cursor:pointer;
-transition:.3s;
 
-}
+margin-top:18px;
 
-#createLetterBtn:hover{
+background:#ff4f9d;
 
-transform:scale(1.05);
-
-}
-
-@keyframes fadeUp{
-
-from{
-
-opacity:0;
-transform:translateY(30px);
-
-}
-
-to{
-
-opacity:1;
-transform:translateY(0);
-
-}
+color:#fff;
 
 }
