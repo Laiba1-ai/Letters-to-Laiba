@@ -1842,7 +1842,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 text = "🥺 I'm Sorry ❤️";
             }
 
-            const url = encodeURIComponent(window.location.href);
+          const shareUrl = window.location.origin +
+window.location.pathname + "?surprise=true";
+
+const url = encodeURIComponent(shareUrl);
             const msg = encodeURIComponent(text);
 
             switch(this.dataset.type){
@@ -1981,12 +1984,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 });
-const birthdayIntro = document.getElementById("birthdayIntro");
+const params = new URLSearchParams(window.location.search);
 
-if (
-    birthdayIntro &&
-    !sessionStorage.getItem("editorMode")
-) {
+if (params.get("surprise") === "true") {
 
     document.getElementById("previewBirthdayBtn")?.click();
 
