@@ -2025,15 +2025,21 @@ if (!isOwner) {
 const visitorPopup = document.getElementById("visitorPopup");
 const createLetterBtn = document.getElementById("createLetterBtn");
 
-if (!isOwner && visitorPopup) {
+if (visitorPopup) {
 
-    visitorPopup.style.display = "none";
+    if (isOwner) {
 
-    setTimeout(() => {
+        visitorPopup.style.display = "none";
 
-        visitorPopup.style.display = "block";
+    } else {
 
-    }, 5000);
+        setTimeout(() => {
+
+            visitorPopup.style.display = "block";
+
+        }, 3000);
+
+    }
 
 }
 
