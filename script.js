@@ -76,8 +76,7 @@ function checkPassword() {
 
                 loading.style.display = "none";
     sessionStorage.setItem("ownerMode", "true");
-window.location.href = "home.html?owner=true";
-
+window.location.href = "home.html";
             }
 
         }, 50);
