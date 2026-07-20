@@ -441,122 +441,48 @@ const giftMessage = document.getElementById("giftMessage");
 const giftEditor = document.getElementById("giftEditor");
 const saveGiftBtn = document.getElementById("saveGiftBtn");
 
-if(giftBox){
+if (giftBox) {
 
-const savedGift =
-localStorage.getItem("birthdayGift");
+    const savedGift = localStorage.getItem("birthdayGift");
 
-if(savedGift){
-
-giftMessage.innerHTML = savedGift;
-
-}
-
-giftBox.onclick = function(){
-
-    giftBox.innerHTML = "💝";
-
-    giftMessage.style.display = "block";
-
-    if(isOwner){
-
-        giftEditor.style.display = "block";
-        saveGiftBtn.style.display = "inline-block";
-
-        giftEditor.value = giftMessage.innerText;
-
+    if (savedGift) {
+        giftMessage.innerHTML = savedGift;
     }
 
-};
+    giftBox.onclick = function () {
 
-if(saveGiftBtn){
+        giftBox.innerHTML = "💝";
+        giftMessage.style.display = "block";
 
-saveGiftBtn.onclick = function(){
+        if (isOwner) {
 
-giftMessage.innerHTML = giftEditor.value;
+            giftEditor.style.display = "block";
+            saveGiftBtn.style.display = "inline-block";
+            giftEditor.value = giftMessage.innerText;
 
-localStorage.setItem(
-"birthdayGift",
-giftEditor.value
-);
+        }
 
-alert("🎁 Gift Saved!");
-    giftEditor.style.display = "none";
-saveGiftBtn.style.display = "none";
+    };
 
-};
+} // ✅ if(giftBox) closes here
 
-}
-// ===============================
-// Birthday Gift Edit
-// ===============================
+if (saveGiftBtn) {
 
-const giftText = document.getElementById("giftText");
+    saveGiftBtn.onclick = function () {
 
-const editGiftBtn = document.getElementById("editGiftBtn");
+        giftMessage.innerHTML = giftEditor.value;
 
-const birthdaySaveGiftBtn = document.getElementById("saveGiftBtn");
+        localStorage.setItem(
+            "birthdayGift",
+            giftEditor.value
+        );
 
-const resetGiftBtn = document.getElementById("resetGiftBtn");
+        alert("🎁 Gift Saved!");
 
-if(giftText && editGiftBtn){
+        giftEditor.style.display = "none";
+        saveGiftBtn.style.display = "none";
 
-const defaultGift = `💖 You are amazing!
-
-Wishing you endless happiness, success and beautiful moments.`;
-
-giftText.innerText =
-localStorage.getItem("birthdayGift") || defaultGift;
-
-editGiftBtn.onclick = function(){
-
-giftText.contentEditable = "true";
-
-giftText.focus();
-
-giftText.style.border =
-"2px dashed #ff4081";
-
-giftText.style.padding = "10px";
-
-saveGiftBtn.style.display = "inline-block";
-
-resetGiftBtn.style.display = "inline-block";
-
-};
-
-birthdaySaveGiftBtn.onclick = function(){
-
-giftText.contentEditable = "false";
-
-giftText.style.border = "none";
-
-localStorage.setItem(
-"birthdayGift",
-giftText.innerText
-);
-
-saveGiftBtn.style.display = "none";
-
-resetGiftBtn.style.display = "none";
-
-};
-
-resetGiftBtn.onclick = function(){
-
-giftText.innerText = defaultGift;
-
-giftText.contentEditable = "false";
-
-giftText.style.border = "none";
-
-localStorage.removeItem("birthdayGift");
-
-saveGiftBtn.style.display = "none";
-
-resetGiftBtn.style.display = "none";
-
-};
+    };
 
 }
 // ==========================
