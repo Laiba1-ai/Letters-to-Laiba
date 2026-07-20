@@ -1721,6 +1721,53 @@ deleteBirthdayPhoto.style.display = "none";
 };
 }
 // ===============================
+// Universal Visitor Popup
+// ===============================
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    if (isOwner) return;
+
+    if (document.body.classList.contains("home-page")) return;
+
+    if (!document.getElementById("visitorPopup")) {
+
+        document.body.insertAdjacentHTML("beforeend", `
+
+<div id="visitorPopup" class="visitor-popup">
+
+<h3>❤️ Like this card?</h3>
+
+<p>Create your own beautiful letter now.</p>
+
+<button id="createLetterBtn">
+✨ Create Your Own
+</button>
+
+<button id="backHomeBtn">
+🏠 Back Home
+</button>
+
+</div>
+
+`);
+
+        document.getElementById("createLetterBtn").onclick = () => {
+
+            window.location.href = "home.html?owner=true";
+
+        };
+
+        document.getElementById("backHomeBtn").onclick = () => {
+
+            window.location.href = "home.html";
+
+        };
+
+    }
+
+});
+// ===============================
 // Universal Share System
 // ===============================
 
