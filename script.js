@@ -1989,3 +1989,58 @@ if (createLetterBtn) {
     };
 
 }
+// ===============================
+// Auto Countdown For Visitors
+// ===============================
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    if (isOwner) return;
+
+    const birthdayIntro = document.getElementById("birthdayIntro");
+    const countNumber = document.getElementById("countNumber");
+    const introText = document.getElementById("introText");
+
+    if (!birthdayIntro || !countNumber || !introText) return;
+
+    birthdayIntro.style.display = "flex";
+    birthdayIntro.style.opacity = "1";
+
+    let count = 3;
+
+    countNumber.textContent = count;
+    introText.textContent = "🎂 A Special Surprise Is Waiting...";
+
+    const timer = setInterval(() => {
+
+        count--;
+
+        if (count > 0) {
+
+            countNumber.textContent = count;
+
+        } else {
+
+            clearInterval(timer);
+
+            countNumber.textContent = "🎉";
+            introText.textContent = "Happy Birthday ❤️";
+
+            setTimeout(() => {
+
+                birthdayIntro.style.opacity = "0";
+
+                setTimeout(() => {
+
+                    birthdayIntro.style.display = "none";
+                    birthdayIntro.style.opacity = "1";
+
+                }, 1000);
+
+            }, 1500);
+
+        }
+
+    }, 1000);
+
+});
