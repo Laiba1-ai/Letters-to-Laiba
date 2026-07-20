@@ -2049,3 +2049,28 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 1000);
 
 });
+// ===============================
+// Keep Owner Mode Across Pages
+// ===============================
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    if (!isOwner) return;
+
+    document.querySelectorAll("a").forEach(link => {
+
+        const href = link.getAttribute("href");
+
+        if (!href) return;
+
+        if (
+            href.startsWith("http") ||
+            href.startsWith("#") ||
+            href.includes("?owner=true")
+        ) return;
+
+        link.href = href + "?owner=true";
+
+    });
+
+});
