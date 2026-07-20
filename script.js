@@ -8,8 +8,7 @@ const websitePassword = "laiba123";
 // Owner / Visitor Mode
 // ===============================
 const isOwner =
-    window.location.search.includes("owner=true") &&
-    sessionStorage.getItem("ownerMode") === "true";
+window.location.search.includes("owner=true");
 
 const isSurprise =
     window.location.search.includes("surprise=true");
