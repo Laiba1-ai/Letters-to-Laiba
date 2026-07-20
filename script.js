@@ -1941,13 +1941,18 @@ if (!isOwner) {
         const backHomeBtn = document.getElementById("backHomeBtn");
 
         if (visitorPopup) {
-            visitorPopup.style.display = "block";
-        }
 
-        if (backHomeBtn) {
-            backHomeBtn.style.display = "block";
-        }
+    visitorPopup.style.display =
+        isOwner ? "none" : "block";
 
+}
+
+if (backHomeBtn) {
+
+    backHomeBtn.style.display =
+        isOwner ? "none" : "block";
+
+}
     });
 
     document.querySelectorAll(
