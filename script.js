@@ -2078,3 +2078,19 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 });
+// ===============================
+// Create Your Own
+// ===============================
+
+const createLetterBtn =
+document.getElementById("createLetterBtn");
+
+if(createLetterBtn){
+
+    createLetterBtn.onclick = function(){
+
+        window.location.href = "home.html?owner=true";
+
+    };
+
+}
