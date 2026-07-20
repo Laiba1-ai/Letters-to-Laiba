@@ -6,7 +6,6 @@ const websitePassword = "laiba123";
 // ===============================
 // Owner / Visitor Mode
 // ===============================
-
 const isOwner = window.location.search.includes("owner=true");
 // ===============================
 // Theme Effects
@@ -1802,11 +1801,11 @@ const url = encodeURIComponent(shareUrl);
 
                 case "copy":
 
-                    navigator.clipboard.writeText(window.location.href);
+    navigator.clipboard.writeText(shareUrl);
 
-                    alert("✅ Link Copied!");
+    alert("✅ Visitor Link Copied!");
 
-                    break;
+    break;
 
             }
 
