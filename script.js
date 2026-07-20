@@ -454,19 +454,20 @@ giftMessage.innerHTML = savedGift;
 
 giftBox.onclick = function(){
 
-giftBox.innerHTML = "💝";
+    giftBox.innerHTML = "💝";
 
-giftMessage.style.display = "block";
+    giftMessage.style.display = "block";
 
-giftEditor.style.display = "block";
+    if(isOwner){
 
-saveGiftBtn.style.display = "inline-block";
+        giftEditor.style.display = "block";
+        saveGiftBtn.style.display = "inline-block";
 
-giftEditor.value = giftMessage.innerText;
+        giftEditor.value = giftMessage.innerText;
+
+    }
 
 };
-
-}
 
 if(saveGiftBtn){
 
@@ -480,6 +481,8 @@ giftEditor.value
 );
 
 alert("🎁 Gift Saved!");
+    giftEditor.style.display = "none";
+saveGiftBtn.style.display = "none";
 
 };
 
