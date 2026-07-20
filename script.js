@@ -229,6 +229,17 @@ icons[Math.floor(Math.random() * icons.length)];
 // ==========================
 // Welcome Popup
 // ==========================
+const welcomePopup = document.getElementById("welcome-popup");
+
+if (welcomePopup) {
+
+    if (!isOwner) {
+
+        welcomePopup.style.display = "none";
+
+    }
+
+}
 const continueBtn = document.getElementById("continueBtn");
 
 if (continueBtn) {
