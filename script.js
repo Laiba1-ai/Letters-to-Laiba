@@ -3,10 +3,16 @@
 // ===============================
 
 const websitePassword = "laiba123";
+
 // ===============================
 // Owner / Visitor Mode
 // ===============================
-const isOwner = window.location.search.includes("owner=true");
+const isOwner =
+    window.location.search.includes("owner=true") &&
+    sessionStorage.getItem("ownerMode") === "true";
+
+const isSurprise =
+    window.location.search.includes("surprise=true");
 // ===============================
 // Theme Effects
 // ===============================
@@ -70,8 +76,8 @@ function checkPassword() {
                 clearInterval(loader);
 
                 loading.style.display = "none";
-
-                window.location.href = "home.html";
+    sessionStorage.setItem("ownerMode", "true");
+window.location.href = "home.html?owner=true";
 
             }
 
@@ -1994,7 +2000,7 @@ if (createLetterBtn) {
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    if (isOwner) return;
+   if (!isSurprise) return;
 
     const birthdayIntro = document.getElementById("birthdayIntro");
     const countNumber = document.getElementById("countNumber");
