@@ -2160,3 +2160,24 @@ function logoutOwner(){
     window.location.href="index.html";
 
 }
+// ===============================
+// Logout Button Visibility
+// ===============================
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const logoutBtn = document.getElementById("logoutBtn");
+
+    if (!logoutBtn) return;
+
+    if (isOwner) {
+
+        logoutBtn.style.display = "inline-block";
+
+    } else {
+
+        logoutBtn.style.display = "none";
+
+    }
+
+});
