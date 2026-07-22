@@ -3822,3 +3822,219 @@ Theme Icon
         transform:scale(.8);
     }
 }
+/* ===================================
+   PREMIUM THEME ICON ANIMATIONS
+=================================== */
+
+.theme-icon{
+font-size:90px;
+display:inline-block;
+transition:.4s;
+}
+
+/* Birthday */
+
+.cake-animation{
+animation:cakeBounce 2s infinite;
+}
+
+@keyframes cakeBounce{
+
+0%,100%{transform:translateY(0);}
+50%{transform:translateY(-12px);}
+}
+
+/* Love */
+
+.rose-animation{
+animation:roseRotate 3s infinite linear;
+}
+
+@keyframes roseRotate{
+
+0%{transform:rotate(0);}
+50%{transform:rotate(8deg);}
+100%{transform:rotate(0);}
+}
+
+/* Proposal */
+
+.ring-animation{
+animation:ringGlow 1.8s infinite;
+}
+
+@keyframes ringGlow{
+
+0%{
+transform:scale(1);
+filter:drop-shadow(0 0 0 gold);
+}
+
+50%{
+transform:scale(1.18);
+filter:drop-shadow(0 0 20px gold);
+}
+
+100%{
+transform:scale(1);
+filter:drop-shadow(0 0 0 gold);
+}
+
+}
+
+/* Sorry */
+
+.heart-animation{
+animation:heartBeat 1.2s infinite;
+}
+
+@keyframes heartBeat{
+
+0%,100%{
+transform:scale(1);
+}
+
+50%{
+transform:scale(.85);
+}
+
+}
+
+/* Friendship */
+
+.coffee-animation{
+animation:coffeeShake 2s infinite;
+}
+
+@keyframes coffeeShake{
+
+0%,100%{
+transform:rotate(0);
+}
+
+25%{
+transform:rotate(-8deg);
+}
+
+75%{
+transform:rotate(8deg);
+}
+
+}
+
+/* Mother */
+
+.flowers-animation{
+animation:flowerSpin 5s linear infinite;
+}
+
+@keyframes flowerSpin{
+
+100%{
+transform:rotate(360deg);
+}
+
+}
+
+/* Father */
+
+.tie-animation{
+animation:tieMove 2s infinite;
+}
+
+@keyframes tieMove{
+
+50%{
+transform:translateY(-8px);
+}
+
+}
+
+/* Eid */
+
+.moon-animation{
+animation:moonGlow 2s infinite;
+}
+
+@keyframes moonGlow{
+
+50%{
+filter:drop-shadow(0 0 18px gold);
+}
+
+}
+
+/* Ramadan */
+
+.lantern-animation{
+animation:lanternSwing 2.5s infinite ease-in-out;
+transform-origin:top center;
+}
+
+@keyframes lanternSwing{
+
+0%,100%{
+transform:rotate(-8deg);
+}
+
+50%{
+transform:rotate(8deg);
+}
+
+}
+
+/* Valentine */
+
+.teddy-animation{
+animation:teddyJump 2s infinite;
+}
+
+@keyframes teddyJump{
+
+50%{
+transform:translateY(-12px);
+}
+
+}
+
+/* Anniversary */
+
+.couple-animation{
+animation:toast 2s infinite;
+}
+
+@keyframes toast{
+
+50%{
+transform:scale(1.15);
+}
+
+}
+
+/* Christmas */
+
+.tree-animation{
+animation:treeGlow 2s infinite;
+}
+
+@keyframes treeGlow{
+
+50%{
+filter:drop-shadow(0 0 18px lime);
+}
+
+}
+
+/* New Year */
+
+.fireworks-animation{
+animation:fireworksPop 1.3s infinite;
+}
+
+@keyframes fireworksPop{
+
+50%{
+transform:scale(1.2) rotate(12deg);
+}
+
+}
