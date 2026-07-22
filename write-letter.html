@@ -12,7 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
 </head>
 
-<body class="simple">
+<body class="write-letter-page">
 
 <div class="background"></div>
 
@@ -38,11 +38,11 @@
 
 <main class="birthday-card">
 
-    <h1>💌 Write Your Letter</h1>
+    <h1 id="themeTitle">💌 Write Your Letter</h1>
 
-    <p>
-        Write your feelings from your heart ❤️
-    </p>
+   <p id="themeSubtitle">
+Write your feelings from your heart ❤️
+</p>
 <div class="letter-type">
 
     <label for="letterType">
@@ -162,57 +162,23 @@ Start typing your beautiful letter...
 
             </div>
 
-           <div class="gift-container" id="giftContainer">
+        <div class="gift-container">
 
-    <div id="giftBox">
-        🎁
-    </div>
+    <div id="themeIcon">🎁</div>
 
-</div>
-
-                <div
-                id="giftMessage"
-                style="display:none;">
-
-                    💖 Thank you for writing this beautiful letter.
-
-                </div>
-
-            </div>
-
-            <div class="cake-container" id="cakeContainer">
-<div id="proposalFlower" style="display:none">
-
-    <div id="flower">
-        🌹
-    </div>
-
-    <p id="flowerText">
-        Click the Rose ❤️
+    <p id="themeMessage">
+        Thank you for writing this beautiful letter.
     </p>
 
 </div>
-<div id="proposalBox" style="display:none">
 
-const proposalRing =
-document.getElementById("proposalRing");
-
-<p>Will you marry me? ❤️</p>
-
-                </div>
-
-                <div id="wishMessage"></div>
-
-           </div>
-
-        </div>
-
- </div>
+</div>
 
 </main>
 
 <script src="script.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-<body class="write-letter-page">
+
+</body>
 </html>
