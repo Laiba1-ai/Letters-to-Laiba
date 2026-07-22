@@ -10,6 +10,9 @@ const websitePassword = "laiba123";
 
 const isOwner =
     sessionStorage.getItem("ownerMode") === "true";
+const isSurprise =
+new URLSearchParams(window.location.search)
+.get("surprise") === "true";
 // ===============================
 // Theme Effects
 // ===============================
@@ -1751,7 +1754,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         document.getElementById("createLetterBtn").onclick = () => {
 
-            window.location.href = "home.html?owner=true";
+    window.location.href = "home.html";
 
         };
 
@@ -1926,7 +1929,6 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!previewBirthdayBtn) return;
 
     previewBirthdayBtn.addEventListener("click", () => {
-        sessionStorage.removeItem("editorMode");
         const birthdayIntro = document.getElementById("birthdayIntro");
         const countNumber = document.getElementById("countNumber");
         const introText = document.getElementById("introText");
@@ -1964,7 +1966,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                         birthdayIntro.style.display = "none";
                         birthdayIntro.style.opacity = "1";
-                        sessionStorage.setItem("editorMode", "true");
+                        
 
                     },1000);
 
@@ -1977,56 +1979,24 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 });
-const params = new URLSearchParams(window.location.search);
+document.addEventListener("DOMContentLoaded", () => {
 
-if (params.get("surprise") === "true") {
+    if (isSurprise) {
 
-    document.getElementById("previewBirthdayBtn")?.click();
+        document.getElementById("previewBirthdayBtn")?.click();
 
-}
-// ===============================
-// Hide Edit Buttons For Visitors
-// ===============================
+    }
 
-if (!isOwner) {
-
-    document.addEventListener("DOMContentLoaded", () => {
-
-        const visitorPopup = document.getElementById("visitorPopup");
-        const backHomeBtn = document.getElementById("backHomeBtn");
-
-        if (visitorPopup) {
-
-    visitorPopup.style.display =
-        isOwner ? "none" : "block";
-
-}
-
-if (backHomeBtn) {
-
-    backHomeBtn.style.display =
-        isOwner ? "none" : "block";
-
-}
-    });
-
-    document.querySelectorAll(
-        "#editBirthdayBtn, #saveBirthdayBtn, #resetBirthdayBtn, #changeBirthdayPhoto, #deleteBirthdayPhoto, #previewBirthdayBtn, #saveGiftBtn, #giftEditor"
-    ).forEach(el => {
-
-        if (el) el.style.display = "none";
-
-    });
-
-}
+});
 // ===============================
 // Visitor Popup
 // ===============================
 
-const visitorPopup = document.getElementById("visitorPopup");
-const createLetterBtn = document.getElementById("createLetterBtn");
+document.addEventListener("DOMContentLoaded", () => {
 
-if (visitorPopup) {
+    const visitorPopup = document.getElementById("visitorPopup");
+
+    if (!visitorPopup) return;
 
     if (isOwner) {
 
@@ -2042,9 +2012,35 @@ if (visitorPopup) {
 
     }
 
-}
+});
+// ===============================
+// Universal Owner Controls
+// ===============================
 
-if (createLetterBtn) {
+function hideForVisitors(selectors){
+
+    if(isOwner) return;
+
+    document.querySelectorAll(selectors).forEach(el=>{
+
+        if(el){
+
+            el.style.display="none";
+
+        }
+
+    });
+
+}
+// ===============================
+// Create Your Own
+// ===============================
+document.addEventListener("DOMContentLoaded", () => {
+
+    const createLetterBtn =
+    document.getElementById("createLetterBtn");
+
+    if (!createLetterBtn) return;
 
     createLetterBtn.onclick = function () {
 
@@ -2052,103 +2048,7 @@ if (createLetterBtn) {
 
     };
 
-}
-// ===============================
-// Auto Countdown For Visitors
-// ===============================
-
-document.addEventListener("DOMContentLoaded", () => {
-
-   if (!isSurprise) return;
-
-    const birthdayIntro = document.getElementById("birthdayIntro");
-    const countNumber = document.getElementById("countNumber");
-    const introText = document.getElementById("introText");
-
-    if (!birthdayIntro || !countNumber || !introText) return;
-
-    birthdayIntro.style.display = "flex";
-    birthdayIntro.style.opacity = "1";
-
-    let count = 3;
-
-    countNumber.textContent = count;
-    introText.textContent = "🎂 A Special Surprise Is Waiting...";
-
-    const timer = setInterval(() => {
-
-        count--;
-
-        if (count > 0) {
-
-            countNumber.textContent = count;
-
-        } else {
-
-            clearInterval(timer);
-
-            countNumber.textContent = "🎉";
-            introText.textContent = "Happy Birthday ❤️";
-
-            setTimeout(() => {
-
-                birthdayIntro.style.opacity = "0";
-
-                setTimeout(() => {
-
-                    birthdayIntro.style.display = "none";
-                    birthdayIntro.style.opacity = "1";
-
-                }, 1000);
-
-            }, 1500);
-
-        }
-
-    }, 1000);
-
 });
-// ===============================
-// Keep Owner Mode Across Pages
-// ===============================
-
-document.addEventListener("DOMContentLoaded", () => {
-
-    if (!isOwner) return;
-
-    document.querySelectorAll("a").forEach(link => {
-
-        const href = link.getAttribute("href");
-
-        if (!href) return;
-
-        if (
-            href.startsWith("http") ||
-            href.startsWith("#") ||
-            href.includes("?owner=true")
-        ) return;
-
-        link.href = href + "?owner=true";
-
-    });
-
-});
-// ===============================
-// Create Your Own
-// ===============================
-
-const createLetterBtn =
-document.getElementById("createLetterBtn");
-
-if(createLetterBtn){
-
-    createLetterBtn.onclick = function(){
-
-        window.location.href = "home.html?owner=true";
-
-    };
-
-}
 // ===============================
 // Logout
 // ===============================
@@ -2179,5 +2079,20 @@ document.addEventListener("DOMContentLoaded", () => {
         logoutBtn.style.display = "none";
 
     }
+
+});
+document.addEventListener("DOMContentLoaded",()=>{
+
+hideForVisitors(`
+#editBirthdayBtn,
+#saveBirthdayBtn,
+#resetBirthdayBtn,
+#changeBirthdayPhoto,
+#deleteBirthdayPhoto,
+#previewBirthdayBtn,
+#giftEditor,
+#saveGiftBtn,
+#logoutBtn
+`);
 
 });
