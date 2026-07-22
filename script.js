@@ -1188,6 +1188,86 @@ counter.innerHTML =
 letterMessage.value.length + " / 2000";
 
 }
+    const data = themeData[type];
+
+if(data){
+
+    const themeTitle = document.getElementById("themeTitle");
+    const themeSubtitle = document.getElementById("themeSubtitle");
+    const themeIcon = document.getElementById("themeIcon");
+    const themeMessage = document.getElementById("themeMessage");
+
+    if(themeTitle) themeTitle.innerHTML = data.title;
+    if(themeSubtitle) themeSubtitle.innerHTML = "Write your feelings from your heart ❤️";
+    // Change Theme Icon Animation
+
+themeIcon.className = "theme-icon";
+
+switch(data.animation){
+
+    case "cake":
+        themeIcon.innerHTML = "🎂";
+        themeIcon.classList.add("cake-animation");
+        break;
+
+    case "rose":
+        themeIcon.innerHTML = "🌹";
+        themeIcon.classList.add("rose-animation");
+        break;
+
+    case "ring":
+        themeIcon.innerHTML = "💍";
+        themeIcon.classList.add("ring-animation");
+        break;
+
+    case "broken-heart":
+        themeIcon.innerHTML = "💔";
+        themeIcon.classList.add("heart-animation");
+        break;
+
+    case "coffee":
+        themeIcon.innerHTML = "☕";
+        themeIcon.classList.add("coffee-animation");
+        break;
+
+    case "flowers":
+        themeIcon.innerHTML = "💐";
+        break;
+
+    case "tie":
+        themeIcon.innerHTML = "👔";
+        break;
+
+    case "moon":
+        themeIcon.innerHTML = "🌙";
+        break;
+
+    case "lantern":
+        themeIcon.innerHTML = "🏮";
+        break;
+
+    case "teddy":
+        themeIcon.innerHTML = "🧸";
+        break;
+
+    case "couple":
+        themeIcon.innerHTML = "🥂";
+        break;
+
+    case "tree":
+        themeIcon.innerHTML = "🎄";
+        break;
+
+    case "fireworks":
+        themeIcon.innerHTML = "🎆";
+        break;
+
+    default:
+        themeIcon.innerHTML = "💌";
+}
+    if(themeMessage) themeMessage.innerHTML = data.title;
+
+}
 localStorage.setItem("selectedTheme", type);
 }
 if (letterType) {
