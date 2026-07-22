@@ -14,6 +14,97 @@ const isSurprise =
 new URLSearchParams(window.location.search)
 .get("surprise") === "true";
 // ===============================
+// Universal Theme Engine
+// ===============================
+
+const themeData = {
+
+    birthday:{
+
+        title:"🎂 Happy Birthday",
+
+        gift:"🎁",
+
+        animation:"cake",
+
+        background:"birthday-bg",
+
+        effects:["🎈","🎂","🎉","✨"]
+
+    },
+
+    love:{
+
+        title:"❤️ Love Letter",
+
+        gift:"🌹",
+
+        animation:"rose",
+
+        background:"love-bg",
+
+        effects:["❤️","🌹","💖","✨"]
+
+    },
+
+    proposal:{
+
+        title:"💍 Proposal",
+
+        gift:"💍",
+
+        animation:"ring",
+
+        background:"proposal-bg",
+
+        effects:["💍","🌹","❤️","✨"]
+
+    },
+
+    sorry:{
+
+        title:"🥺 Sorry",
+
+        gift:"💌",
+
+        animation:"broken-heart",
+
+        background:"sorry-bg",
+
+        effects:["🥺","💔","🌧","🕊"]
+
+    },
+
+    friendship:{
+
+        title:"🤝 Friendship",
+
+        gift:"☕",
+
+        animation:"coffee",
+
+        background:"friend-bg",
+
+        effects:["🤝","☕","💙","✨"]
+
+    },
+
+    surprise:{
+
+        title:"🎁 Surprise",
+
+        gift:"🎁",
+
+        animation:"gift",
+
+        background:"surprise-bg",
+
+        effects:["🎁","✨","🎊","💝"]
+
+    }
+
+};
+// ===============================
 // Theme Effects
 // ===============================
 
