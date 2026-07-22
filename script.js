@@ -19,88 +19,124 @@ new URLSearchParams(window.location.search)
 
 const themeData = {
 
+    simple:{
+        title:"💌 Simple Letter",
+        gift:"💌",
+        animation:"letter",
+        background:"simple-bg",
+        effects:["💌","✨","🤍"]
+    },
+
     birthday:{
-
         title:"🎂 Happy Birthday",
-
         gift:"🎁",
-
         animation:"cake",
-
         background:"birthday-bg",
-
         effects:["🎈","🎂","🎉","✨"]
-
     },
 
     love:{
-
         title:"❤️ Love Letter",
-
         gift:"🌹",
-
         animation:"rose",
-
         background:"love-bg",
-
         effects:["❤️","🌹","💖","✨"]
-
     },
 
     proposal:{
-
         title:"💍 Proposal",
-
         gift:"💍",
-
         animation:"ring",
-
         background:"proposal-bg",
-
         effects:["💍","🌹","❤️","✨"]
-
     },
 
     sorry:{
-
         title:"🥺 Sorry",
-
         gift:"💌",
-
         animation:"broken-heart",
-
         background:"sorry-bg",
-
         effects:["🥺","💔","🌧","🕊"]
-
     },
 
     friendship:{
-
         title:"🤝 Friendship",
-
         gift:"☕",
-
         animation:"coffee",
-
         background:"friend-bg",
-
         effects:["🤝","☕","💙","✨"]
+    },
 
+    mother:{
+        title:"🌸 Mother",
+        gift:"💐",
+        animation:"flowers",
+        background:"mother-bg",
+        effects:["🌸","💐","🦋","❤️"]
+    },
+
+    father:{
+        title:"👔 Father",
+        gift:"👔",
+        animation:"tie",
+        background:"father-bg",
+        effects:["👔","💙","⭐","🛡️"]
+    },
+
+    eid:{
+        title:"🌙 Eid Mubarak",
+        gift:"🕌",
+        animation:"moon",
+        background:"eid-bg",
+        effects:["🌙","🕌","✨","🎁"]
+    },
+
+    ramadan:{
+        title:"🕌 Ramadan Kareem",
+        gift:"🏮",
+        animation:"lantern",
+        background:"ramadan-bg",
+        effects:["🌙","🏮","⭐","🕌"]
+    },
+
+    valentine:{
+        title:"🌹 Happy Valentine",
+        gift:"🧸",
+        animation:"teddy",
+        background:"valentine-bg",
+        effects:["❤️","🌹","🧸","💖"]
+    },
+
+    anniversary:{
+        title:"💖 Happy Anniversary",
+        gift:"🥂",
+        animation:"couple",
+        background:"anniversary-bg",
+        effects:["💖","🥂","💍","✨"]
+    },
+
+    christmas:{
+        title:"🎄 Merry Christmas",
+        gift:"🎄",
+        animation:"tree",
+        background:"christmas-bg",
+        effects:["🎄","🎅","❄️","⭐"]
+    },
+
+    newyear:{
+        title:"🎆 Happy New Year",
+        gift:"🎆",
+        animation:"fireworks",
+        background:"newyear-bg",
+        effects:["🎆","🎇","🥂","✨"]
     },
 
     surprise:{
-
         title:"🎁 Surprise",
-
         gift:"🎁",
-
         animation:"gift",
-
         background:"surprise-bg",
-
         effects:["🎁","✨","🎊","💝"]
-
     }
 
 };
