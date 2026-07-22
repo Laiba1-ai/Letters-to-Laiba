@@ -1201,7 +1201,9 @@ if(data){
     if(themeSubtitle) themeSubtitle.innerHTML = "Write your feelings from your heart ❤️";
     // Change Theme Icon Animation
 
-themeIcon.className = "theme-icon";
+if(themeIcon){
+
+    themeIcon.className = "theme-icon";
 
 switch(data.animation){
 
@@ -1229,39 +1231,46 @@ switch(data.animation){
         themeIcon.innerHTML = "☕";
         themeIcon.classList.add("coffee-animation");
         break;
+case "flowers":
+    themeIcon.innerHTML="💐";
+    themeIcon.classList.add("flowers-animation");
+    break;
 
-    case "flowers":
-        themeIcon.innerHTML = "💐";
-        break;
+case "tie":
+    themeIcon.innerHTML="👔";
+    themeIcon.classList.add("tie-animation");
+    break;
 
-    case "tie":
-        themeIcon.innerHTML = "👔";
-        break;
+case "moon":
+    themeIcon.innerHTML="🌙";
+    themeIcon.classList.add("moon-animation");
+    break;
 
-    case "moon":
-        themeIcon.innerHTML = "🌙";
-        break;
+case "lantern":
+    themeIcon.innerHTML="🏮";
+    themeIcon.classList.add("lantern-animation");
+    break;
 
-    case "lantern":
-        themeIcon.innerHTML = "🏮";
-        break;
+case "teddy":
+    themeIcon.innerHTML="🧸";
+    themeIcon.classList.add("teddy-animation");
+    break;
 
-    case "teddy":
-        themeIcon.innerHTML = "🧸";
-        break;
+case "couple":
+    themeIcon.innerHTML="🥂";
+    themeIcon.classList.add("couple-animation");
+    break;
 
-    case "couple":
-        themeIcon.innerHTML = "🥂";
-        break;
+case "tree":
+    themeIcon.innerHTML="🎄";
+    themeIcon.classList.add("tree-animation");
+    break;
 
-    case "tree":
-        themeIcon.innerHTML = "🎄";
-        break;
-
-    case "fireworks":
-        themeIcon.innerHTML = "🎆";
-        break;
-
+case "fireworks":
+    themeIcon.innerHTML="🎆";
+    themeIcon.classList.add("fireworks-animation");
+    break;
+        
     default:
         themeIcon.innerHTML = "💌";
 }
