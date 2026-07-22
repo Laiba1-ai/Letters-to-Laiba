@@ -1205,7 +1205,7 @@ if(themeIcon){
 
     themeIcon.className = "theme-icon";
 
-switch(data.animation){
+    switch(data.animation){
 
     case "cake":
         themeIcon.innerHTML = "🎂";
@@ -1273,10 +1273,15 @@ case "fireworks":
         
     default:
         themeIcon.innerHTML = "💌";
-}
-    if(themeMessage) themeMessage.innerHTML = data.title;
+ }
 
-}
+    }
+
+    if(themeMessage){
+        themeMessage.innerHTML = data.title;
+    }
+
+} 
 localStorage.setItem("selectedTheme", type);
 }
 if (letterType) {
