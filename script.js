@@ -2187,3 +2187,38 @@ hideForVisitors(`
 `);
 
 });
+// ===============================
+// Universal Theme Loader
+// ===============================
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    if (!document.body.classList.contains("write-letter-page")) return;
+
+    const letterType = document.getElementById("letterType");
+    const themeTitle = document.getElementById("themeTitle");
+    const themeSubtitle = document.getElementById("themeSubtitle");
+    const themeIcon = document.getElementById("themeIcon");
+    const themeMessage = document.getElementById("themeMessage");
+
+    function loadTheme(theme){
+
+        const data = themeData[theme] || themeData.simple;
+
+        themeTitle.innerHTML = data.title;
+        themeSubtitle.innerHTML = "Write your feelings from your heart ❤️";
+        themeIcon.innerHTML = data.gift;
+        themeMessage.innerHTML = data.title;
+
+        document.body.className = "write-letter-page " + theme;
+
+        currentTheme = theme;
+    }
+
+    loadTheme(letterType.value);
+
+    letterType.addEventListener("change", () => {
+        loadTheme(letterType.value);
+    });
+
+});
