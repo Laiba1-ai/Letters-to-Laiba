@@ -3629,3 +3629,196 @@ cursor:pointer;
 margin-top:15px;
 
 }
+/* ===============================
+Theme Icon
+=============================== */
+
+.theme-icon{
+    font-size:90px;
+    text-align:center;
+    margin:20px auto;
+    transition:.5s;
+}
+
+/* Birthday */
+
+.cake-animation{
+    animation:cakeBounce 1.5s infinite;
+}
+
+@keyframes cakeBounce{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-12px);}
+}
+
+/* Love */
+
+.rose-animation{
+    animation:roseSwing 2s infinite;
+}
+
+@keyframes roseSwing{
+    0%,100%{transform:rotate(-8deg);}
+    50%{transform:rotate(8deg);}
+}
+
+/* Proposal */
+
+.ring-animation{
+    animation:ringGlow 1.5s infinite;
+}
+
+@keyframes ringGlow{
+    0%{
+        transform:scale(1);
+        filter:drop-shadow(0 0 0 gold);
+    }
+    50%{
+        transform:scale(1.15);
+        filter:drop-shadow(0 0 20px gold);
+    }
+    100%{
+        transform:scale(1);
+    }
+}
+
+/* Sorry */
+
+.heart-animation{
+    animation:heartBreak 1.2s infinite;
+}
+
+@keyframes heartBreak{
+    0%,100%{
+        transform:rotate(0);
+    }
+    25%{
+        transform:rotate(-12deg);
+    }
+    50%{
+        transform:rotate(12deg);
+    }
+    75%{
+        transform:rotate(-8deg);
+    }
+}
+
+/* Friendship */
+
+.coffee-animation{
+    animation:coffeeFloat 2s infinite;
+}
+
+@keyframes coffeeFloat{
+    0%,100%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-8px);
+    }
+}
+
+/* Mother */
+
+.flowers-animation{
+    animation:flowerBloom 2s infinite;
+}
+
+@keyframes flowerBloom{
+    50%{
+        transform:scale(1.15);
+    }
+}
+
+/* Father */
+
+.tie-animation{
+    animation:tieMove 2s infinite;
+}
+
+@keyframes tieMove{
+    50%{
+        transform:translateY(8px);
+    }
+}
+
+/* Eid */
+
+.moon-animation{
+    animation:moonGlow 2s infinite;
+}
+
+@keyframes moonGlow{
+    50%{
+        filter:drop-shadow(0 0 18px #ffe066);
+    }
+}
+
+/* Ramadan */
+
+.lantern-animation{
+    animation:lanternSwing 2s infinite;
+}
+
+@keyframes lanternSwing{
+    0%,100%{
+        transform:rotate(-8deg);
+    }
+    50%{
+        transform:rotate(8deg);
+    }
+}
+
+/* Valentine */
+
+.teddy-animation{
+    animation:teddyJump 2s infinite;
+}
+
+@keyframes teddyJump{
+    50%{
+        transform:translateY(-10px);
+    }
+}
+
+/* Anniversary */
+
+.couple-animation{
+    animation:couplePulse 1.5s infinite;
+}
+
+@keyframes couplePulse{
+    50%{
+        transform:scale(1.1);
+    }
+}
+
+/* Christmas */
+
+.tree-animation{
+    animation:treeGlow 2s infinite;
+}
+
+@keyframes treeGlow{
+    50%{
+        filter:drop-shadow(0 0 20px lime);
+    }
+}
+
+/* New Year */
+
+.fireworks-animation{
+    animation:fireworkBoom 1.5s infinite;
+}
+
+@keyframes fireworkBoom{
+    0%{
+        transform:scale(.8);
+    }
+    50%{
+        transform:scale(1.25);
+    }
+    100%{
+        transform:scale(.8);
+    }
+}
