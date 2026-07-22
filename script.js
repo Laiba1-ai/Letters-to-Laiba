@@ -158,31 +158,31 @@ const themeEffects = {
 
 simple:["🤍","✨","🌿"],
 
-love:["💖","💕","🧸","🌹","⭐","💌"],
+birthday:["🎈","🎂","🎉","✨"],
 
-sorry:["🍂","💧","🌧️","🥺","💙"],
+love:["❤️","🌹","💖","💕"],
 
-proposal:["🌹","💍","💎","🕊️","✨"],
+proposal:["💍","🌹","❤️","✨"],
 
-birthday:["🎈","🎉","🎊","🎂","🎁","✨"],
+sorry:["🥺","💔","🌧","🕊"],
 
-friendship:["🌻","🌈","😊","⭐","🤝"],
+friendship:["🤝","☕","💙","✨"],
 
 mother:["🌸","💐","🦋","❤️"],
 
-father:["💙","⭐","👔","🛡️"],
+father:["👔","💙","⭐","🛡"],
 
-eid:["🌙","🕌","🎁","✨","🌸"],
+eid:["🌙","⭐","🕌","✨"],
 
-ramadan:["🌙","⭐","🕌","🏮","✨"],
+ramadan:["🏮","🌙","⭐","✨"],
 
-valentine:["❤️","🌹","🧸","💝","💋"],
+valentine:["❤️","🌹","🧸","💝"],
 
-anniversary:["💍","🥂","🌹","✨"],
+anniversary:["🥂","💍","❤️","✨"],
 
-christmas:["🎄","🎅","❄️","🎁","⭐"],
+christmas:["🎄","❄️","⭐","🎁"],
 
-newyear:["🎆","🎇","🥂","✨","🎉"]
+newyear:["🎆","🎇","🥂","✨"]
 
 };
 // Password Check
@@ -2368,3 +2368,53 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 });
+function createFloatingIcon(){
+
+    const icon=document.createElement("div");
+
+    icon.className="cursor-heart";
+
+    icon.innerHTML=
+    floatingIcons[
+    Math.floor(Math.random()*floatingIcons.length)
+    ];
+
+    icon.style.left=
+    Math.random()*window.innerWidth+"px";
+
+    icon.style.fontSize=
+    (20+Math.random()*20)+"px";
+
+    document.body.appendChild(icon);
+
+    const duration=
+    5000+Math.random()*3000;
+
+    icon.animate([
+
+        {
+            transform:"translateY(0)",
+            opacity:1
+        },
+
+        {
+            transform:"translateY(-"+(window.innerHeight+200)+"px)",
+            opacity:0
+        }
+
+    ],{
+
+        duration:duration,
+        easing:"linear"
+
+    });
+
+    setTimeout(()=>{
+
+        icon.remove();
+
+    },duration);
+
+}
+
+setInterval(createFloatingIcon,600);
