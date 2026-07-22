@@ -2237,24 +2237,34 @@ document.addEventListener("DOMContentLoaded", () => {
     const themeIcon = document.getElementById("themeIcon");
     const themeMessage = document.getElementById("themeMessage");
 
-    function loadTheme(theme){
+    function applyTheme(theme){
 
         const data = themeData[theme] || themeData.simple;
 
-        themeTitle.innerHTML = data.title;
-        themeSubtitle.innerHTML = "Write your feelings from your heart ❤️";
-        themeIcon.innerHTML = data.gift;
-        themeMessage.innerHTML = data.title;
+        currentTheme = theme;
+
+        if(themeTitle)
+            themeTitle.innerHTML = data.title;
+
+        if(themeSubtitle)
+            themeSubtitle.innerHTML = "Write your feelings from your heart ❤️";
+
+        if(themeIcon)
+            themeIcon.innerHTML = data.gift;
+
+        if(themeMessage)
+            themeMessage.innerHTML = data.title;
 
         document.body.className = "write-letter-page " + theme;
 
-        currentTheme = theme;
     }
 
-    loadTheme(letterType.value);
+    applyTheme(letterType.value);
 
     letterType.addEventListener("change", () => {
-        loadTheme(letterType.value);
+
+        applyTheme(letterType.value);
+
     });
 
 });
