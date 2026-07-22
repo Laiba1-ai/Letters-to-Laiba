@@ -29,7 +29,7 @@ const themeData = {
 
     birthday:{
         title:"🎂 Happy Birthday",
-        gift:"🎁",
+        gift:"🎂",
         animation:"cake",
         background:"birthday-bg",
         effects:["🎈","🎂","🎉","✨"]
