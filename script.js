@@ -2,16 +2,14 @@
 // Letters to Laiba ❤️
 // ===============================
 
-const websitePassword = "laiba123";
-
 // ===============================
 // Owner / Visitor Mode
 // ===============================
-const isOwner =
-window.location.search.includes("owner=true");
 
-const isSurprise =
-    window.location.search.includes("surprise=true");
+const websitePassword = "laiba123";
+
+const isOwner =
+    sessionStorage.getItem("ownerMode") === "true";
 // ===============================
 // Theme Effects
 // ===============================
@@ -75,7 +73,7 @@ function checkPassword() {
                 clearInterval(loader);
 
                 loading.style.display = "none";
-    sessionStorage.setItem("ownerMode", "true");
+   sessionStorage.setItem("ownerMode", "true");
 window.location.href = "home.html";
             }
 
@@ -2149,5 +2147,16 @@ if(createLetterBtn){
         window.location.href = "home.html?owner=true";
 
     };
+
+}
+// ===============================
+// Logout
+// ===============================
+
+function logoutOwner(){
+
+    sessionStorage.removeItem("ownerMode");
+
+    window.location.href="index.html";
 
 }
