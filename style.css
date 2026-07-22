@@ -4038,3 +4038,18 @@ transform:scale(1.2) rotate(12deg);
 }
 
 }
+.cursor-heart{
+
+position:fixed;
+
+bottom:-50px;
+
+pointer-events:none;
+
+z-index:999;
+
+user-select:none;
+
+animation:none;
+
+}
