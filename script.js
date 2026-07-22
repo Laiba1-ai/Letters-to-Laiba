@@ -51,12 +51,18 @@ const themeData = {
         effects:["💍","🌹","❤️","✨"]
     },
 
-    sorry:{
-        title:"🥺 Sorry",
-        gift:"💌",
-        animation:"broken-heart",
-        background:"sorry-bg",
-        effects:["🥺","💔","🌧","🕊"]
+  sorry:{
+
+title:"🥺 I'm Sorry",
+
+gift:"💔",
+
+animation:"broken-heart",
+
+background:"sorry-bg",
+
+effects:["🥺","💔","🌧","🕊"]
+
     },
 
     friendship:{
