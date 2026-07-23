@@ -815,26 +815,42 @@ opacity:0;
 ========================== */
 
 .navbar{
-    position:sticky;
-    top:0;
-    width:100%;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:18px 40px;
-    background:rgba(255,255,255,.45);
-    backdrop-filter:blur(18px);
-    -webkit-backdrop-filter:blur(18px);
-    border-bottom:1px solid rgba(255,255,255,.4);
-    box-shadow:0 8px 25px rgba(255,105,180,.15);
-    z-index:1000;
+
+position:sticky;
+top:0;
+width:100%;
+
+display:flex;
+align-items:center;
+
+padding:18px 35px;
+
+background:rgba(255,255,255,.45);
+
+backdrop-filter:blur(18px);
+
+-webkit-backdrop-filter:blur(18px);
+
+border-bottom:1px solid rgba(255,255,255,.4);
+
+box-shadow:0 8px 25px rgba(255,105,180,.15);
+
+z-index:1000;
+
 }
 
 .logo{
-    font-family:'Dancing Script',cursive;
-    font-size:34px;
-    color:#ff3b7f;
-    font-weight:bold;
+
+font-family:'Dancing Script',cursive;
+
+font-size:34px;
+
+color:#ff3b7f;
+
+font-weight:bold;
+
+margin-right:auto;
+
 }
 
 .navbar ul{
@@ -4050,5 +4066,98 @@ animation:fireworksPop 1.3s infinite;
 50%{
 transform:scale(1.2) rotate(12deg);
 }
+
+}
+.nav-right{
+
+display:flex;
+
+align-items:center;
+
+gap:16px;
+
+margin-left:auto;
+
+}
+.icon-btn{
+
+width:48px;
+
+height:48px;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+border:none;
+
+border-radius:50%;
+
+background:rgba(255,255,255,.15);
+
+backdrop-filter:blur(15px);
+
+cursor:pointer;
+
+font-size:22px;
+
+transition:.35s;
+
+box-shadow:0 8px 20px rgba(255,105,180,.15);
+
+}
+
+.icon-btn:hover{
+
+transform:translateY(-5px) scale(1.1);
+
+background:rgba(255,255,255,.35);
+
+box-shadow:0 15px 30px rgba(255,105,180,.35);
+
+}
+.icon-btn{
+
+position:relative;
+
+}
+
+.icon-btn::after{
+
+content:attr(title);
+
+position:absolute;
+
+bottom:-35px;
+
+left:50%;
+
+transform:translateX(-50%);
+
+background:#ff4f8b;
+
+color:#fff;
+
+padding:6px 10px;
+
+border-radius:8px;
+
+font-size:12px;
+
+opacity:0;
+
+transition:.3s;
+
+pointer-events:none;
+
+white-space:nowrap;
+
+}
+
+.icon-btn:hover::after{
+
+opacity:1;
 
 }
