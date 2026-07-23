@@ -311,16 +311,26 @@ document.addEventListener("mousemove", (e) => {
     heart.textContent =
         icons[Math.floor(Math.random()*icons.length)];
 
-    heart.style.left = e.pageX + "px";
-    heart.style.top = e.pageY + "px";
+   heart.style.left = e.pageX + "px";
+heart.style.top = e.pageY + "px";
 
-    document.body.appendChild(heart);
+heart.style.fontSize = (10 + Math.random() * 8) + "px"; // Small hearts
 
-    setTimeout(()=>{
-        heart.remove();
-    },800);
+heart.style.color = [
+    "#ffd6e7",
+    "#ffc2d9",
+    "#ffe6f0",
+    "#fff0f6",
+    "#ffb6c1"
+][Math.floor(Math.random()*5)];
 
-});
+heart.style.opacity = "0.85";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+    heart.remove();
+},1500); // Stay a little longer
 
 const heartsContainer =
 isWriteLetterPage
@@ -2368,53 +2378,129 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 });
-function createFloatingIcon(){
+// ===============================
+// Premium Floating Icons
+// ===============================
 
-    const icon=document.createElement("div");
+function createFloatingIcon() {
 
-    icon.className="cursor-heart";
+    const container = document.getElementById("floating-hearts");
 
-    icon.innerHTML=
-    floatingIcons[
-    Math.floor(Math.random()*floatingIcons.length)
-    ];
+    if (!container) return;
 
-    icon.style.left=
-    Math.random()*window.innerWidth+"px";
+    const icon = document.createElement("div");
 
-    icon.style.fontSize=
-    (20+Math.random()*20)+"px";
+    icon.className = "heart";
 
-    document.body.appendChild(icon);
+    icon.innerHTML =
+        floatingIcons[
+            Math.floor(Math.random() * floatingIcons.length)
+        ];
 
-    const duration=
-    5000+Math.random()*3000;
+    icon.style.position = "absolute";
+    icon.style.left = Math.random() * 100 + "%";
+    icon.style.bottom = "-40px";
 
-    icon.animate([
+    icon.style.fontSize =
+        (18 + Math.random() * 22) + "px";
 
-        {
-            transform:"translateY(0)",
-            opacity:1
-        },
+    icon.style.opacity = ".9";
 
-        {
-            transform:"translateY(-"+(window.innerHeight+200)+"px)",
-            opacity:0
-        }
+    icon.style.animation =
+        `floatHeart ${8 + Math.random()*5}s linear forwards`;
 
-    ],{
+    container.appendChild(icon);
 
-        duration:duration,
-        easing:"linear"
-
-    });
-
-    setTimeout(()=>{
+    setTimeout(() => {
 
         icon.remove();
 
-    },duration);
+    },13000);
 
 }
+// ===============================
+// Fireworks
+// ===============================
 
-setInterval(createFloatingIcon,600);
+function createFirework(){
+
+    const container =
+    document.getElementById("fireworks");
+
+    if(!container) return;
+
+    const fire=document.createElement("div");
+
+    fire.className="firework";
+
+    fire.innerHTML="✨";
+
+    fire.style.position="absolute";
+
+    fire.style.left=Math.random()*100+"%";
+    fire.style.top=Math.random()*70+"%";
+
+    fire.style.fontSize=(20+Math.random()*40)+"px";
+
+    fire.style.animation="floatHeart 2s ease-out forwards";
+
+    container.appendChild(fire);
+
+    setTimeout(()=>{
+
+        fire.remove();
+
+    },2000);
+
+}
+// ===============================
+// Balloons
+// ===============================
+
+function createBalloon(){
+
+    const container=
+    document.getElementById("balloons");
+
+    if(!container) return;
+
+    const balloon=document.createElement("div");
+
+    balloon.className="balloon";
+
+    balloon.innerHTML="🎈";
+
+    balloon.style.position="absolute";
+
+    balloon.style.left=Math.random()*100+"%";
+
+    balloon.style.bottom="-80px";
+
+    balloon.style.fontSize=(35+Math.random()*20)+"px";
+
+    balloon.style.animation=
+    `floatHeart ${12+Math.random()*6}s linear forwards`;
+
+    container.appendChild(balloon);
+
+    setTimeout(()=>{
+
+        balloon.remove();
+
+    },18000);
+
+}
+// Floating Icons
+if(document.getElementById("floating-hearts")){
+    setInterval(createFloatingIcon,700);
+}
+
+// Fireworks
+if(document.getElementById("fireworks")){
+    setInterval(createFirework,4000);
+}
+
+// Balloons
+if(document.getElementById("balloons")){
+    setInterval(createBalloon,3000);
+}
