@@ -285,7 +285,7 @@ document.body.classList.contains("password-page");
 
 let lastHeart = 0;
 document.addEventListener("mousemove", (e) => {
-if(Date.now()-lastHeart<60) return;
+if (Date.now() - lastHeart < 18) return;
 
 lastHeart=Date.now();
 
@@ -316,8 +316,9 @@ lastHeart=Date.now();
 
    heart.style.left = e.pageX + "px";
 heart.style.top = e.pageY + "px";
-
-heart.style.fontSize = (10 + Math.random() * 8) + "px"; // Small hearts
+heart.style.transform =
+`translate(-50%,-50%) rotate(${Math.random()*40-20}deg)`;
+heart.style.fontSize = (14 + Math.random() * 6) + "px";// Small hearts
 
 heart.style.color = [
     "#ffd6e7",
@@ -332,7 +333,7 @@ heart.style.opacity = "0.85";
 document.body.appendChild(heart);
 setTimeout(() => {
     heart.remove();
-}, 1800);
+},1500);
 
 });
 // ===============================
