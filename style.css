@@ -588,54 +588,53 @@ transform:scale(1.05);
 }
 
 .firework{
-    position:absolute;
-    font-size:28px;
-    animation:firework 1.2s ease-out forwards;
+
+position:absolute;
+font-size:28px;
+pointer-events:none;
+animation:fireworkFloat 1.2s ease-out forwards;
+z-index:-1;
+
 }
 
-@keyframes firework{
+@keyframes fireworkFloat{
 
-    0%{
-        transform:scale(.2);
-        opacity:1;
-    }
+0%{
+transform:scale(.2);
+opacity:1;
+}
 
-    100%{
-        transform:scale(2.5);
-        opacity:0;
-    }
+100%{
+transform:scale(2.2);
+opacity:0;
+}
 
 }
 /* ==========================
    Confetti
 ========================== */
 
-#confetti{
-    position:fixed;
-    inset:0;
-    overflow:hidden;
-    pointer-events:none;
-    z-index:-1;
-}
-
 .confetti{
-    position:absolute;
-    top:-30px;
-    font-size:18px;
-    animation:confettiFall linear forwards;
+
+position:absolute;
+font-size:22px;
+pointer-events:none;
+animation:confettiFall linear forwards;
+z-index:-1;
+
 }
 
 @keyframes confettiFall{
 
-    from{
-        transform:translateY(-30px) rotate(0deg);
-        opacity:1;
-    }
+0%{
+transform:translateY(-50px) rotate(0deg);
+opacity:1;
+}
 
-    to{
-        transform:translateY(110vh) rotate(720deg);
-        opacity:0;
-    }
+100%{
+transform:translateY(100vh) rotate(720deg);
+opacity:0;
+}
 
 }
 /* ==========================
