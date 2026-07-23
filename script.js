@@ -283,8 +283,11 @@ document.body.classList.contains("home-page");
 const isPasswordPage =
 document.body.classList.contains("password-page");
 
-
+let lastHeart = 0;
 document.addEventListener("mousemove", (e) => {
+if(Date.now()-lastHeart<60) return;
+
+lastHeart=Date.now();
 
     const heart = document.createElement("div");
 
@@ -327,10 +330,14 @@ heart.style.color = [
 heart.style.opacity = "0.85";
 
 document.body.appendChild(heart);
-
-setTimeout(()=>{
+setTimeout(() => {
     heart.remove();
-},1500); // Stay a little longer
+}, 1800);
+
+});
+// ===============================
+// Floating Icons
+// ===============================
 
 const heartsContainer =
 isWriteLetterPage
@@ -459,9 +466,6 @@ if (
        const icons =
 themeEffects[currentTheme] || themeEffects.simple;
 
-fw.innerHTML =
-icons[Math.floor(Math.random()*icons.length)];
-
         fw.innerHTML = icons[Math.floor(Math.random() * icons.length)];
 
         fw.style.left = Math.random() * 100 + "vw";
@@ -524,7 +528,7 @@ const items = themeEffects[currentTheme] || themeEffects.simple;
 
     }
 
-    setInterval(createConfetti, 250);
+ setInterval(createConfetti,600);
 
 }
 // ==========================
