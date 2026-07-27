@@ -2456,7 +2456,6 @@ if(startBtn && letterContent){
     startBtn.onclick=function(){
 
         startBtn.style.display="none";
-
         questionBox.style.display="block";
 
     };
@@ -2485,32 +2484,25 @@ noClick++;
 
 }
 
-if(yesBtn){
+if(yesBtn && welcomeScreen && letterContent){
 
-yesBtn.onclick=function(){
+    yesBtn.onclick=function(){
 
-welcomeScreen.style.display="none";
+        welcomeScreen.style.display="none";
+        letterContent.style.display="block";
 
-letterContent.style.display="block";
+        for(let i=0;i<10;i++){
+            setTimeout(createBalloon,i*250);
+        }
 
-for(let i=0;i<10;i++){
+        for(let i=0;i<20;i++){
+            setTimeout(createConfetti,i*80);
+        }
 
-setTimeout(createBalloon,i*250);
+        for(let i=0;i<5;i++){
+            setTimeout(createFirework,i*500);
+        }
 
-}
-
-for(let i=0;i<20;i++){
-
-setTimeout(createConfetti,i*80);
-
-}
-
-for(let i=0;i<5;i++){
-
-setTimeout(createFirework,i*500);
-
-}
-
-};
+    };
 
 }
