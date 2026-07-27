@@ -2505,3 +2505,72 @@ if(yesBtn && welcomeScreen && letterContent){
     };
 
 }
+// =========================
+// Birthday Gift Flow
+// =========================
+
+const giftBox=document.getElementById("giftBox");
+
+const giftStage=document.getElementById("giftStage");
+
+const cakeStage=document.getElementById("cakeStage");
+
+const birthdayFlow=document.getElementById("birthdayFlow");
+
+const nextBirthday=document.getElementById("nextBirthday");
+
+const letterType=document.getElementById("letterType");
+
+// Sirf Birthday select ho tab Gift dikhe
+if(letterType){
+
+letterType.addEventListener("change",function(){
+
+if(this.value==="birthday"){
+
+    if(birthdayFlow) birthdayFlow.style.display="block";
+    if(giftStage) giftStage.style.display="block";
+    if(cakeStage) cakeStage.style.display="none";
+
+}else{
+
+    if(birthdayFlow) birthdayFlow.style.display="none";
+
+}
+});
+
+}
+
+// Gift Click
+if(giftBox){
+
+giftBox.onclick=function(){
+
+    if(giftStage) giftStage.style.display="none";
+
+    if(cakeStage) cakeStage.style.display="block";
+
+// Balloons
+for(let i=0;i<12;i++){
+
+setTimeout(createBalloon,i*250);
+
+}
+
+// Confetti
+for(let i=0;i<30;i++){
+
+setTimeout(createConfetti,i*70);
+
+}
+
+// Fireworks
+for(let i=0;i<5;i++){
+
+setTimeout(createFirework,i*500);
+
+}
+
+};
+
+}
