@@ -2509,3 +2509,26 @@ if(document.getElementById("fireworks")){
 if(document.getElementById("balloons")){
     setInterval(createBalloon,3000);
 }
+const startBtn=document.getElementById("startLetter");
+
+if(startBtn){
+
+document.getElementById("letterContent").style.display="none";
+
+startBtn.addEventListener("click",()=>{
+
+document.getElementById("welcomeScreen").style.display="none";
+
+document.getElementById("letterContent").style.display="block";
+
+createBalloons();
+
+setTimeout(()=>{
+
+alert("💖 Welcome! Create your beautiful letter.");
+
+},500);
+
+});
+
+}
