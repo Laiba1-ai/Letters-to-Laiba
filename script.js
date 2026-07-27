@@ -2453,11 +2453,14 @@ if(welcomeStartBtn && letterContent){
 
     letterContent.style.display="none";
 
-  welcomeStartBtn.onclick=function(){
-      welcomeStartBtn.style.display="none";
-        questionBox.style.display="block";
+ welcomeStartBtn.onclick = function () {
 
-    };
+    alert("Button Working!");
+
+    welcomeStartBtn.style.display = "none";
+    questionBox.style.display = "block";
+
+};
 
 }
 
