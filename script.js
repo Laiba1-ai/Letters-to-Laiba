@@ -407,48 +407,61 @@ isWriteLetterPage
 ? document.getElementById("confetti")
 : null;
 
-if (confetti) {
+// Function
+function createConfetti(){
 
-    function createConfetti(){
-        if (
-    ![
-        "birthday",
-        "proposal",
-        "love",
-        "sorry",
-        "friendship",
-        "mother",
-        "father",
-        "ramadan",
-        "eid",
-        "christmas",
-        "newyear",
-        "valentine",
-        "anniversary"
-    ].includes(currentTheme)
-){
-    return;
-}
+    if(!confetti) return;
 
-        const piece = document.createElement("div");
-
-        piece.className = "confetti";
-
-const items = themeEffects[currentTheme] || themeEffects.simple;
-        piece.innerHTML = items[Math.floor(Math.random() * items.length)];
-
-        piece.style.left = Math.random() * 100 + "vw";
-        piece.style.animationDuration = (4 + Math.random() * 3) + "s";
-
-        confetti.appendChild(piece);
-
-        setTimeout(() => {
-            piece.remove();
-        }, 7000);
-
+    if(
+        ![
+            "birthday",
+            "proposal",
+            "love",
+            "sorry",
+            "friendship",
+            "mother",
+            "father",
+            "ramadan",
+            "eid",
+            "christmas",
+            "newyear",
+            "valentine",
+            "anniversary"
+        ].includes(currentTheme)
+    ){
+        return;
     }
 
- setInterval(createConfetti,600);
+    const piece = document.createElement("div");
+
+    piece.className = "confetti";
+
+    const items =
+    themeEffects[currentTheme] || themeEffects.simple;
+
+    piece.innerHTML =
+    items[Math.floor(Math.random()*items.length)];
+
+    piece.style.left =
+    Math.random()*100 + "vw";
+
+    piece.style.animationDuration =
+    (4 + Math.random()*3) + "s";
+
+    confetti.appendChild(piece);
+
+    setTimeout(()=>{
+
+        piece.remove();
+
+    },7000);
+
+}
+
+// Auto animation
+if(confetti){
+
+    setInterval(createConfetti,600);
 
 }
 // ==========================
@@ -2436,17 +2449,17 @@ const letterContent = document.getElementById("letterContent");
 const welcomeScreen = document.getElementById("welcomeScreen");
 const noMessage = document.getElementById("noMessage");
 
-if(startBtn){
+if(startBtn && letterContent){
 
-letterContent.style.display="none";
+    letterContent.style.display="none";
 
-startBtn.onclick=function(){
+    startBtn.onclick=function(){
 
-startBtn.style.display="none";
+        startBtn.style.display="none";
 
-questionBox.style.display="block";
+        questionBox.style.display="block";
 
-};
+    };
 
 }
 
