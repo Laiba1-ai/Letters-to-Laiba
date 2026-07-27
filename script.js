@@ -490,7 +490,7 @@ isWriteLetterPage
 
 if (confetti) {
 
-    function createConfetti() {
+    function createConfetti(){
         if (
     ![
         "birthday",
@@ -2573,13 +2573,27 @@ welcomeScreen.style.display="none";
 
 letterContent.style.display="block";
 
-createBalloons();
+// Balloons
+for(let i=0;i<8;i++){
 
-createConfetti();
+setTimeout(createBalloon,i*250);
 
-createFireworks();
+}
+
+// Confetti
+for(let i=0;i<20;i++){
+
+setTimeout(createConfetti,i*80);
+
+}
+
+// Fireworks
+for(let i=0;i<4;i++){
+
+setTimeout(createFirework,i*600);
+
+}
 
 };
 
-}
 }
