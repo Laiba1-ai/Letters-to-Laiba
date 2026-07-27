@@ -865,7 +865,7 @@ letterCards.forEach(card => {
 
 });
 /* ======================================
-   WRITE LETTER PAGE
+   Create Your Own Letter page
 ====================================== */
 
 const letterMessage = document.getElementById("message");
