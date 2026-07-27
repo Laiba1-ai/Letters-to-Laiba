@@ -402,87 +402,6 @@ if (continueBtn) {
     };
 
 }
-
-
-const balloons =
-isWriteLetterPage
-? document.getElementById("balloons")
-: null;
-if (balloons) {
-
-    function createBalloon() {
-        if(currentTheme !== "birthday") return;
-
-        const balloon = document.createElement("div");
-
-        balloon.className = "balloon";
-
-        const emojis = ["🎈","🎉","🎁","🎊"];
-
-        balloon.innerHTML = emojis[Math.floor(Math.random()*emojis.length)];
-
-        balloon.style.left = Math.random()*100 + "vw";
-
-        balloon.style.animationDuration = (6 + Math.random()*4) + "s";
-
-        balloons.appendChild(balloon);
-
-        setTimeout(()=>{
-            balloon.remove();
-        },10000);
-
-    }
-
-    setInterval(createBalloon,700);
-
-}
-
-const fireworks =
-isWriteLetterPage
-? document.getElementById("fireworks")
-: null;
-
-if (fireworks) {
-
-    function createFirework() {
-        if (
-    ![
-        "birthday",
-        "love",
-        "proposal",
-        "anniversary",
-        "newyear",
-        "valentine"
-    ].includes(currentTheme)
-){
-    return;
-}
-
-        const fw = document.createElement("div");
-
-        fw.className = "firework";
-if (
-    !["birthday", "newyear", "anniversary"].includes(currentTheme)
-) return;
-       const icons =
-themeEffects[currentTheme] || themeEffects.simple;
-
-        fw.innerHTML = icons[Math.floor(Math.random() * icons.length)];
-
-        fw.style.left = Math.random() * 100 + "vw";
-        fw.style.top = Math.random() * 70 + "vh";
-
-        fireworks.appendChild(fw);
-
-        setTimeout(() => {
-            fw.remove();
-        }, 1200);
-
-    }
-
-    setInterval(createFirework, 600);
-
-}
 const confetti =
 isWriteLetterPage
 ? document.getElementById("confetti")
@@ -2509,25 +2428,19 @@ if(document.getElementById("fireworks")){
 if(document.getElementById("balloons")){
     setInterval(createBalloon,3000);
 }
-const startBtn=document.getElementById("startLetter");
-
-const yesBtn=document.getElementById("yesBtn");
-
-const noBtn=document.getElementById("noBtn");
-
-const questionBox=document.getElementById("questionBox");
-
-const letterContent=document.getElementById("letterContent");
-
-const welcomeScreen=document.getElementById("welcomeScreen");
-
-const noMessage=document.getElementById("noMessage");
+const startBtn = document.getElementById("startLetter");
+const yesBtn = document.getElementById("yesBtn");
+const noBtn = document.getElementById("noBtn");
+const questionBox = document.getElementById("questionBox");
+const letterContent = document.getElementById("letterContent");
+const welcomeScreen = document.getElementById("welcomeScreen");
+const noMessage = document.getElementById("noMessage");
 
 if(startBtn){
 
 letterContent.style.display="none";
 
-startBtn.onclick=()=>{
+startBtn.onclick=function(){
 
 startBtn.style.display="none";
 
@@ -2541,25 +2454,19 @@ let noClick=0;
 
 if(noBtn){
 
-noBtn.onclick=()=>{
-
-noClick++;
+noBtn.onclick=function(){
 
 const msgs=[
-
 "🥺 Please choose YES ❤️",
-
 "😭 Don't break my heart...",
-
 "💖 Pretty Please...",
-
 "🥹 Only YES unlocks the surprise!",
-
 "🌸 Come on... press YES 😊"
-
 ];
 
 noMessage.innerHTML=msgs[Math.min(noClick,msgs.length-1)];
+
+noClick++;
 
 };
 
@@ -2567,30 +2474,27 @@ noMessage.innerHTML=msgs[Math.min(noClick,msgs.length-1)];
 
 if(yesBtn){
 
-yesBtn.onclick=()=>{
+yesBtn.onclick=function(){
 
 welcomeScreen.style.display="none";
 
 letterContent.style.display="block";
 
-// Balloons
-for(let i=0;i<8;i++){
+for(let i=0;i<10;i++){
 
 setTimeout(createBalloon,i*250);
 
 }
 
-// Confetti
 for(let i=0;i<20;i++){
 
 setTimeout(createConfetti,i*80);
 
 }
 
-// Fireworks
-for(let i=0;i<4;i++){
+for(let i=0;i<5;i++){
 
-setTimeout(createFirework,i*600);
+setTimeout(createFirework,i*500);
 
 }
 
