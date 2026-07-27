@@ -2441,7 +2441,7 @@ if(document.getElementById("fireworks")){
 if(document.getElementById("balloons")){
     setInterval(createBalloon,3000);
 }
-const startBtn = document.getElementById("startLetter");
+const welcomeStartBtn = document.getElementById("startLetter");
 const yesBtn = document.getElementById("yesBtn");
 const noBtn = document.getElementById("noBtn");
 const questionBox = document.getElementById("questionBox");
@@ -2449,13 +2449,12 @@ const letterContent = document.getElementById("letterContent");
 const welcomeScreen = document.getElementById("welcomeScreen");
 const noMessage = document.getElementById("noMessage");
 
-if(startBtn && letterContent){
+if(welcomeStartBtn && letterContent){
 
     letterContent.style.display="none";
 
-    startBtn.onclick=function(){
-
-        startBtn.style.display="none";
+  welcomeStartBtn.onclick=function(){
+      welcomeStartBtn.style.display="none";
         questionBox.style.display="block";
 
     };
