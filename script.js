@@ -2511,24 +2511,74 @@ if(document.getElementById("balloons")){
 }
 const startBtn=document.getElementById("startLetter");
 
+const yesBtn=document.getElementById("yesBtn");
+
+const noBtn=document.getElementById("noBtn");
+
+const questionBox=document.getElementById("questionBox");
+
+const letterContent=document.getElementById("letterContent");
+
+const welcomeScreen=document.getElementById("welcomeScreen");
+
+const noMessage=document.getElementById("noMessage");
+
 if(startBtn){
 
-document.getElementById("letterContent").style.display="none";
+letterContent.style.display="none";
 
-startBtn.addEventListener("click",()=>{
+startBtn.onclick=()=>{
 
-document.getElementById("welcomeScreen").style.display="none";
+startBtn.style.display="none";
 
-document.getElementById("letterContent").style.display="block";
+questionBox.style.display="block";
+
+};
+
+}
+
+let noClick=0;
+
+if(noBtn){
+
+noBtn.onclick=()=>{
+
+noClick++;
+
+const msgs=[
+
+"🥺 Please choose YES ❤️",
+
+"😭 Don't break my heart...",
+
+"💖 Pretty Please...",
+
+"🥹 Only YES unlocks the surprise!",
+
+"🌸 Come on... press YES 😊"
+
+];
+
+noMessage.innerHTML=msgs[Math.min(noClick,msgs.length-1)];
+
+};
+
+}
+
+if(yesBtn){
+
+yesBtn.onclick=()=>{
+
+welcomeScreen.style.display="none";
+
+letterContent.style.display="block";
 
 createBalloons();
 
-setTimeout(()=>{
+createConfetti();
 
-alert("💖 Welcome! Create your beautiful letter.");
+createFireworks();
 
-},500);
-
-});
+};
 
 }
