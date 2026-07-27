@@ -4496,3 +4496,56 @@ animation:pulse 1.5s infinite;
 100%{opacity:1;}
 
 }
+#giftBox{
+
+font-size:120px;
+
+cursor:pointer;
+
+transition:.5s;
+
+}
+
+#giftBox:hover{
+
+transform:scale(1.15) rotate(-8deg);
+
+}
+
+#birthdayCake{
+
+font-size:140px;
+
+animation:bounceCake 1s infinite;
+
+}
+
+@keyframes bounceCake{
+
+0%{transform:translateY(0);}
+
+50%{transform:translateY(-18px);}
+
+100%{transform:translateY(0);}
+
+}
+
+#nextBirthday{
+
+margin-top:25px;
+
+padding:14px 30px;
+
+border:none;
+
+border-radius:40px;
+
+background:#ff4f8b;
+
+color:white;
+
+cursor:pointer;
+
+font-size:17px;
+
+}
