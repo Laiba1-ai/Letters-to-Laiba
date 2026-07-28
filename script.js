@@ -2441,13 +2441,26 @@ if(document.getElementById("fireworks")){
 if(document.getElementById("balloons")){
     setInterval(createBalloon,3000);
 }
-const welcomeStartBtn = document.getElementById("startLetter");
-const yesBtn = document.getElementById("yesBtn");
-const noBtn = document.getElementById("noBtn");
-const questionBox = document.getElementById("questionBox");
-const letterContent = document.getElementById("letterContent");
-const welcomeScreen = document.getElementById("welcomeScreen");
-const noMessage = document.getElementById("noMessage");
+const welcomeStartBtn =
+document.querySelector("#startLetter");
+
+const yesBtn =
+document.querySelector("#yesBtn");
+
+const noBtn =
+document.querySelector("#noBtn");
+
+const questionBox =
+document.querySelector("#questionBox");
+
+const letterContent =
+document.querySelector("#letterContent");
+
+const welcomeScreen =
+document.querySelector("#welcomeScreen");
+
+const noMessage =
+document.querySelector("#noMessage");
 
 if(welcomeStartBtn && letterContent){
 
