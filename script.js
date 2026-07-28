@@ -2441,81 +2441,127 @@ if(document.getElementById("fireworks")){
 if(document.getElementById("balloons")){
     setInterval(createBalloon,3000);
 }
-const welcomeStartBtn =
-document.querySelector("#startLetter");
+// ===============================
+// Premium Welcome Flow
+// ===============================
 
-const yesBtn =
-document.querySelector("#yesBtn");
+const welcomeScreen = document.getElementById("welcomeScreen");
+const letterContent = document.getElementById("letterContent");
 
-const noBtn =
-document.querySelector("#noBtn");
+const openBtn = document.getElementById("startLetter");
 
-const questionBox =
-document.querySelector("#questionBox");
+const questionBox = document.getElementById("questionBox");
 
-const letterContent =
-document.querySelector("#letterContent");
+const yesBtn = document.getElementById("yesBtn");
 
-const welcomeScreen =
-document.querySelector("#welcomeScreen");
+const noBtn = document.getElementById("noBtn");
 
-const noMessage =
-document.querySelector("#noMessage");
+const noMessage = document.getElementById("noMessage");
 
-if(welcomeStartBtn && letterContent){
-
+if(letterContent){
     letterContent.style.display="none";
+}
 
- welcomeStartBtn.onclick=function(){
-      welcomeStartBtn.style.display="none";
+if(questionBox){
+    questionBox.style.display="none";
+}
+
+if(openBtn){
+
+    openBtn.addEventListener("click",()=>{
+
+        openBtn.style.display="none";
+
         questionBox.style.display="block";
 
-    };
+    });
 
 }
 
+let noIndex=0;
 
-let noClick=0;
+const noTexts=[
+
+"🥺 Please choose YES ❤️",
+
+"😭 Don't break my heart...",
+
+"💖 Pretty Please...",
+
+"🥹 Only YES unlocks the surprise!",
+
+"🌸 Come on... press YES 😊"
+
+];
 
 if(noBtn){
 
-noBtn.onclick=function(){
+noBtn.addEventListener("mouseover",()=>{
 
-const msgs=[
-"🥺 Please choose YES ❤️",
-"😭 Don't break my heart...",
-"💖 Pretty Please...",
-"🥹 Only YES unlocks the surprise!",
-"🌸 Come on... press YES 😊"
-];
+const x=Math.random()*250-125;
 
-noMessage.innerHTML=msgs[Math.min(noClick,msgs.length-1)];
+const y=Math.random()*120-60;
 
-noClick++;
+noBtn.style.transform=`translate(${x}px,${y}px)`;
 
-};
+});
+
+noBtn.addEventListener("click",()=>{
+
+noMessage.innerHTML=noTexts[Math.min(noIndex,noTexts.length-1)];
+
+noIndex++;
+
+});
 
 }
 
-if(yesBtn && welcomeScreen && letterContent){
+if(yesBtn){
 
-    yesBtn.onclick=function(){
+yesBtn.addEventListener("click",()=>{
 
-        welcomeScreen.style.display="none";
-        letterContent.style.display="block";
+welcomeScreen.style.display="none";
 
-        for(let i=0;i<10;i++){
-            setTimeout(createBalloon,i*250);
-        }
+const birthdayFlow = document.getElementById("birthdayFlow");
 
-        for(let i=0;i<20;i++){
-            setTimeout(createConfetti,i*80);
-        }
+if(letterContent){
+    letterContent.style.display="block";
+}
 
-        for(let i=0;i<5;i++){
-            setTimeout(createFirework,i*500);
-        }
+if(birthdayFlow){
+    birthdayFlow.style.display="block";
+}
 
-    };
+const giftStage = document.getElementById("giftStage");
+
+const cakeStage = document.getElementById("cakeStage");
+
+if(giftStage){
+    giftStage.style.display="block";
+}
+
+if(cakeStage){
+    cakeStage.style.display="none";
+}
+
+for(let i=0;i<15;i++){
+
+setTimeout(createBalloon,i*180);
+
+}
+
+for(let i=0;i<30;i++){
+
+setTimeout(createConfetti,i*80);
+
+}
+
+for(let i=0;i<6;i++){
+
+setTimeout(createFirework,i*450);
+
+}
+
+});
 
 }
