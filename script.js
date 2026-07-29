@@ -259,7 +259,6 @@ if (musicBtn && bgMusic) {
     });
 
 }
-
 // ===============================
 // Intro Screen
 // ===============================
@@ -2522,14 +2521,19 @@ yesBtn.addEventListener("click",()=>{
 
 welcomeScreen.style.display="none";
 
-const birthdayFlow = document.getElementById("birthdayFlow");
-
 if(letterContent){
     letterContent.style.display="block";
 }
 
-if(birthdayFlow){
-    birthdayFlow.style.display="block";
+const birthdayFlow = document.getElementById("birthdayFlow");
+const letterType = document.getElementById("letterType");
+
+if(
+    birthdayFlow &&
+    letterType &&
+    letterType.value === "birthday"
+){
+    birthdayFlow.style.display = "block";
 }
 
 const giftStage = document.getElementById("giftStage");
