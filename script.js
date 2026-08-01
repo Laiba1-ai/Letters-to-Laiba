@@ -2511,3 +2511,13 @@ Have a beautiful day ❤️`;
     }
 
 });
+giftBox?.addEventListener("click", () => {
+
+    console.log("Gift Clicked");
+
+    alert("Gift Clicked");
+
+    console.log(document.getElementById("giftStage"));
+    console.log(document.getElementById("cakeStage"));
+
+});
