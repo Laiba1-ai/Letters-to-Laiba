@@ -259,20 +259,6 @@ if (musicBtn && bgMusic) {
     });
 
 }
-// ===============================
-// Intro Screen
-// ===============================
-
-const intro = document.getElementById("intro");
-const startBtn = document.getElementById("startBtn");
-
-if (intro && startBtn) {
-
-    startBtn.onclick = function () {
-        intro.style.display = "none";
-    };
-
-}
 const isWriteLetterPage =
 document.getElementById("letterType") !== null;
 
@@ -2440,29 +2426,24 @@ if(document.getElementById("fireworks")){
 if(document.getElementById("balloons")){
     setInterval(createBalloon,3000);
 }
-// ===============================
+// ======================================
 // Premium Welcome Flow
-// ===============================
+// ======================================
 
 const welcomeScreen = document.getElementById("welcomeScreen");
+const openBtn = document.getElementById("startLetter");
+const questionBox = document.getElementById("questionBox");
+const yesBtn = document.getElementById("yesBtn");
+const noBtn = document.getElementById("noBtn");
+const noMessage = document.getElementById("noMessage");
 const letterContent = document.getElementById("letterContent");
 
-const openBtn = document.getElementById("startLetter");
-
-const questionBox = document.getElementById("questionBox");
-
-const yesBtn = document.getElementById("yesBtn");
-
-const noBtn = document.getElementById("noBtn");
-
-const noMessage = document.getElementById("noMessage");
-
 if(letterContent){
-    letterContent.style.display="none";
+    letterContent.style.display = "none";
 }
 
 if(questionBox){
-    questionBox.style.display="none";
+    questionBox.style.display = "none";
 }
 
 if(openBtn){
@@ -2477,95 +2458,55 @@ if(openBtn){
 
 }
 
-let noIndex=0;
-
 const noTexts=[
-
 "🥺 Please choose YES ❤️",
-
 "😭 Don't break my heart...",
-
 "💖 Pretty Please...",
-
 "🥹 Only YES unlocks the surprise!",
-
 "🌸 Come on... press YES 😊"
-
 ];
+
+let noIndex=0;
 
 if(noBtn){
 
-noBtn.addEventListener("mouseover",()=>{
+    noBtn.addEventListener("mouseover",()=>{
 
-const x=Math.random()*250-125;
+        noBtn.style.position="relative";
 
-const y=Math.random()*120-60;
+        noBtn.style.left=(Math.random()*120-60)+"px";
 
-noBtn.style.transform=`translate(${x}px,${y}px)`;
+        noBtn.style.top=(Math.random()*60-30)+"px";
 
-});
+    });
 
-noBtn.addEventListener("click",()=>{
+    noBtn.addEventListener("click",()=>{
 
-noMessage.innerHTML=noTexts[Math.min(noIndex,noTexts.length-1)];
+        noMessage.innerHTML=noTexts[Math.min(noIndex,noTexts.length-1)];
 
-noIndex++;
+        noIndex++;
 
-});
+    });
 
 }
 
 if(yesBtn){
 
-yesBtn.addEventListener("click",()=>{
+    yesBtn.addEventListener("click",()=>{
 
-welcomeScreen.style.display="none";
+        welcomeScreen.style.display="none";
 
-if(letterContent){
-    letterContent.style.display="block";
-}
+        letterContent.style.display="block";
 
-const birthdayFlow = document.getElementById("birthdayFlow");
-const letterType = document.getElementById("letterType");
+        for(let i=0;i<15;i++)
+            setTimeout(createBalloon,i*180);
 
-if(
-    birthdayFlow &&
-    letterType &&
-    letterType.value === "birthday"
-){
-    birthdayFlow.style.display = "block";
-}
+        for(let i=0;i<30;i++)
+            setTimeout(createConfetti,i*80);
 
-const giftStage = document.getElementById("giftStage");
+        for(let i=0;i<6;i++)
+            setTimeout(createFirework,i*450);
 
-const cakeStage = document.getElementById("cakeStage");
-
-if(giftStage){
-    giftStage.style.display="block";
-}
-
-if(cakeStage){
-    cakeStage.style.display="none";
-}
-
-for(let i=0;i<15;i++){
-
-setTimeout(createBalloon,i*180);
-
-}
-
-for(let i=0;i<30;i++){
-
-setTimeout(createConfetti,i*80);
-
-}
-
-for(let i=0;i<6;i++){
-
-setTimeout(createFirework,i*450);
-
-}
-
-});
+    });
 
 }
