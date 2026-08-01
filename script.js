@@ -259,6 +259,20 @@ if (musicBtn && bgMusic) {
     });
 
 }
+// ===============================
+// Intro Screen
+// ===============================
+
+const intro = document.getElementById("intro");
+const startBtn = document.getElementById("startBtn");
+
+if (intro && startBtn) {
+
+    startBtn.onclick = function () {
+        intro.style.display = "none";
+    };
+
+}
 const isWriteLetterPage =
 document.getElementById("letterType") !== null;
 
