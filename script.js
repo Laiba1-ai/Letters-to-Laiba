@@ -2256,51 +2256,6 @@ hideForVisitors(`
 
 });
 // ===============================
-// Universal Theme Loader
-// ===============================
-
-document.addEventListener("DOMContentLoaded", () => {
-
-    if (!document.body.classList.contains("write-letter-page")) return;
-
-    const letterType = document.getElementById("letterType");
-    const themeTitle = document.getElementById("themeTitle");
-    const themeSubtitle = document.getElementById("themeSubtitle");
-    const themeIcon = document.getElementById("themeIcon");
-    const themeMessage = document.getElementById("themeMessage");
-
-    function applyTheme(theme){
-
-        const data = themeData[theme] || themeData.simple;
-
-        currentTheme = theme;
-
-        if(themeTitle)
-            themeTitle.innerHTML = data.title;
-
-        if(themeSubtitle)
-            themeSubtitle.innerHTML = "Write your feelings from your heart ❤️";
-
-        if(themeIcon)
-            themeIcon.innerHTML = data.gift;
-
-        if(themeMessage)
-            themeMessage.innerHTML = data.title;
-
-        document.body.className = "write-letter-page " + theme;
-
-    }
-
-    applyTheme(letterType.value);
-
-    letterType.addEventListener("change", () => {
-
-        applyTheme(letterType.value);
-
-    });
-
-});
-// ===============================
 // Premium Floating Icons
 // ===============================
 
@@ -2490,22 +2445,43 @@ if(noBtn){
 
 }
 
-if(yesBtn){
+if (yesBtn) {
 
-    yesBtn.addEventListener("click",()=>{
+    yesBtn.addEventListener("click", () => {
 
-        welcomeScreen.style.display="none";
+        if (welcomeScreen)
+            welcomeScreen.style.display = "none";
 
-        letterContent.style.display="block";
+        if (letterContent)
+            letterContent.style.display = "block";
 
-        for(let i=0;i<15;i++)
-            setTimeout(createBalloon,i*180);
+        // Auto Select Birthday Theme
+        if (letterType) {
+            letterType.value = "birthday";
+            applyTheme("birthday");
+        }
 
-        for(let i=0;i<30;i++)
-            setTimeout(createConfetti,i*80);
+        const birthdayFlow = document.getElementById("birthdayFlow");
+        const giftStage = document.getElementById("giftStage");
+        const cakeStage = document.getElementById("cakeStage");
 
-        for(let i=0;i<6;i++)
-            setTimeout(createFirework,i*450);
+        if (birthdayFlow)
+            birthdayFlow.style.display = "block";
+
+        if (giftStage)
+            giftStage.style.display = "block";
+
+        if (cakeStage)
+            cakeStage.style.display = "none";
+
+        for (let i = 0; i < 15; i++)
+            setTimeout(createBalloon, i * 180);
+
+        for (let i = 0; i < 30; i++)
+            setTimeout(createConfetti, i * 80);
+
+        for (let i = 0; i < 6; i++)
+            setTimeout(createFirework, i * 450);
 
     });
 
