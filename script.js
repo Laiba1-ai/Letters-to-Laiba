@@ -2500,3 +2500,80 @@ if (yesBtn) {
     });
 
 }
+// ===============================
+// Gift → Cake
+// ===============================
+
+const giftBoxBirthday = document.getElementById("giftBox");
+const giftStage = document.getElementById("giftStage");
+const cakeStage = document.getElementById("cakeStage");
+
+if (giftBoxBirthday && giftStage && cakeStage) {
+
+    giftBoxBirthday.addEventListener("click", () => {
+
+        giftBoxBirthday.innerHTML = "💝";
+
+        setTimeout(() => {
+
+            giftStage.style.display = "none";
+            cakeStage.style.display = "block";
+
+        }, 700);
+
+    });
+
+}
+// ===============================
+// Cake → Birthday Letter
+// ===============================
+
+const nextBirthday = document.getElementById("nextBirthday");
+
+if (nextBirthday) {
+
+    nextBirthday.addEventListener("click", () => {
+
+        document.getElementById("cakeStage").style.display = "none";
+
+        const title = document.getElementById("themeTitle");
+        const subtitle = document.getElementById("themeSubtitle");
+
+        if (title)
+            title.innerHTML = "🎂 Happy Birthday";
+
+        if (subtitle)
+            subtitle.innerHTML = "May your day be full of happiness ❤️";
+
+        const titleInput = document.getElementById("title");
+        const message = document.getElementById("message");
+
+        if (titleInput)
+            titleInput.value = "Happy Birthday 🎂";
+
+        if (message) {
+
+            message.value =
+`Happy Birthday! 🎂
+
+May Allah bless you with happiness,
+success and endless smiles.
+
+Have a beautiful day ❤️`;
+
+            message.dispatchEvent(new Event("input"));
+
+        }
+
+        for (let i = 0; i < 20; i++)
+            setTimeout(createBalloon, i * 150);
+
+        for (let i = 0; i < 35; i++)
+            setTimeout(createConfetti, i * 70);
+
+        for (let i = 0; i < 8; i++)
+            setTimeout(createFirework, i * 350);
+
+    });
+
+}
