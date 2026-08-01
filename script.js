@@ -535,7 +535,7 @@ const giftMessage = document.getElementById("giftMessage");
 const giftEditor = document.getElementById("giftEditor");
 const saveGiftBtn = document.getElementById("saveGiftBtn");
 
-if (giftBox) {
+if (giftBox && giftMessage) {
 
     const savedGift = localStorage.getItem("birthdayGift");
 
@@ -560,7 +560,7 @@ if (giftBox) {
 
 } // ✅ if(giftBox) closes here
 
-if (saveGiftBtn) {
+if (saveGiftBtn && giftMessage && giftEditor) {
 
     saveGiftBtn.onclick = function () {
 
