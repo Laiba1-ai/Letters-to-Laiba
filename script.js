@@ -527,59 +527,6 @@ if (cake) {
 
 }
 // ==========================
-// Editable Gift
-// ==========================
-
-const giftBox = document.getElementById("giftBox");
-const giftMessage = document.getElementById("giftMessage");
-const giftEditor = document.getElementById("giftEditor");
-const saveGiftBtn = document.getElementById("saveGiftBtn");
-
-if (giftBox && giftMessage) {
-
-    const savedGift = localStorage.getItem("birthdayGift");
-
-    if (savedGift) {
-        giftMessage.innerHTML = savedGift;
-    }
-
-    giftBox.onclick = function () {
-
-        giftBox.innerHTML = "💝";
-        giftMessage.style.display = "block";
-
-        if (isOwner) {
-
-            giftEditor.style.display = "block";
-            saveGiftBtn.style.display = "inline-block";
-            giftEditor.value = giftMessage.innerText;
-
-        }
-
-    };
-
-} // ✅ if(giftBox) closes here
-
-if (saveGiftBtn && giftMessage && giftEditor) {
-
-    saveGiftBtn.onclick = function () {
-
-        giftMessage.innerHTML = giftEditor.value;
-
-        localStorage.setItem(
-            "birthdayGift",
-            giftEditor.value
-        );
-
-        alert("🎁 Gift Saved!");
-
-        giftEditor.style.display = "none";
-        saveGiftBtn.style.display = "none";
-
-    };
-
-}
-// ==========================
 // Proposal Flower
 // ==========================
 
@@ -2396,7 +2343,7 @@ if(document.getElementById("balloons")){
     setInterval(createBalloon,3000);
 }
 // ======================================
-// Premium Welcome Flow
+// Premium Birthday Flow
 // ======================================
 
 const welcomeScreen = document.getElementById("welcomeScreen");
@@ -2405,175 +2352,162 @@ const questionBox = document.getElementById("questionBox");
 const yesBtn = document.getElementById("yesBtn");
 const noBtn = document.getElementById("noBtn");
 const noMessage = document.getElementById("noMessage");
+
 const letterContent = document.getElementById("letterContent");
 
+const birthdayFlow = document.getElementById("birthdayFlow");
+const giftStage = document.getElementById("giftStage");
+const cakeStage = document.getElementById("cakeStage");
+
+const giftBox = document.getElementById("giftBox");
+const nextBirthday = document.getElementById("nextBirthday");
+
 if(letterContent){
-    letterContent.style.display = "none";
+    letterContent.style.display="none";
 }
 
 if(questionBox){
-    questionBox.style.display = "none";
+    questionBox.style.display="none";
 }
 
-if(openBtn){
+// Open Surprise
 
-    openBtn.addEventListener("click",()=>{
+openBtn?.addEventListener("click",()=>{
 
-        openBtn.style.display="none";
+    openBtn.style.display="none";
+    questionBox.style.display="block";
 
-        questionBox.style.display="block";
+});
 
-    });
-
-}
+// NO Button
 
 const noTexts=[
+
 "🥺 Please choose YES ❤️",
+
 "😭 Don't break my heart...",
+
 "💖 Pretty Please...",
+
 "🥹 Only YES unlocks the surprise!",
+
 "🌸 Come on... press YES 😊"
+
 ];
 
 let noIndex=0;
 
-if(noBtn){
+noBtn?.addEventListener("mouseover",()=>{
 
-    noBtn.addEventListener("mouseover",()=>{
+    noBtn.style.left=(Math.random()*120-60)+"px";
+    noBtn.style.top=(Math.random()*60-30)+"px";
+    noBtn.style.position="relative";
 
-        noBtn.style.position="relative";
+});
 
-        noBtn.style.left=(Math.random()*120-60)+"px";
+noBtn?.addEventListener("click",()=>{
 
-        noBtn.style.top=(Math.random()*60-30)+"px";
+    noMessage.innerHTML=
+    noTexts[Math.min(noIndex,noTexts.length-1)];
 
-    });
+    noIndex++;
 
-    noBtn.addEventListener("click",()=>{
+});
 
-        noMessage.innerHTML=noTexts[Math.min(noIndex,noTexts.length-1)];
+// YES Button
 
-        noIndex++;
+yesBtn?.addEventListener("click",()=>{
 
-    });
+    welcomeScreen.style.display="none";
 
-}
+    letterContent.style.display="block";
 
-if (yesBtn) {
+    if(letterType){
 
-    yesBtn.addEventListener("click", () => {
+        letterType.value="birthday";
 
-        if (welcomeScreen)
-            welcomeScreen.style.display = "none";
+        applyTheme("birthday");
 
-        if (letterContent)
-            letterContent.style.display = "block";
+    }
 
-        // Auto Select Birthday Theme
-        if (letterType) {
-            letterType.value = "birthday";
-            applyTheme("birthday");
-        }
+    birthdayFlow.style.display="block";
 
-        const birthdayFlow = document.getElementById("birthdayFlow");
-        const giftStage = document.getElementById("giftStage");
-        const cakeStage = document.getElementById("cakeStage");
+    giftStage.style.display="block";
 
-        if (birthdayFlow)
-            birthdayFlow.style.display = "block";
+    cakeStage.style.display="none";
 
-        if (giftStage)
-            giftStage.style.display = "block";
+});
 
-        if (cakeStage)
-            cakeStage.style.display = "none";
+// Gift
 
-        for (let i = 0; i < 15; i++)
-            setTimeout(createBalloon, i * 180);
+giftBox?.addEventListener("click",()=>{
 
-        for (let i = 0; i < 30; i++)
-            setTimeout(createConfetti, i * 80);
+    giftBox.innerHTML="💝";
 
-        for (let i = 0; i < 6; i++)
-            setTimeout(createFirework, i * 450);
+    giftBox.style.transform="scale(1.2) rotate(-10deg)";
 
-    });
+    for(let i=0;i<15;i++){
 
-}
-// ===============================
-// Gift → Cake
-// ===============================
+        setTimeout(createConfetti,i*70);
 
-const giftBoxBirthday = document.getElementById("giftBox");
-const giftStage = document.getElementById("giftStage");
-const cakeStage = document.getElementById("cakeStage");
+    }
 
-if (giftBoxBirthday && giftStage && cakeStage) {
+    setTimeout(()=>{
 
-    giftBoxBirthday.addEventListener("click", () => {
+        giftStage.style.display="none";
 
-        giftBoxBirthday.innerHTML = "💝";
+        cakeStage.style.display="block";
 
-        setTimeout(() => {
+    },900);
 
-            giftStage.style.display = "none";
-            cakeStage.style.display = "block";
+});
 
-        }, 700);
+// Cake
 
-    });
+nextBirthday?.addEventListener("click",()=>{
 
-}
-// ===============================
-// Cake → Birthday Letter
-// ===============================
+    cakeStage.style.display="none";
 
-const nextBirthday = document.getElementById("nextBirthday");
+    document.getElementById("themeTitle").innerHTML=
+    "🎂 Happy Birthday";
 
-if (nextBirthday) {
+    document.getElementById("themeSubtitle").innerHTML=
+    "May Allah bless you always ❤️";
 
-    nextBirthday.addEventListener("click", () => {
+    document.getElementById("title").value=
+    "Happy Birthday 🎂";
 
-        document.getElementById("cakeStage").style.display = "none";
+    document.getElementById("message").value=
 
-        const title = document.getElementById("themeTitle");
-        const subtitle = document.getElementById("themeSubtitle");
-
-        if (title)
-            title.innerHTML = "🎂 Happy Birthday";
-
-        if (subtitle)
-            subtitle.innerHTML = "May your day be full of happiness ❤️";
-
-        const titleInput = document.getElementById("title");
-        const message = document.getElementById("message");
-
-        if (titleInput)
-            titleInput.value = "Happy Birthday 🎂";
-
-        if (message) {
-
-            message.value =
 `Happy Birthday! 🎂
 
 May Allah bless you with happiness,
-success and endless smiles.
+success,
+good health,
+peace
+and endless smiles.
 
 Have a beautiful day ❤️`;
 
-            message.dispatchEvent(new Event("input"));
+    document.getElementById("message")
+    .dispatchEvent(new Event("input"));
 
-        }
+    for(let i=0;i<25;i++){
 
-        for (let i = 0; i < 20; i++)
-            setTimeout(createBalloon, i * 150);
+        setTimeout(createBalloon,i*150);
 
-        for (let i = 0; i < 35; i++)
-            setTimeout(createConfetti, i * 70);
+    }
 
-        for (let i = 0; i < 8; i++)
-            setTimeout(createFirework, i * 350);
+    for(let i=0;i<35;i++){
 
-    });
+        setTimeout(createConfetti,i*60);
 
-}
+    }
+
+    for(let i=0;i<10;i++){
+
+        setTimeout(createFirework,i*350);
+
+    }
+
+});
