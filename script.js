@@ -2519,7 +2519,8 @@ giftBox?.addEventListener("click", () => {
 
     console.log(document.getElementById("giftStage"));
     console.log(document.getElementById("cakeStage"));
-    // =========================
+    }); 
+// =========================
 // Countdown
 // =========================
 console.log("Script Started");
