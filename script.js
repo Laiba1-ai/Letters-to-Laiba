@@ -2399,13 +2399,14 @@ let noIndex=0;
 
 noBtn?.addEventListener("mouseover",()=>{
 
-    noBtn.style.left=(Math.random()*120-60)+"px";
-    noBtn.style.top=(Math.random()*60-30)+"px";
-    noBtn.style.position="relative";
+    const x=Math.random()*(window.innerWidth-220)+100;
+    const y=Math.random()*(window.innerHeight-180)+90;
 
-});
+    noBtn.style.left=x+"px";
+    noBtn.style.top=y+"px";
 
-noBtn?.addEventListener("click",()=>{
+    noMessage.style.left=x+"px";
+    noMessage.style.top=(y-60)+"px";
 
     noMessage.innerHTML=
     noTexts[Math.min(noIndex,noTexts.length-1)];
@@ -2413,7 +2414,6 @@ noBtn?.addEventListener("click",()=>{
     noIndex++;
 
 });
-
 // YES Button
 
 yesBtn?.addEventListener("click",()=>{
