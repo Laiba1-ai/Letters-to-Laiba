@@ -2519,5 +2519,36 @@ giftBox?.addEventListener("click", () => {
 
     console.log(document.getElementById("giftStage"));
     console.log(document.getElementById("cakeStage"));
+    // =========================
+// Countdown
+// =========================
+
+const countdownScreen = document.getElementById("countdownScreen");
+const countNumber = document.getElementById("countNumber");
+
+if (countdownScreen && countNumber) {
+
+    const nums = ["3", "2", "1"];
+
+    let i = 0;
+
+    const timer = setInterval(() => {
+
+        countNumber.innerHTML = nums[i];
+        i++;
+
+        if (i >= nums.length) {
+
+            clearInterval(timer);
+
+            countdownScreen.style.display = "none";
+
+            welcomeScreen.style.display = "flex";
+
+        }
+
+    }, 1000);
+
+}
 
 });
