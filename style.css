@@ -4512,9 +4512,9 @@ font-size:28px;
 
 font-weight:700;
 
-color:#d63384;
-text-shadow:0 0 12px rgba(255,79,139,.65);
+color:#ff2e88;
 
+text-shadow:0 0 3px rgba(255,46,136,.25);
 background:none;
 
 border:none;
@@ -4645,7 +4645,7 @@ z-index:999999;
 
 #noMessage{
 
-color:#d63384;
+color:#ff2e88;
 
 font-size:28px;
 
