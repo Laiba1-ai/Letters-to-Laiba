@@ -4426,27 +4426,37 @@ display:flex;
 
 justify-content:center;
 
-gap:18px;
+align-items:center;
 
-margin-top:20px;
+gap:20px;
+
+margin-top:25px;
+
+position:relative;
+
+height:70px;
 
 }
 
 .choiceButtons button{
 
-padding:14px 28px;
+width:150px;
+
+height:55px;
 
 border:none;
 
 border-radius:50px;
 
+font-size:20px;
+
+font-weight:700;
+
 cursor:pointer;
 
-font-size:16px;
-
-font-weight:600;
-
 transition:.35s;
+
+position:relative;
 
 }
 
@@ -4454,7 +4464,9 @@ transition:.35s;
 
 background:#ff4f8b;
 
-color:white;
+color:#fff;
+
+box-shadow:0 8px 20px rgba(255,79,139,.35);
 
 }
 
@@ -4466,14 +4478,21 @@ transform:scale(1.08);
 
 #noBtn{
 
-background:white;
+background:#fff;
 
 color:#ff4f8b;
 
-border:2px solid #ff4f8b;
+border:3px solid #ff4f8b;
+
+position:absolute;
+
+left:210px;
+
+top:0;
+
+z-index:20;
 
 }
-
 #noBtn:hover{
 
 transform:translateX(10px);
@@ -4482,33 +4501,29 @@ transform:translateX(10px);
 
 #noMessage{
 
-    margin-top:18px;
+display:inline-block;
 
-    color:#ffffff;
+margin:18px auto;
 
-    background:rgba(255,79,139,.18);
+padding:12px 20px;
 
-    border:1px solid rgba(255,79,139,.45);
+background:#ffffff;
 
-    padding:12px 18px;
+color:#111111;
 
-    border-radius:15px;
+font-size:18px;
 
-    font-size:17px;
+font-weight:700;
 
-    font-weight:600;
+border-radius:14px;
 
-    line-height:1.5;
+box-shadow:0 10px 25px rgba(0,0,0,.25);
 
-    text-align:center;
+text-align:center;
 
-    text-shadow:0 2px 6px rgba(0,0,0,.5);
+text-shadow:none;
 
-    box-shadow:0 0 18px rgba(255,79,139,.25);
-
-    animation:pulse 1.5s infinite;
-
-    transition:.3s;
+animation:pulse 1.5s infinite;
 
 }
 @keyframes pulse{
