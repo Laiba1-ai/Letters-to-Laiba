@@ -4512,10 +4512,11 @@ font-size:28px;
 
 font-weight:700;
 
-color:#ff5aa5;
+color:#ff4f8b !important;
 
-text-shadow:0 0 3px rgba(255,46,136,.25);
-background:none;
+background:transparent;
+
+text-shadow:none !important;
 
 border:none;
 
@@ -4536,6 +4537,8 @@ transition:.35s;
 pointer-events:none;
 
 z-index:999999;
+
+font-family:'Poppins',sans-serif;
 
 }
 @keyframes pulse{
@@ -4641,18 +4644,6 @@ transform:translate(-50%,-50%);
 transition:.25s ease;
 
 z-index:999999;
-}
-
-#noMessage{
-
-color:#ff5aa5;
-
-font-size:28px;
-
-font-weight:700;
-
-text-shadow:none;
-
 }
 /* ===========================
    COUNTDOWN
