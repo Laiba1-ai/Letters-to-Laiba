@@ -2381,7 +2381,7 @@ openBtn?.addEventListener("click",()=>{
 
 // NO Button
 
-const noTexts=[
+const noTexts = [
 
 "🥺 Please choose YES ❤️",
 
@@ -2391,7 +2391,7 @@ const noTexts=[
 
 "🥹 Only YES unlocks the surprise!",
 
-"🌸 Come on... press YES 😊"
+"🌸 Come on... Press YES 😊"
 
 ];
 
