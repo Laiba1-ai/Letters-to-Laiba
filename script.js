@@ -2409,9 +2409,9 @@ noBtn?.addEventListener("mouseover",()=>{
     noMessage.innerHTML = noTexts[Math.min(noIndex,noTexts.length-1)];
 
     noMessage.style.position = "fixed";
-   noMessage.style.left = (x + noBtn.offsetWidth/2)+"px";
-noMessage.style.top = (y-40)+"px";
-    noMessage.style.transform = "translateX(-50%)";
+  noMessage.style.left = (x - 10) + "px";
+noMessage.style.top = (y - 45) + "px";
+noMessage.style.transform = "none";
 
     noMessage.style.opacity = "1";
     noMessage.style.visibility = "visible";
