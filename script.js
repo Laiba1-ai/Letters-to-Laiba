@@ -2395,21 +2395,31 @@ const noTexts = [
 
 ];
 
-let noIndex=0;
+let noIndex = 0;
 
 noBtn?.addEventListener("mouseover",()=>{
 
-    const x=Math.random()*(window.innerWidth-220)+100;
-    const y=Math.random()*(window.innerHeight-180)+90;
+    const x = Math.random() * (window.innerWidth - 220);
+    const y = Math.random() * (window.innerHeight - 150);
 
-    noBtn.style.left=x+"px";
-    noBtn.style.top=y+"px";
+    noBtn.style.position = "fixed";
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
 
-    noMessage.style.left=x+"px";
-    noMessage.style.top=(y-60)+"px";
+    noMessage.innerHTML = noTexts[Math.min(noIndex,noTexts.length-1)];
 
-    noMessage.innerHTML=
-    noTexts[Math.min(noIndex,noTexts.length-1)];
+    noMessage.style.position = "fixed";
+    noMessage.style.left = (x + 60) + "px";
+    noMessage.style.top = (y - 60) + "px";
+    noMessage.style.transform = "translateX(-50%)";
+
+    noMessage.style.opacity = "1";
+    noMessage.style.visibility = "visible";
+
+    setTimeout(()=>{
+        noMessage.style.opacity="0";
+        noMessage.style.visibility="hidden";
+    },1800);
 
     noIndex++;
 
