@@ -2406,22 +2406,21 @@ noBtn?.addEventListener("mouseover",()=>{
     noBtn.style.left = x + "px";
     noBtn.style.top = y + "px";
 
-    noMessage.innerHTML = noTexts[Math.min(noIndex,noTexts.length-1)];
+  noMessage.innerHTML = noTexts[Math.min(noIndex,noTexts.length-1)];
 
-    noMessage.style.position = "fixed";
-  noMessage.style.left = (x - 10) + "px";
-noMessage.style.top = (y - 45) + "px";
-noMessage.style.transform = "none";
+noMessage.style.left = "50%";
+noMessage.style.top = "18%";
+noMessage.style.transform = "translateX(-50%)";
 
-    noMessage.style.opacity = "1";
-    noMessage.style.visibility = "visible";
+noMessage.style.opacity = "1";
+noMessage.style.visibility = "visible";
 
-    setTimeout(()=>{
-        noMessage.style.opacity="0";
-        noMessage.style.visibility="hidden";
-    },1800);
+setTimeout(() => {
+    noMessage.style.opacity = "0";
+    noMessage.style.visibility = "hidden";
+},1500);
 
-    noIndex++;
+noIndex++;
 
 });
 // YES Button
