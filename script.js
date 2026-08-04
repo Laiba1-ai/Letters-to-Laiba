@@ -2522,33 +2522,36 @@ giftBox?.addEventListener("click", () => {
     // =========================
 // Countdown
 // =========================
+console.log("Script Started");
 
 const countdownScreen = document.getElementById("countdownScreen");
 const countNumber = document.getElementById("countNumber");
 
 if (countdownScreen && countNumber) {
 
-    const nums = ["3", "2", "1"];
+    console.log("Countdown Found");
 
-    let i = 0;
+    welcomeScreen.style.display = "none";
+
+    let count = 3;
 
     const timer = setInterval(() => {
 
-        countNumber.innerHTML = nums[i];
-        i++;
+        console.log(count);
 
-        if (i >= nums.length) {
+        countNumber.innerHTML = count;
+
+        count--;
+
+        if (count < 1) {
 
             clearInterval(timer);
 
             countdownScreen.style.display = "none";
-
             welcomeScreen.style.display = "flex";
 
         }
 
-    }, 1000);
+    },1000);
 
 }
-
-});
