@@ -4644,21 +4644,15 @@ z-index:999999;
 }
 
 #noMessage{
-position:fixed;
-left:50%;
-top:52%;
 
-transform:translateX(-50%);
+color:#d63384;
 
-font-size:18px;
-font-weight:600;
-color:#ff4f8b;
+font-size:28px;
 
-pointer-events:none;
+font-weight:700;
 
-transition:.25s;
+text-shadow:none;
 
-z-index:999998;
 }
 /* ===========================
    COUNTDOWN
