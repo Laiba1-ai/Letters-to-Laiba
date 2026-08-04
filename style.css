@@ -4554,3 +4554,63 @@ cursor:pointer;
 font-size:17px;
 
 }
+.choiceButtons{
+display:flex;
+justify-content:center;
+align-items:center;
+gap:20px;
+margin-top:25px;
+position:relative;
+height:80px;
+}
+
+#yesBtn{
+padding:14px 34px;
+border:none;
+border-radius:40px;
+background:#ff4f8b;
+color:#fff;
+cursor:pointer;
+font-size:17px;
+font-weight:600;
+z-index:20;
+}
+
+#noBtn{
+padding:14px 34px;
+border:none;
+border-radius:40px;
+background:#fff;
+color:#ff4f8b;
+border:2px solid #ff4f8b;
+cursor:pointer;
+
+position:fixed;
+
+left:50%;
+top:60%;
+
+transform:translate(-50%,-50%);
+
+transition:.25s ease;
+
+z-index:999999;
+}
+
+#noMessage{
+position:fixed;
+left:50%;
+top:52%;
+
+transform:translateX(-50%);
+
+font-size:18px;
+font-weight:600;
+color:#ff4f8b;
+
+pointer-events:none;
+
+transition:.25s;
+
+z-index:999998;
+}
