@@ -4482,13 +4482,23 @@ transform:translateX(10px);
 
 #noMessage{
 
-margin-top:15px;
+    margin-top:15px;
 
-color:#ff4f8b;
+    color:#ffffff;
 
-font-weight:600;
+    font-size:18px;
 
-animation:pulse 1.5s infinite;
+    font-weight:700;
+
+    line-height:1.6;
+
+    min-height:32px;
+
+    text-align:center;
+
+    text-shadow:0 2px 8px rgba(0,0,0,.35);
+
+    animation:pulse 1.5s infinite;
 
 }
 
