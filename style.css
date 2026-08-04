@@ -4482,26 +4482,35 @@ transform:translateX(10px);
 
 #noMessage{
 
-    margin-top:15px;
+    margin-top:18px;
 
     color:#ffffff;
 
-    font-size:18px;
+    background:rgba(255,79,139,.18);
 
-    font-weight:700;
+    border:1px solid rgba(255,79,139,.45);
 
-    line-height:1.6;
+    padding:12px 18px;
 
-    min-height:32px;
+    border-radius:15px;
+
+    font-size:17px;
+
+    font-weight:600;
+
+    line-height:1.5;
 
     text-align:center;
 
-    text-shadow:0 2px 8px rgba(0,0,0,.35);
+    text-shadow:0 2px 6px rgba(0,0,0,.5);
+
+    box-shadow:0 0 18px rgba(255,79,139,.25);
 
     animation:pulse 1.5s infinite;
 
-}
+    transition:.3s;
 
+}
 @keyframes pulse{
 
 0%{opacity:1;}
