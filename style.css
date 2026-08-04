@@ -4501,7 +4501,7 @@ transform:translateX(10px);
 
 #noMessage{
 
-position:absolute;
+position: fixed;
 
 bottom:90px;
 
