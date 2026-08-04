@@ -4501,29 +4501,28 @@ transform:translateX(10px);
 
 #noMessage{
 
-position: fixed;
+position:fixed;
 
-bottom:90px;
-
-left:50%;
-
-transform:translateX(-50%);
-
-background:#ffffff;
-
-color:#222;
-
-padding:12px 22px;
-
-border-radius:15px;
-
-font-size:17px;
+font-size:22px;
 
 font-weight:700;
 
-white-space:nowrap;
+color:#ffffff;
 
-box-shadow:0 10px 25px rgba(0,0,0,.25);
+text-shadow:
+0 2px 8px rgba(0,0,0,.7);
+
+background:none;
+
+border:none;
+
+box-shadow:none;
+
+padding:0;
+
+margin:0;
+
+white-space:nowrap;
 
 opacity:0;
 
@@ -4531,7 +4530,7 @@ visibility:hidden;
 
 transition:.3s;
 
-z-index:9999;
+z-index:999999;
 
 }
 @keyframes pulse{
