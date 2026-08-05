@@ -2451,8 +2451,7 @@ yesBtn?.addEventListener("click",()=>{
 
 giftBox?.addEventListener("click",()=>{
 
-    giftBox.innerHTML="💝";
-
+   giftBox.classList.add("giftOpen");
     giftBox.style.transform="scale(1.2) rotate(-10deg)";
 
     for(let i=0;i<15;i++){
@@ -2467,8 +2466,7 @@ giftBox?.addEventListener("click",()=>{
 
         cakeStage.style.display="block";
 
-        document.getElementById("wishPopup").style.display="block";
-
+       document.getElementById("wishPopup").style.display="none";
     },900);
 
 });
