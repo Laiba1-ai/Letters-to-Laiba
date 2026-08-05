@@ -2449,15 +2449,29 @@ yesBtn?.addEventListener("click",()=>{
 
 // Gift
 
+// Gift
+
 giftBox?.addEventListener("click",()=>{
 
-   giftBox.classList.add("giftOpen");
-    giftBox.style.transform="scale(1.2) rotate(-10deg)";
+    giftBox.style.pointerEvents="none";
 
-    for(let i=0;i<15;i++){
+    giftBox.classList.add("giftOpen");
 
-        setTimeout(createConfetti,i*70);
+    giftBox.style.transform="scale(1.6) rotate(15deg)";
 
+    // Confetti
+    for(let i=0;i<40;i++){
+        setTimeout(createConfetti,i*40);
+    }
+
+    // Balloons
+    for(let i=0;i<20;i++){
+        setTimeout(createBalloon,i*120);
+    }
+
+    // Fireworks
+    for(let i=0;i<12;i++){
+        setTimeout(createFirework,i*220);
     }
 
     setTimeout(()=>{
@@ -2466,8 +2480,9 @@ giftBox?.addEventListener("click",()=>{
 
         cakeStage.style.display="block";
 
-       document.getElementById("wishPopup").style.display="none";
-    },900);
+        document.getElementById("wishPopup").style.display="block";
+
+    },1200);
 
 });
 const blowBtn = document.getElementById("blowCandles");
