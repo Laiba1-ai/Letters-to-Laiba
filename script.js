@@ -2467,7 +2467,26 @@ giftBox?.addEventListener("click",()=>{
 
         cakeStage.style.display="block";
 
+        document.getElementById("wishPopup").style.display="block";
+
     },900);
+
+});
+const blowBtn = document.getElementById("blowCandles");
+
+blowBtn?.addEventListener("click",()=>{
+
+    document.getElementById("birthdayCake").innerHTML="🎂";
+document.getElementById("birthdayCake").style.animation="none";
+    document.getElementById("wishPopup").style.display = "none";
+
+    for(let i=0;i<25;i++){
+
+        setTimeout(createFirework,i*120);
+
+    }
+
+    nextBirthday.style.display="inline-block";
 
 });
 
@@ -2520,15 +2539,6 @@ Have a beautiful day ❤️`;
     }
 
 });
-giftBox?.addEventListener("click", () => {
-
-    console.log("Gift Clicked");
-
-    alert("Gift Clicked");
-
-    console.log(document.getElementById("giftStage"));
-    console.log(document.getElementById("cakeStage"));
-    }); 
 // =========================
 // Countdown
 // =========================
