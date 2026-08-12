@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Letter Library 💌 — Letters to Laiba</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+</head>
+
+<body class="library-page">
+
+<!-- Navbar -->
+<nav class="navbar">
+
+    <div class="logo">💌 Letters to Laiba</div>
+
+    <ul>
+        <li><a href="home.html">🏠 Home</a></li>
+        <li><a href="birthday.html">🎂 Birthday</a></li>
+        <li><a href="gallery.html">📷 Gallery</a></li>
+        <li><a href="letters.html">💌 My Letters</a></li>
+        <li><a href="library.html">📚 Letter Library</a></li>
+        <li><a href="memory.html">📦 Memory Box</a></li>
+    </ul>
+
+</nav>
+
+<!-- Floating Hearts -->
+<div id="floating-hearts"></div>
+
+<section class="library-section">
+
+    <h1>📚 Letter Library</h1>
+
+    <p class="library-subtitle">
+        Choose from 100+ beautiful ready-made letters ✨
+    </p>
+
+    <!-- Search & Filters -->
+    <div class="library-filters">
+        
+        <div class="search-box">
+            <input 
+                type="text" 
+                id="searchLibrary" 
+                placeholder="🔍 Search letters by keyword, category...">
+        </div>
+
+        <div class="category-filters">
+            <button class="filter-btn active" data-category="all">All</button>
+            <button class="filter-btn" data-category="love">❤️ Love</button>
+            <button class="filter-btn" data-category="emotional">💕 Emotional</button>
+            <button class="filter-btn" data-category="missing">💭 Missing You</button>
+            <button class="filter-btn" data-category="birthday">🎂 Birthday</button>
+            <button class="filter-btn" data-category="anniversary">💍 Anniversary</button>
+            <button class="filter-btn" data-category="apology">🥺 Apology</button>
+            <button class="filter-btn" data-category="thankyou">🙏 Thank You</button>
+            <button class="filter-btn" data-category="romantic">🌹 Romantic</button>
+            <button class="filter-btn" data-category="cute">🧸 Cute</button>
+            <button class="filter-btn" data-category="longdistance">🌍 Long Distance</button>
+            <button class="filter-btn" data-category="special">✨ Special Moments</button>
+            <button class="filter-btn" data-category="friendship">🤝 Friendship</button>
+            <button class="filter-btn" data-category="proposal">💍 Proposal</button>
+            <button class="filter-btn" data-category="eid">🌙 Eid</button>
+            <button class="filter-btn" data-category="ramadan">🕌 Ramadan</button>
+            <button class="filter-btn" data-category="mothersday">🌸 Mother's Day</button>
+            <button class="filter-btn" data-category="fathersday">👔 Father's Day</button>
+            <button class="filter-btn" data-category="christmas">🎄 Christmas</button>
+            <button class="filter-btn" data-category="newyear">🎆 New Year</button>
+            <button class="filter-btn" data-category="graduation">🎓 Graduation</button>
+            <button class="filter-btn" data-category="getwell">💐 Get Well Soon</button>
+            <button class="filter-btn" data-category="goodluck">🍀 Good Luck</button>
+        </div>
+
+        <div class="favorites-filter">
+            <button id="favoritesOnly" class="fav-filter-btn">
+                ⭐ Favorites Only
+            </button>
+        </div>
+
+    </div>
+
+    <!-- Stats -->
+    <div class="library-stats">
+        <span id="totalLetters">📝 Total: 0 letters</span>
+        <span id="filteredLetters">Showing: 0 letters</span>
+    </div>
+
+    <!-- Letters Grid -->
+    <div id="libraryGrid" class="library-grid">
+        <!-- Letters will be loaded here dynamically -->
+    </div>
+
+    <!-- Back Button -->
+    <button onclick="window.location.href='home.html'" class="back-home-btn">
+        🏠 Back to Home
+    </button>
+
+</section>
+
+<script src="script.js"></script>
+
+</body>
+</html>
