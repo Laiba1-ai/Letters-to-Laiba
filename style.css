@@ -5038,6 +5038,513 @@ transform:translateY(0);
     transform: scale(1.05);
 }
 
+/* ======================================
+   PREMIUM BUTTON STYLES - ALL BUTTONS
+====================================== */
+
+/* Base Button Style */
+button,
+.btn-primary,
+.btn-secondary,
+.btn-danger,
+.btn-success,
+.btn-info,
+.action-btn,
+.menu-icon,
+.filter-btn,
+.fav-filter-btn,
+.back-home-btn,
+.copy-library-btn,
+.use-library-btn,
+.fav-library-btn,
+.password-box button,
+#musicBtn,
+.birthday-buttons button,
+.gift-buttons button,
+.choiceButtons button,
+.slider-controls button,
+.share-box button,
+.visitor-popup button,
+.library-letter-actions button {
+    position: relative;
+    overflow: hidden;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Glassmorphism Button Base */
+button:not(.password-box button):not(#musicBtn):not(.birthday-buttons button):not(.gift-buttons button):not(.choiceButtons button):not(.slider-controls button):not(.share-box button):not(.visitor-popup button),
+.btn-primary,
+.btn-secondary,
+.btn-success,
+.btn-info,
+.action-btn,
+.menu-icon,
+.filter-btn,
+.fav-filter-btn,
+.back-home-btn,
+.copy-library-btn,
+.use-library-btn {
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 
+        0 8px 20px rgba(255, 105, 180, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    border-radius: 25px;
+}
+
+/* Hover Effects */
+button:not(.fav-library-btn):hover,
+.btn-primary:hover,
+.btn-secondary:hover,
+.btn-success:hover,
+.btn-info:hover,
+.action-btn:hover,
+.menu-icon:hover,
+.filter-btn:hover,
+.filter-btn.active,
+.fav-filter-btn:hover,
+.fav-filter-btn.active,
+.back-home-btn:hover,
+.copy-library-btn:hover,
+.use-library-btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 
+        0 15px 35px rgba(255, 105, 180, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.4);
+}
+
+/* Active/Click Effect */
+button:not(.fav-library-btn):active,
+.btn-primary:active,
+.btn-secondary:active,
+.btn-success:active,
+.btn-info:active,
+.action-btn:active,
+.menu-icon:active,
+.filter-btn:active,
+.fav-filter-btn:active,
+.back-home-btn:active,
+.copy-library-btn:active,
+.use-library-btn:active {
+    transform: translateY(-1px) scale(0.98);
+    box-shadow: 
+        0 5px 15px rgba(255, 105, 180, 0.2),
+        inset 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Primary CTA Buttons - More Prominent */
+.btn-primary,
+.copy-library-btn,
+.password-box button,
+#musicBtn,
+.menu-icon[data-title="Create Your Own Letter"],
+.menu-icon[data-title*="Create"] {
+    background: linear-gradient(135deg, #ff6fa5 0%, #ff4081 50%, #ff2f73 100%);
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 
+        0 8px 25px rgba(255, 64, 129, 0.3),
+        0 0 20px rgba(255, 105, 180, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    animation: gentlePulse 3s ease-in-out infinite;
+}
+
+@keyframes gentlePulse {
+    0%, 100% {
+        box-shadow: 
+            0 8px 25px rgba(255, 64, 129, 0.3),
+            0 0 20px rgba(255, 105, 180, 0.2),
+            inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    }
+    50% {
+        box-shadow: 
+            0 12px 35px rgba(255, 64, 129, 0.4),
+            0 0 30px rgba(255, 105, 180, 0.3),
+            inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    }
+}
+
+.btn-primary:hover,
+.copy-library-btn:hover,
+.password-box button:hover,
+#musicBtn:hover,
+.menu-icon[data-title="Create Your Own Letter"]:hover,
+.menu-icon[data-title*="Create"]:hover {
+    background: linear-gradient(135deg, #ff5a94 0%, #ff2f73 50%, #ff1a5e 100%);
+    box-shadow: 
+        0 15px 40px rgba(255, 64, 129, 0.45),
+        0 0 35px rgba(255, 105, 180, 0.35),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+/* Secondary Buttons */
+.btn-secondary,
+.use-library-btn,
+.fav-filter-btn {
+    background: rgba(255, 255, 255, 0.8);
+    color: #ff4081;
+    border: 2px solid #ff4081;
+}
+
+.btn-secondary:hover,
+.use-library-btn:hover,
+.fav-filter-btn:hover,
+.fav-filter-btn.active {
+    background: #ff4081;
+    color: white;
+    border-color: #ff2f73;
+}
+
+/* Filter Buttons */
+.filter-btn {
+    padding: 10px 18px;
+    font-size: 14px;
+    background: rgba(255, 255, 255, 0.7);
+    color: #ff4081;
+    box-shadow: 0 3px 10px rgba(255, 105, 180, 0.1);
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background: linear-gradient(135deg, #ff6fa5, #ff4081);
+    color: white;
+    box-shadow: 0 5px 15px rgba(255, 105, 180, 0.25);
+}
+
+/* Action Buttons in Cards */
+.action-btn {
+    padding: 10px 18px;
+    font-size: 13px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.3);
+    color: #ff4081;
+    border: 1px solid rgba(255, 64, 129, 0.3);
+}
+
+.action-btn:hover {
+    background: rgba(255, 255, 255, 0.5);
+    color: #ff2f73;
+    border-color: #ff4081;
+}
+
+/* Menu Icons */
+.menu-icon {
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    border-radius: 50%;
+    text-decoration: none;
+    color: inherit;
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 25px rgba(255, 105, 180, 0.2);
+}
+
+.menu-icon:hover {
+    background: rgba(255, 255, 255, 0.4);
+    transform: translateY(-5px) scale(1.1) rotate(5deg);
+    box-shadow: 0 15px 35px rgba(255, 105, 180, 0.35);
+}
+
+/* Icon Buttons in Navbar */
+.icon-btn {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 20px rgba(255, 105, 180, 0.15);
+}
+
+.icon-btn:hover {
+    background: rgba(255, 255, 255, 0.35);
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 15px 30px rgba(255, 105, 180, 0.35);
+}
+
+/* Library Action Buttons */
+.library-letter-actions button {
+    flex: 1;
+    padding: 10px 15px;
+    font-size: 13px;
+    border-radius: 20px;
+}
+
+.copy-library-btn {
+    background: linear-gradient(135deg, #ff6fa5, #ff4081);
+    color: white;
+}
+
+.copy-library-btn:hover {
+    background: linear-gradient(135deg, #ff5a94, #ff2f73);
+}
+
+.use-library-btn {
+    background: rgba(255, 255, 255, 0.8);
+    color: #ff4081;
+    border: 2px solid #ff4081;
+}
+
+.use-library-btn:hover {
+    background: #ff4081;
+    color: white;
+}
+
+.fav-library-btn {
+    flex: 0 0 auto;
+    padding: 10px;
+    background: transparent;
+    border: none;
+    font-size: 20px;
+    box-shadow: none;
+}
+
+.fav-library-btn:hover {
+    transform: scale(1.3);
+    box-shadow: none;
+}
+
+/* Back Home Button */
+.back-home-btn {
+    margin-top: 30px;
+    padding: 14px 35px;
+    font-size: 17px;
+    background: linear-gradient(135deg, #ff6fa5, #ff4081);
+    color: white;
+}
+
+.back-home-btn:hover {
+    background: linear-gradient(135deg, #ff5a94, #ff2f73);
+}
+
+/* Birthday & Special Event Buttons */
+.birthday-buttons button,
+.gift-buttons button,
+.choiceButtons button {
+    padding: 14px 35px;
+    font-size: 16px;
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.9);
+    color: #ff4081;
+    border: 2px solid #ff4081;
+    box-shadow: 0 8px 25px rgba(255, 105, 180, 0.2);
+}
+
+.birthday-buttons button:hover,
+.gift-buttons button:hover,
+.choiceButtons button:hover {
+    background: #ff4081;
+    color: white;
+    transform: translateY(-5px) scale(1.08);
+    box-shadow: 0 15px 35px rgba(255, 105, 180, 0.35);
+}
+
+/* YES Button Special Styling */
+.choiceButtons button.yes-btn,
+button.yes-btn {
+    background: linear-gradient(135deg, #4ade80, #22c55e);
+    color: white;
+    border-color: #22c55e;
+    animation: yesPulse 2s ease-in-out infinite;
+}
+
+@keyframes yesPulse {
+    0%, 100% {
+        box-shadow: 0 8px 25px rgba(74, 222, 128, 0.3);
+    }
+    50% {
+        box-shadow: 0 12px 35px rgba(74, 222, 128, 0.45);
+    }
+}
+
+.choiceButtons button.yes-btn:hover,
+button.yes-btn:hover {
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+    box-shadow: 0 15px 40px rgba(74, 222, 128, 0.5);
+}
+
+/* NO Button - Keep Moving Behavior */
+.choiceButtons button.no-btn,
+button.no-btn {
+    background: linear-gradient(135deg, #f87171, #ef4444);
+    color: white;
+    border-color: #ef4444;
+}
+
+.choiceButtons button.no-btn:hover,
+button.no-btn:hover {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+}
+
+/* Slider Controls */
+.slider-controls button {
+    padding: 12px 25px;
+    font-size: 15px;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.8);
+    color: #ff4081;
+    border: 2px solid #ff4081;
+}
+
+.slider-controls button:hover {
+    background: #ff4081;
+    color: white;
+}
+
+/* Share Box Buttons */
+.share-box button {
+    padding: 12px 28px;
+    font-size: 15px;
+    border-radius: 25px;
+    background: linear-gradient(135deg, #ff6fa5, #ff4081);
+    color: white;
+}
+
+.share-box button:hover {
+    background: linear-gradient(135deg, #ff5a94, #ff2f73);
+    transform: translateY(-3px) scale(1.05);
+}
+
+/* Visitor Popup Buttons */
+.visitor-popup button {
+    padding: 14px 35px;
+    font-size: 16px;
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.9);
+    color: #ff4081;
+    border: 2px solid #ff4081;
+}
+
+.visitor-popup button:hover {
+    background: #ff4081;
+    color: white;
+    transform: translateY(-3px) scale(1.05);
+}
+
+/* Toast Notification Animation */
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .menu-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 28px;
+    }
+    
+    .icon-btn {
+        width: 42px;
+        height: 42px;
+        font-size: 20px;
+    }
+    
+    button,
+    .btn-primary,
+    .btn-secondary,
+    .action-btn,
+    .filter-btn,
+    .back-home-btn,
+    .copy-library-btn,
+    .use-library-btn {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+    
+    .birthday-buttons button,
+    .gift-buttons button,
+    .choiceButtons button {
+        padding: 12px 28px;
+        font-size: 15px;
+    }
+    
+    /* Ensure touch targets are large enough */
+    button,
+    [role="button"] {
+        min-height: 44px;
+        min-width: 44px;
+    }
+}
+
+@media (max-width: 480px) {
+    .menu-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+    }
+    
+    .icon-btn {
+        width: 38px;
+        height: 38px;
+        font-size: 18px;
+    }
+}
+
+/* Dark Mode Support */
+body.dark-mode button,
+body.dark-mode .btn-primary,
+body.dark-mode .btn-secondary,
+body.dark-mode .action-btn,
+body.dark-mode .menu-icon,
+body.dark-mode .filter-btn,
+body.dark-mode .back-home-btn,
+body.dark-mode .copy-library-btn,
+body.dark-mode .use-library-btn {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+    color: #ff8fb1;
+}
+
+body.dark-mode .btn-primary,
+body.dark-mode .copy-library-btn {
+    background: linear-gradient(135deg, #ff6fa5, #ff4081);
+    color: white;
+}
+
+body.dark-mode button:hover,
+body.dark-mode .btn-primary:hover,
+body.dark-mode .btn-secondary:hover,
+body.dark-mode .action-btn:hover,
+body.dark-mode .menu-icon:hover,
+body.dark-mode .filter-btn:hover,
+body.dark-mode .back-home-btn:hover,
+body.dark-mode .copy-library-btn:hover,
+body.dark-mode .use-library-btn:hover {
+    background: rgba(255, 255, 255, 0.25);
+}
+
 @media (max-width: 768px) {
     .library-section h1 {
         font-size: 48px;
