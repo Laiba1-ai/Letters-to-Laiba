@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button Test Page</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            padding: 40px;
+            background: linear-gradient(135deg, #ffe8f3, #ffd6ea);
+        }
+        .test-section {
+            margin-bottom: 40px;
+            padding: 30px;
+            background: rgba(255,255,255,0.3);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+        .test-section h2 {
+            color: #ff4081;
+            margin-bottom: 20px;
+        }
+        .button-row {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center; color: #ff4081; font-family: 'Dancing Script'; font-size: 48px; margin-bottom: 30px;">
+        💌 Button Test Page
+    </h1>
+
+    <div class="test-section">
+        <h2>🏠 Navigation Buttons</h2>
+        <div class="button-row">
+            <a href="home.html" class="icon-btn" title="Home">🏠</a>
+            <a href="library.html" class="icon-btn" title="Library">📚</a>
+            <a href="memory.html" class="icon-btn" title="Memory">🧠</a>
+            <a href="write-letter.html" class="icon-btn" title="Create">✨</a>
+            <button class="icon-btn" title="Settings">⚙️</button>
+            <button class="icon-btn" title="Logout">🚪</button>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>🎨 Primary & Secondary Buttons</h2>
+        <div class="button-row">
+            <button class="btn-primary">✨ Create Your Own</button>
+            <button class="btn-secondary">💾 Save Letter</button>
+            <button class="btn-success">✅ Confirm</button>
+            <button class="btn-danger">🗑️ Delete</button>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>📚 Library Action Buttons</h2>
+        <div class="button-row">
+            <button class="copy-library-btn">📋 Copy Letter</button>
+            <button class="use-library-btn">✨ Use This Letter</button>
+            <button class="fav-library-btn">⭐</button>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>🔍 Filter Buttons</h2>
+        <div class="button-row">
+            <button class="filter-btn active">All</button>
+            <button class="filter-btn">❤️ Love</button>
+            <button class="filter-btn">🎂 Birthday</button>
+            <button class="filter-btn">🥺 Sorry</button>
+            <button class="fav-filter-btn">⭐ Favorites Only</button>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>🎭 Menu Icons</h2>
+        <div class="button-row">
+            <a href="#" class="menu-icon" data-title="Birthday">🎂</a>
+            <a href="#" class="menu-icon" data-title="Love">❤️</a>
+            <a href="#" class="menu-icon" data-title="Sorry">🥺</a>
+            <a href="#" class="menu-icon" data-title="Proposal">💍</a>
+            <a href="#" class="menu-icon" data-title="Create Your Own Letter">✨</a>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>🎁 Special Event Buttons</h2>
+        <div class="button-row birthday-buttons">
+            <button>🎂 Make a Wish</button>
+            <button>🕯️ Blow Candles</button>
+            <button>➡️ Next</button>
+        </div>
+        <div class="button-row choiceButtons" style="margin-top: 15px;">
+            <button class="yes-btn">✅ YES</button>
+            <button class="no-btn">❌ NO</button>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>🔙 Back & Action Buttons</h2>
+        <div class="button-row">
+            <button class="back-home-btn">🏠 Back to Home</button>
+            <button class="action-btn">👁 Preview</button>
+            <button class="action-btn">✏️ Edit</button>
+            <button class="action-btn">🔗 Share</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Add click handlers to test functionality
+        document.querySelectorAll('.copy-library-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                showToast('Letter copied successfully! 💌');
+            });
+        });
+
+        document.querySelectorAll('.btn-primary').forEach(btn => {
+            btn.addEventListener('click', () => {
+                showToast('Creating new letter... ✨');
+            });
+        });
+
+        document.querySelectorAll('.btn-success').forEach(btn => {
+            btn.addEventListener('click', () => {
+                showToast('Confirmed! ✅');
+            });
+        });
+
+        document.querySelectorAll('.btn-danger').forEach(btn => {
+            btn.addEventListener('click', () => {
+                if(confirm('Are you sure you want to delete?')) {
+                    showToast('Deleted successfully! 🗑️');
+                }
+            });
+        });
+
+        // Filter button toggle
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
