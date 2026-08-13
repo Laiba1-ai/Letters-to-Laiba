@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>👑 Owner Dashboard — Letters to Laiba</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+</head>
+<body class="dashboard-page">
+<div class="background"></div>
+<div id="floating-hearts"></div>
+
+<nav class="navbar">
+    <div class="logo">👑 Creator Studio</div>
+    <div class="nav-right">
+        <button onclick="window.location.href='home.html'" class="icon-btn" title="Home">🏠</button>
+        <button onclick="logoutOwner()" class="icon-btn" title="Logout">🚪</button>
+    </div>
+</nav>
+
+<div class="dashboard-container">
+    <div class="dashboard-header">
+        <h1>✨ Welcome to Creator Studio</h1>
+        <p>Manage your beautiful letters and memories 💌</p>
+    </div>
+
+    <div class="stats-grid">
+        <div class="stat-card">
+            <span class="stat-emoji">💌</span>
+            <h3 id="totalLetters">0</h3>
+            <p>Total Letters</p>
+        </div>
+        <div class="stat-card">
+            <span class="stat-emoji">📝</span>
+            <h3 id="recentCount">0</h3>
+            <p>Recent Letters</p>
+        </div>
+        <div class="stat-card">
+            <span class="stat-emoji">🧠</span>
+            <h3 id="memoryCount">0</h3>
+            <p>Memory Box</p>
+        </div>
+        <div class="stat-card">
+            <span class="stat-emoji">⭐</span>
+            <h3 id="favoriteCount">0</h3>
+            <p>Favorites</p>
+        </div>
+    </div>
+
+    <div class="dashboard-actions">
+        <a href="write-letter.html" class="action-card create-card">
+            <span class="action-emoji">✨</span>
+            <h3>Create New Letter</h3>
+            <p>Start from scratch or use a template</p>
+        </a>
+        <a href="library.html" class="action-card">
+            <span class="action-emoji">📚</span>
+            <h3>Letter Library</h3>
+            <p>Browse 100+ ready-made letters</p>
+        </a>
+        <a href="memory.html" class="action-card">
+            <span class="action-emoji">🧠</span>
+            <h3>Memory Box</h3>
+            <p>View all your saved letters</p>
+        </a>
+        <a href="owner-settings.html" class="action-card">
+            <span class="action-emoji">⚙️</span>
+            <h3>Settings</h3>
+            <p>Change password & preferences</p>
+        </a>
+    </div>
+
+    <div class="recent-section">
+        <h2>📝 Recent Letters</h2>
+        <div id="dashboardRecentLetters">
+            <p>Loading...</p>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+<script>
+// Check owner access
+if (sessionStorage.getItem("ownerMode") !== "true") {
+    window.location.href = "owner-login.html";
+}
+
+// Load stats
+function loadDashboardStats() {
+    const letters = JSON.parse(localStorage.getItem("memoryLetters")) || [];
+    const favorites = JSON.parse(localStorage.getItem("libraryFavorites")) || [];
+    
+    document.getElementById('totalLetters').textContent = letters.length;
+    document.getElementById('recentCount').textContent = Math.min(letters.length, 5);
+    document.getElementById('memoryCount').textContent = letters.length;
+    document.getElementById('favoriteCount').textContent = favorites.length;
+    
+    // Load recent letters
+    const recentContainer = document.getElementById('dashboardRecentLetters');
+    if (letters.length === 0) {
+        recentContainer.innerHTML = '<p class="empty-state">No letters yet. Create your first letter! ✨</p>';
+    } else {
+        const recent = letters.slice(0, 5);
+        recentContainer.innerHTML = recent.map(letter => `
+            <div class="recent-letter-card">
+                <div class="recent-letter-header">
+                    <span class="recent-emoji">${getCategoryEmoji(letter.category)}</span>
+                    <h4>${letter.title || 'Untitled'}</h4>
+                </div>
+                <p class="recent-preview">${letter.message ? letter.message.substring(0, 80) + '...' : 'No preview'}</p>
+                <div class="recent-meta">
+                    <small>📅 ${letter.date || ''}</small>
+                    <small>For: ${letter.name || 'Someone'}</small>
+                </div>
+                <div class="recent-actions">
+                    <button onclick="previewLetter('${letter.id || 'temp'}')" class="action-btn">👁 Preview</button>
+                    <button onclick="copyLetterText('${letter.id || 'temp'}')" class="action-btn">📋 Copy</button>
+                </div>
+            </div>
+        `).join('');
+    }
+}
+
+function getCategoryEmoji(category) {
+    const emojis = {
+        birthday: '🎂', love: '❤️', apology: '🥺', proposal: '💍',
+        anniversary: '💞', friendship: '🤝', eid: '🌙', christmas: '🎄',
+        mothersday: '🌸', fathersday: '👔', graduation: '🎓'
+    };
+    return emojis[category] || '💌';
+}
+
+function previewLetter(id) { alert('Preview functionality'); }
+function copyLetterText(id) { 
+    navigator.clipboard.writeText('Letter text copied! 💌');
+    showToast('Letter copied successfully! 💌');
+}
+
+loadDashboardStats();
+</script>
+</body>
+</html>

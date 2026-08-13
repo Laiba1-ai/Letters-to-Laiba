@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>👑 Owner Login — Letters to Laiba</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+</head>
+<body class="owner-login-page">
+<div class="background"></div>
+<div id="floating-hearts"></div>
+
+<div class="owner-login-container">
+    <div class="login-card">
+        <h1>👑 Owner Access</h1>
+        <p class="subtitle">Create & Manage Your Letters 💌</p>
+        
+        <div id="loginForm">
+            <input type="password" id="ownerPassword" placeholder="Enter Password">
+            <button onclick="ownerLogin()" class="premium-btn">🔓 Login</button>
+            <p class="help-text">Don't have a password? <a href="#" onclick="showCreatePassword()">Create one</a></p>
+        </div>
+        
+        <div id="createForm" style="display:none;">
+            <input type="password" id="newPassword" placeholder="Create Password">
+            <input type="password" id="confirmPassword" placeholder="Confirm Password">
+            <button onclick="createOwnerPassword()" class="premium-btn">🔐 Create Owner Access</button>
+            <p class="help-text"><a href="#" onclick="showLoginForm()">Back to Login</a></p>
+        </div>
+        
+        <button onclick="window.location.href='home.html'" class="back-btn">🏠 Back to Home</button>
+    </div>
+</div>
+
+<script src="script.js"></script>
+<script>
+// Check if owner already has password
+const existingPassword = localStorage.getItem("ownerPassword");
+if (existingPassword) {
+    document.getElementById('createForm').style.display = 'none';
+    document.querySelector('.help-text').style.display = 'none';
+} else {
+    showCreatePassword();
+}
+
+function showCreatePassword() {
+    document.getElementById('loginForm').style.display = 'none';
+    document.getElementById('createForm').style.display = 'block';
+}
+
+function showLoginForm() {
+    document.getElementById('loginForm').style.display = 'block';
+    document.getElementById('createForm').style.display = 'none';
+}
+
+function createOwnerPassword() {
+    const newPass = document.getElementById('newPassword').value.trim();
+    const confirmPass = document.getElementById('confirmPassword').value.trim();
+    
+    if (!newPass || newPass.length < 4) {
+        alert("Password must be at least 4 characters! 🔒");
+        return;
+    }
+    
+    if (newPass !== confirmPass) {
+        alert("Passwords do not match! Please try again. 💔");
+        return;
+    }
+    
+    localStorage.setItem("ownerPassword", newPass);
+    showToast("Owner password created successfully! 👑");
+    setTimeout(() => {
+        window.location.href = "dashboard.html";
+    }, 1000);
+}
+
+function ownerLogin() {
+    const inputPass = document.getElementById('ownerPassword').value.trim();
+    const storedPass = localStorage.getItem("ownerPassword") || "laiba123";
+    
+    if (inputPass === storedPass) {
+        sessionStorage.setItem("ownerMode", "true");
+        showToast("Welcome back, Owner! 👑");
+        setTimeout(() => {
+            window.location.href = "dashboard.html";
+        }, 1000);
+    } else {
+        alert("Oops! Wrong Password 💔");
+        document.querySelector('.login-card').animate([
+            { transform: "translateX(-10px)" },
+            { transform: "translateX(10px)" },
+            { transform: "translateX(-10px)" },
+            { transform: "translateX(10px)" },
+            { transform: "translateX(0)" }
+        ], { duration: 400 });
+    }
+}
+</script>
+</body>
+</html>
