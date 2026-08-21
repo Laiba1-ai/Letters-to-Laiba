@@ -619,32 +619,49 @@ opacity:0;
     width:100%;
     background:#fff;
     border-radius:20px;
-    padding:25px;
+    padding:30px;
     text-align:left;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
 }
 
 .birthday-letter h2{
-
     color:#ff4f8b;
-
-    margin-bottom:15px;
-
+    margin-bottom:20px;
     font-family:'Dancing Script',cursive;
-
-    font-size:40px;
-
+    font-size:42px;
 }
 
-#typingText{
+.birthday-letter input{
+    width:100%;
+    padding:18px;
+    margin-bottom:15px;
+    border:2px solid #ffe0e9;
+    border-radius:15px;
+    font-size:17px;
+    font-family:'Poppins',sans-serif;
+    outline:none;
+    transition:border-color 0.3s;
+}
 
+.birthday-letter input:focus{
+    border-color:#ff4081;
+}
+
+.birthday-letter textarea{
+    width:100%;
+    min-height:350px;
+    padding:20px;
+    border:2px solid #ffe0e9;
+    border-radius:15px;
     font-size:18px;
+    font-family:'Poppins',sans-serif;
+    resize:none;
+    outline:none;
+    transition:border-color 0.3s;
+}
 
-    line-height:1.8;
-
-    color:#444;
-
-    min-height:150px;
-
+.birthday-letter textarea:focus{
+    border-color:#ff4081;
 }
 /* ==========================
    Birthday Cake
@@ -1154,16 +1171,16 @@ margin-right:auto;
 .letter-card textarea{
 
     width:100%;
-    padding:15px;
+    padding:20px;
 
     border:none;
     outline:none;
 
     border-radius:15px;
 
-    background:rgba(255,255,255,.85);
+    background:rgba(255,255,255,.95);
 
-    font-size:16px;
+    font-size:18px;
 
     margin-top:10px;
 
@@ -1175,7 +1192,7 @@ margin-right:auto;
 
 .letter-card textarea{
 
-    min-height:220px;
+    min-height:350px;
 
 }
 
