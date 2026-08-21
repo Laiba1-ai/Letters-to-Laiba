@@ -3082,3 +3082,671 @@ if (countdownScreen && countNumber) {
 
 }
 
+
+// ==================== VISITOR MODE LOGIC ====================
+
+let currentStep = 0;
+const birthdaySteps = [
+  'loading',      // Something special is waiting...
+  'ready',        // Ready for your surprise?
+  'surprise',     // Next surprise is waiting...
+  'gift',         // Gift box animation
+  'yesno',        // YES/NO buttons
+  'cake',         // Cake with candles
+  'cards',        // Animated cards
+  'photos',       // Photo memories
+  'letter',       // Final letter
+  'final'         // Enjoy your day
+];
+
+let currentCardIndex = 0;
+let noButtonMoveCount = 0;
+
+const noButtonMessages = [
+  "Please say yes 🥺",
+  "Are you sure? 😭",
+  "One tiny YES please 🥹",
+  "Try again, Cutie 💕",
+  "You can't escape the surprise 😌"
+];
+
+function initVisitorMode() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const letterId = urlParams.get('id');
+  
+  if (letterId) {
+    loadLetterForVisitor(letterId);
+  }
+}
+
+function loadLetterForVisitor(letterId) {
+  const letters = JSON.parse(localStorage.getItem('ltl_letters') || '[]');
+  const letter = letters.find(l => l.shareId === letterId);
+  
+  if (!letter) {
+    // Try memoryLetters as fallback
+    const memoryLetters = JSON.parse(localStorage.getItem('memoryLetters') || '[]');
+    const foundLetter = memoryLetters.find(l => l.shareId === letterId);
+    
+    if (!foundLetter) {
+      alert('Letter not found! 💔');
+      window.location.href = 'home.html';
+      return;
+    }
+    
+    window.currentLetter = foundLetter;
+  } else {
+    window.currentLetter = letter;
+  }
+  
+  // Hide all other containers and show visitor container
+  document.querySelectorAll('.container, .home, .birthday-card, .nav-right').forEach(el => {
+    if (el && !el.classList.contains('visitor-container')) {
+      el.style.display = 'none';
+    }
+  });
+  
+  // Create or show visitor container
+  let visitorContainer = document.getElementById('visitorContainer');
+  if (!visitorContainer) {
+    visitorContainer = document.createElement('div');
+    visitorContainer.id = 'visitorContainer';
+    visitorContainer.className = 'visitor-container';
+    document.body.appendChild(visitorContainer);
+  }
+  visitorContainer.style.display = 'block';
+  
+  setupCategoryTheme(window.currentLetter.category || 'birthday');
+  startBirthdayFlow();
+}
+
+function startBirthdayFlow() {
+  currentStep = 0;
+  noButtonMoveCount = 0;
+  showStep(currentStep);
+}
+
+function showStep(stepIndex) {
+  const step = birthdaySteps[stepIndex];
+  const contentDiv = document.getElementById('visitorContent');
+  
+  if (!contentDiv) {
+    const visitorContainer = document.getElementById('visitorContainer');
+    visitorContainer.innerHTML = '<div id="visitorContent"></div>';
+    showStep(stepIndex);
+    return;
+  }
+  
+  switch(step) {
+    case 'loading':
+      showLoadingStep(contentDiv);
+      break;
+    case 'ready':
+      showReadyStep(contentDiv);
+      break;
+    case 'surprise':
+      showSurpriseStep(contentDiv);
+      break;
+    case 'gift':
+      showGiftStep(contentDiv);
+      break;
+    case 'yesno':
+      showYesNoStep(contentDiv);
+      break;
+    case 'cake':
+      showCakeStep(contentDiv);
+      break;
+    case 'cards':
+      currentCardIndex = 0;
+      showCardStep(contentDiv);
+      break;
+    case 'photos':
+      showPhotosStep(contentDiv);
+      break;
+    case 'letter':
+      showLetterStep(contentDiv);
+      break;
+    case 'final':
+      showFinalStep(contentDiv);
+      break;
+  }
+}
+
+function showLoadingStep(container) {
+  container.innerHTML = `
+    <div class="step-container">
+      <div class="loading-animation">
+        <div class="floating-heart" style="animation-delay: 0s;">🎀</div>
+        <div class="floating-heart" style="animation-delay: 0.2s;">✨</div>
+        <div class="floating-heart" style="animation-delay: 0.4s;">💕</div>
+      </div>
+      <h2 class="step-title">Something special is waiting for you... 🎀</h2>
+      <button class="next-btn" onclick="nextStep()">Next ✨</button>
+    </div>
+  `;
+}
+
+function showReadyStep(container) {
+  container.innerHTML = `
+    <div class="step-container">
+      <div class="emoji-display">💕</div>
+      <h2 class="step-title">Ready for your surprise, Cutie? 💕</h2>
+      <button class="next-btn" onclick="nextStep()">Next 🎁</button>
+    </div>
+  `;
+}
+
+function showSurpriseStep(container) {
+  container.innerHTML = `
+    <div class="step-container">
+      <div class="surprise-box">
+        <div class="box-lid">🎀</div>
+        <div class="box-body">🎁</div>
+      </div>
+      <h2 class="step-title">Next surprise is waiting for you, Cutie... ✨</h2>
+      <button class="next-btn" onclick="nextStep()">Open 🎁</button>
+    </div>
+  `;
+}
+
+function showGiftStep(container) {
+  container.innerHTML = `
+    <div class="step-container">
+      <div class="gift-container" onclick="handleGiftClick()">
+        <div class="animated-gift">🎁</div>
+      </div>
+      <h2 class="step-title">Click the gift to see your surprise 🎁</h2>
+      <p class="gift-hint">(Go on, click it!)</p>
+    </div>
+  `;
+}
+
+function handleGiftClick() {
+  const giftContainer = document.querySelector('.gift-container');
+  if (giftContainer) {
+    giftContainer.style.transform = 'scale(1.2)';
+    setTimeout(() => {
+      createConfettiEffect();
+      showYesNoStep(document.getElementById('visitorContent'));
+    }, 500);
+  }
+}
+
+function showYesNoStep(container) {
+  container.innerHTML = `
+    <div class="step-container">
+      <div class="emoji-display">💝</div>
+      <h2 class="step-title">Surprise was waiting for you! 💝</h2>
+      <div class="yesno-buttons">
+        <button class="yes-btn" onclick="handleYesClick()">YES 💖</button>
+        <button class="no-btn" id="noBtn" onmouseover="moveNoButton()" onclick="moveNoButton()">NO 🙈</button>
+      </div>
+      <p class="no-message" id="noMessage"></p>
+    </div>
+  `;
+}
+
+function moveNoButton() {
+  const noBtn = document.getElementById('noBtn');
+  const noMessage = document.getElementById('noMessage');
+  
+  if (!noBtn) return;
+  
+  noButtonMoveCount++;
+  const messageIndex = Math.min(noButtonMoveCount - 1, noButtonMessages.length - 1);
+  noMessage.textContent = noButtonMessages[messageIndex];
+  
+  const maxX = window.innerWidth - 150;
+  const maxY = window.innerHeight - 100;
+  
+  const randomX = Math.random() * maxX;
+  const randomY = Math.random() * maxY;
+  
+  noBtn.style.position = 'fixed';
+  noBtn.style.left = randomX + 'px';
+  noBtn.style.top = randomY + 'px';
+  noBtn.style.zIndex = '1000';
+}
+
+function handleYesClick() {
+  createConfettiEffect();
+  nextStep();
+}
+
+function showCakeStep(container) {
+  container.innerHTML = `
+    <div class="step-container">
+      <div class="cake-container">
+        <div class="animated-cake">
+          <div class="cake-base">🎂</div>
+          <div class="candles">
+            <span class="candle flame">🕯️</span>
+            <span class="candle flame">🕯️</span>
+            <span class="candle flame">🕯️</span>
+          </div>
+        </div>
+      </div>
+      <h2 class="step-title">Make a Wish 🎂✨</h2>
+      <div class="cake-buttons">
+        <button class="wish-btn" onclick="makeWish()">Make a Wish 💭</button>
+        <button class="blow-btn" onclick="blowCandles()">Blow the Candles 🕯️</button>
+      </div>
+    </div>
+  `;
+}
+
+function makeWish() {
+  const wishText = prompt("Make a secret wish... 🌟");
+  if (wishText) {
+    alert("Your wish has been noted! ✨ May it come true! 💫");
+  }
+}
+
+function blowCandles() {
+  const flames = document.querySelectorAll('.flame');
+  flames.forEach(flame => {
+    flame.style.opacity = '0';
+    flame.style.transform = 'scale(0)';
+    flame.style.transition = 'all 0.5s ease';
+  });
+  
+  setTimeout(() => {
+    createConfettiEffect();
+    createSparkles();
+    
+    const celebration = document.createElement('div');
+    celebration.className = 'celebration-text';
+    celebration.innerHTML = '🎉 Happy Birthday! 🎊';
+    celebration.style.cssText = `
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 3rem;
+      z-index: 1000;
+      animation: popIn 0.5s ease-out;
+    `;
+    document.body.appendChild(celebration);
+    
+    setTimeout(() => {
+      celebration.remove();
+      nextStep();
+    }, 2000);
+  }, 500);
+}
+
+function showCardStep(container) {
+  const letter = window.currentLetter;
+  const cards = letter.cards && letter.cards.length > 0 ? letter.cards : getDefaultBirthdayCards();
+  
+  if (currentCardIndex >= cards.length) {
+    nextStep();
+    return;
+  }
+  
+  const card = cards[currentCardIndex];
+  
+  container.innerHTML = `
+    <div class="step-container">
+      <div class="card-display">
+        <div class="animated-card" onclick="openCard(this)">
+          <div class="card-front">${card.image || '💌'}</div>
+          <div class="card-back" style="display:none;">${card.message || 'A special message for you! 💕'}</div>
+        </div>
+      </div>
+      <h2 class="step-title">Click to Open 💌</h2>
+      <p class="card-instruction">Tap the card to reveal your message!</p>
+      ${currentCardIndex < cards.length - 1 ? 
+        '<button class="next-btn" onclick="nextCard()">Next Card →</button>' : 
+        '<button class="next-btn" onclick="nextStep()">Next Surprise →</button>'
+      }
+    </div>
+  `;
+}
+
+function openCard(cardElement) {
+  const front = cardElement.querySelector('.card-front');
+  const back = cardElement.querySelector('.card-back');
+  
+  front.style.display = 'none';
+  back.style.display = 'block';
+  cardElement.style.transform = 'rotateY(180deg)';
+  
+  createHeartRain();
+}
+
+function nextCard() {
+  currentCardIndex++;
+  showCardStep(document.getElementById('visitorContent'));
+}
+
+function getDefaultBirthdayCards() {
+  return [
+    { image: '🤗', message: 'Sending you the biggest hug on your special day! 🤗' },
+    { image: '😂', message: 'May your day be filled with laughter and joy! 😂' },
+    { image: '🌸', message: 'You deserve all the flowers and love today! 🌸' },
+    { image: '🥺', message: 'Just wanted to remind you how special you are! 🥺' },
+    { image: '🎉', message: 'Let\'s celebrate YOU today! 🎉' }
+  ];
+}
+
+function showPhotosStep(container) {
+  const letter = window.currentLetter;
+  const images = letter.images || [];
+  
+  if (images.length === 0) {
+    // Show default photos if none uploaded
+    container.innerHTML = `
+      <div class="step-container">
+        <div class="photo-gallery">
+          <div class="polaroid">
+            <div class="photo-frame">💕</div>
+            <p>Beautiful Memories</p>
+          </div>
+          <div class="polaroid">
+            <div class="photo-frame">📸</div>
+            <p>Sweet Moments</p>
+          </div>
+          <div class="polaroid">
+            <div class="photo-frame">✨</div>
+            <p>Forever Special</p>
+          </div>
+        </div>
+        <h2 class="step-title">One Last Surprise... ✨</h2>
+        <button class="next-btn" onclick="nextStep()">See Your Letter 💌</button>
+      </div>
+    `;
+  } else {
+    let photosHTML = '';
+    images.forEach((img, index) => {
+      photosHTML += `
+        <div class="polaroid" style="animation-delay: ${index * 0.3}s;">
+          <img src="${img}" alt="Memory ${index + 1}" style="width:100%; height:200px; object-fit:cover;">
+          <p>Memory ${index + 1}</p>
+        </div>
+      `;
+    });
+    
+    container.innerHTML = `
+      <div class="step-container">
+        <div class="photo-gallery">
+          ${photosHTML}
+        </div>
+        <h2 class="step-title">One Last Surprise... ✨</h2>
+        <button class="next-btn" onclick="nextStep()">See Your Letter 💌</button>
+      </div>
+    `;
+  }
+}
+
+function showLetterStep(container) {
+  const letter = window.currentLetter;
+  
+  container.innerHTML = `
+    <div class="step-container">
+      <div class="envelope-container" onclick="openEnvelope()">
+        <div class="envelope">💌</div>
+      </div>
+      <h2 class="step-title">A Letter Just For You...</h2>
+      <p class="hint">Click the envelope to open!</p>
+    </div>
+  `;
+}
+
+function openEnvelope() {
+  const envelope = document.querySelector('.envelope');
+  if (envelope) {
+    envelope.style.transform = 'scale(1.1) rotate(5deg)';
+    setTimeout(() => {
+      showLetterContent();
+    }, 500);
+  }
+}
+
+function showLetterContent() {
+  const container = document.getElementById('visitorContent');
+  const letter = window.currentLetter;
+  
+  const messages = letter.messages || [];
+  const mainMessage = messages.length > 0 ? messages.join('\n\n') : 
+    `Dear ${letter.recipientName || 'Special One'},\n\nHappy Birthday! 🎂\n\nMay this year bring you endless happiness, success, and beautiful moments.\n\nWith love,\n${letter.senderName || 'Someone who cares'}`;
+  
+  container.innerHTML = `
+    <div class="step-container">
+      <div class="letter-paper">
+        <div class="letter-content" id="typewriter"></div>
+      </div>
+      <button class="next-btn" onclick="nextStep()" style="margin-top:20px;">Continue ✨</button>
+    </div>
+  `;
+  
+  typewriterEffect(mainMessage, 'typewriter');
+}
+
+function typewriterEffect(text, elementId) {
+  const element = document.getElementById(elementId);
+  let i = 0;
+  
+  function type() {
+    if (i < text.length) {
+      element.innerHTML += text.charAt(i) === '\n' ? '<br>' : text.charAt(i);
+      i++;
+      setTimeout(type, 50);
+    }
+  }
+  
+  type();
+}
+
+function showFinalStep(container) {
+  const letter = window.currentLetter;
+  
+  container.innerHTML = `
+    <div class="step-container">
+      <div class="final-celebration">
+        <div class="big-emoji">🎂💖</div>
+        <h1 class="final-title">Enjoy Your Day, Cutieee! 🎂💖</h1>
+        <div class="final-actions">
+          <button class="action-btn" onclick="window.location.href='home.html'">
+            Create Your Own Letter 💌
+          </button>
+          <button class="action-btn" onclick="shareLetter('${letter.shareId || ''}')">
+            Share This Surprise 🔗
+          </button>
+        </div>
+      </div>
+    </div>
+  `;
+  
+  createConfettiEffect();
+  createHeartRain();
+}
+
+function nextStep() {
+  currentStep++;
+  if (currentStep < birthdaySteps.length) {
+    showStep(currentStep);
+  }
+}
+
+function createConfettiEffect() {
+  for (let i = 0; i < 50; i++) {
+    const confetti = document.createElement('div');
+    confetti.className = 'confetti-piece';
+    confetti.innerHTML = ['🎉', '✨', '💕', '🎊', '⭐'][Math.floor(Math.random() * 5)];
+    confetti.style.cssText = `
+      position: fixed;
+      left: ${Math.random() * 100}vw;
+      top: -50px;
+      font-size: ${Math.random() * 20 + 10}px;
+      animation: fall ${Math.random() * 3 + 2}s linear;
+      z-index: 9999;
+    `;
+    document.body.appendChild(confetti);
+    
+    setTimeout(() => confetti.remove(), 5000);
+  }
+}
+
+function createSparkles() {
+  for (let i = 0; i < 30; i++) {
+    const sparkle = document.createElement('div');
+    sparkle.className = 'sparkle-piece';
+    sparkle.innerHTML = '✨';
+    sparkle.style.cssText = `
+      position: fixed;
+      left: ${Math.random() * 100}vw;
+      top: ${Math.random() * 100}vh;
+      font-size: ${Math.random() * 15 + 10}px;
+      animation: sparkleAnim 1s ease-out;
+      z-index: 9999;
+    `;
+    document.body.appendChild(sparkle);
+    
+    setTimeout(() => sparkle.remove(), 1000);
+  }
+}
+
+function createHeartRain() {
+  for (let i = 0; i < 20; i++) {
+    const heart = document.createElement('div');
+    heart.className = 'heart-rain-piece';
+    heart.innerHTML = '💕';
+    heart.style.cssText = `
+      position: fixed;
+      left: ${Math.random() * 100}vw;
+      top: -50px;
+      font-size: ${Math.random() * 20 + 15}px;
+      animation: heartFall ${Math.random() * 3 + 2}s linear;
+      z-index: 9998;
+    `;
+    document.body.appendChild(heart);
+    
+    setTimeout(() => heart.remove(), 5000);
+  }
+}
+
+// Initialize visitor mode on page load
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initVisitorMode);
+} else {
+  initVisitorMode();
+}
+
+// ==================== SHARE LETTER FUNCTION ====================
+
+function shareLetter(shareId) {
+  const baseUrl = window.location.origin + window.location.pathname;
+  const shareUrl = baseUrl + '?id=' + shareId;
+  
+  // Copy to clipboard
+  navigator.clipboard.writeText(shareUrl).then(() => {
+    showToast('Share link copied! Send it to your special someone 💌');
+  }).catch(() => {
+    // Fallback for older browsers
+    const textArea = document.createElement('textarea');
+    textArea.value = shareUrl;
+    document.body.appendChild(textArea);
+    textArea.select();
+    document.execCommand('copy');
+    document.body.removeChild(textArea);
+    showToast('Share link copied! 💌');
+  });
+}
+
+// ==================== CATEGORY THEME SETUP ====================
+
+function setupCategoryTheme(category) {
+  const themeConfigs = {
+    birthday: {
+      bg: 'linear-gradient(135deg, #ffecf2, #ffe4e9)',
+      emojis: ['🎂', '🎈', '🎉', '🎁', '❤️'],
+      floatingClass: 'birthday-float'
+    },
+    sorry: {
+      bg: 'linear-gradient(135deg, #ffe4e9, #ffcce0)',
+      emojis: ['🥺', '💔', '🌹', '❤️‍🩹'],
+      floatingClass: 'sorry-float'
+    },
+    love: {
+      bg: 'linear-gradient(135deg, #ff69b4, #ff1493)',
+      emojis: ['❤️', '💕', '🌹', '💋'],
+      floatingClass: 'love-float'
+    },
+    proposal: {
+      bg: 'linear-gradient(135deg, #ffd700, #ffecf2)',
+      emojis: ['💍', '❤️', '🌹', '✨'],
+      floatingClass: 'proposal-float'
+    },
+    anniversary: {
+      bg: 'linear-gradient(135deg, #ffecf2, #ffe4e9)',
+      emojis: ['💞', '🥂', '💕', '🌹'],
+      floatingClass: 'anniversary-float'
+    },
+    friendship: {
+      bg: 'linear-gradient(135deg, #fff4e6, #ffe4e9)',
+      emojis: ['👫', '💕', '😂', '✨'],
+      floatingClass: 'friendship-float'
+    },
+    eid: {
+      bg: 'linear-gradient(135deg, #f0f8ff, #e6e6fa)',
+      emojis: ['🌙', '⭐', '🕌', '✨'],
+      floatingClass: 'eid-float'
+    },
+    ramadan: {
+      bg: 'linear-gradient(135deg, #1a1a2e, #16213e)',
+      emojis: ['🌙', '🏮', '⭐'],
+      floatingClass: 'ramadan-float'
+    },
+    christmas: {
+      bg: 'linear-gradient(135deg, #c41e3a, #0f5132)',
+      emojis: ['🎄', '❄️', '🎁', '⭐'],
+      floatingClass: 'christmas-float'
+    }
+  };
+  
+  const config = themeConfigs[category] || themeConfigs.birthday;
+  
+  // Apply background to visitor container
+  const visitorContainer = document.getElementById('visitorContainer');
+  if (visitorContainer) {
+    visitorContainer.style.background = config.bg;
+  }
+  
+  // Create floating elements based on category
+  createFloatingElements(config.emojis);
+}
+
+function createFloatingElements(emojis) {
+  // Remove existing floating elements
+  document.querySelectorAll('.category-float').forEach(el => el.remove());
+  
+  for (let i = 0; i < 15; i++) {
+    const float = document.createElement('div');
+    float.className = 'category-float';
+    float.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
+    float.style.cssText = `
+      position: fixed;
+      left: ${Math.random() * 100}vw;
+      top: ${Math.random() * 100}vh;
+      font-size: ${Math.random() * 30 + 20}px;
+      opacity: ${Math.random() * 0.5 + 0.3};
+      animation: floatEmoji ${Math.random() * 10 + 10}s linear infinite;
+      z-index: 1;
+      pointer-events: none;
+    `;
+    document.body.appendChild(float);
+  }
+}
+
+// Add floating emoji animation
+const style = document.createElement('style');
+style.textContent = `
+  @keyframes floatEmoji {
+    0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+    10% { opacity: 0.5; }
+    90% { opacity: 0.5; }
+    100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+  }
+`;
+document.head.appendChild(style);
