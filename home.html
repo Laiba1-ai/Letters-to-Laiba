@@ -4,87 +4,95 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Letters to Laiba 💌</title>
-
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body class="home-page">
+<div class="background"></div>
+<div id="floating-hearts"></div>
+
 <nav class="navbar">
-
-   <div class="logo">
-    💌 Letters to Laiba
-</div>
-
-<div class="nav-right">
-
-    <a href="home.html" class="icon-btn" title="Home">🏠</a>
-
-    <a href="library.html" class="icon-btn" title="Letter Library">📚</a>
-
-    <a href="memory.html" class="icon-btn" title="Memory Box">🧠</a>
-
-    <a href="write-letter.html" class="icon-btn" title="Create Your Own">✨</a>
-
-    <button id="themeToggle" class="icon-btn" title="Dark Mode">
-        🌙
-    </button>
-
-    <button class="icon-btn shareBtn" title="Share">
-        📤
-    </button>
-
-    <button
-        id="logoutBtn"
-        class="icon-btn"
-        title="Logout"
-        onclick="logoutOwner()">
-        🚪
-    </button>
-
-</div>
-</nav>
-<div class="home">
-
-    <h1>💌 Letters to Laiba</h1>
-
-    <p>Choose your little memory 🌸</p>
-
-    <div class="menu">
-
-<a href="write-letter.html?category=birthday" class="menu-icon" data-title="Birthday">🎂</a>
-        
-<a href="library.html" class="menu-icon" data-title="Letter Library">📚</a>
-
-<a href="memory.html" class="menu-icon" data-title="Memory Box">🧠</a>
-        
-<a href="write-letter.html" class="menu-icon" data-title="Create Your Own Letter">✨</a>
-        
-<a href="write-letter.html?category=sorry" class="menu-icon" data-title="Sorry">🥺</a>
-
-<a href="write-letter.html?category=proposal" class="menu-icon" data-title="Proposal">💍</a>
-
-<a href="write-letter.html?category=love" class="menu-icon" data-title="Love Letter">❤️</a>
-
-<a href="write-letter.html?category=anniversary" class="menu-icon" data-title="Anniversary">💞</a>
-
-<a href="write-letter.html?category=eid" class="menu-icon" data-title="Eid">🌙</a>
-
-</div>
-
-<!-- Recent Letters Section -->
-<div class="recent-letters-section">
-    <h2>📝 Recent Letters</h2>
-    <div id="recentLettersContainer">
-        <p>Loading recent letters...</p>
+    <div class="logo">💌 Letters to Laiba</div>
+    <div class="nav-right">
+        <a href="home.html" class="icon-btn" title="Home">🏠</a>
+        <a href="library.html" class="icon-btn" title="Letter Library">📚</a>
+        <a href="memory.html" class="icon-btn" title="Memory Box">🧠</a>
+        <a href="write-letter.html" class="icon-btn" title="Create Your Own">✨</a>
+        <button id="themeToggle" class="icon-btn" title="Dark Mode">🌙</button>
+        <button class="icon-btn shareBtn" title="Share">📤</button>
+        <button id="logoutBtn" class="icon-btn" title="Logout" onclick="logoutOwner()">🚪</button>
     </div>
-</div>
-   
-    <p class="home-footer">
-        ✨ Every letter here is a piece of my heart. 💖
-    </p>
+</nav>
 
+<div class="home">
+    <h1>💌 Letters to Laiba</h1>
+    <p class="subtitle">Choose your little memory 🌸</p>
+    <p class="sub-subtitle">Create something they will remember.</p>
+
+    <!-- Category Grid -->
+    <div class="category-grid-home">
+        <a href="write-letter.html?category=birthday" class="category-card">
+            <span class="emoji">🎂</span><h3>Birthday</h3>
+        </a>
+        <a href="write-letter.html?category=sorry" class="category-card">
+            <span class="emoji">🥺</span><h3>Sorry</h3>
+        </a>
+        <a href="write-letter.html?category=love" class="category-card">
+            <span class="emoji">❤️</span><h3>Love</h3>
+        </a>
+        <a href="write-letter.html?category=proposal" class="category-card">
+            <span class="emoji">💍</span><h3>Proposal</h3>
+        </a>
+        <a href="write-letter.html?category=anniversary" class="category-card">
+            <span class="emoji">💞</span><h3>Anniversary</h3>
+        </a>
+        <a href="write-letter.html?category=friendship" class="category-card">
+            <span class="emoji">🤝</span><h3>Friendship</h3>
+        </a>
+        <a href="write-letter.html?category=eid" class="category-card">
+            <span class="emoji">🌙</span><h3>Eid</h3>
+        </a>
+        <a href="write-letter.html?category=ramadan" class="category-card">
+            <span class="emoji">🕌</span><h3>Ramadan</h3>
+        </a>
+        <a href="write-letter.html?category=christmas" class="category-card">
+            <span class="emoji">🎄</span><h3>Christmas</h3>
+        </a>
+        <a href="write-letter.html?category=mothersday" class="category-card">
+            <span class="emoji">🌸</span><h3>Mother's Day</h3>
+        </a>
+        <a href="write-letter.html?category=fathersday" class="category-card">
+            <span class="emoji">👔</span><h3>Father's Day</h3>
+        </a>
+        <a href="write-letter.html?category=graduation" class="category-card">
+            <span class="emoji">🎓</span><h3>Graduation</h3>
+        </a>
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="quick-actions">
+        <a href="library.html" class="action-btn-large">
+            <span>📚</span>
+            <h3>Browse 100+ Letters</h3>
+            <p>Ready-made letters for every occasion</p>
+        </a>
+        <a href="write-letter.html" class="action-btn-large create-btn">
+            <span>✨</span>
+            <h3>Create Your Own Letter</h3>
+            <p>Personalize with photos, cards & music</p>
+        </a>
+    </div>
+
+    <!-- Recent Letters Section -->
+    <div class="recent-letters-section">
+        <h2>📝 Recent Letters</h2>
+        <div id="recentLettersContainer"><p>Loading recent letters...</p></div>
+        <div style="text-align:center;margin-top:20px;">
+            <a href="memory.html" class="btn-premium">View All in Memory Box 🧠</a>
+        </div>
+    </div>
+
+    <p class="home-footer">✨ Every letter here is a piece of my heart. 💖</p>
 </div>
 <script src="script.js"></script>
 </body>

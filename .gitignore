@@ -1,1 +1,1 @@
-Nothing should be ignored based on the provided file changes. The changes only include source files (.html, .css) without any build artifacts, dependencies, or temporary files that would warrant adding to .gitignore.
+Nothing needs to be added to .gitignore since the changes only include HTML files (visitor-experience.html and home.html) which are source files and not build artifacts, dependencies, or temporary files.
